@@ -844,8 +844,8 @@
 
             /*******************************************************************
              * 3. THREE.JS SCENE, SPACIOUS BOARD DIMENSIONS & HIGH-CONTRAST MATERIALS
-             *    - Enlarged each block from 1.12 -> 1.54 (BOARD_STEP = 1.62)
-             *      so the large 3D warriors have generous space on every square!
+             *    - Enlarged each block to 1.94 (BOARD_STEP = 2.05) so the
+             *      monumental 3D Legacy Warriors have generous space!
              *******************************************************************/
             let scene, camera, renderer, clock;
             let boardGroup, piecesGroup, highlightsGroup, fxGroup, cathedralGroup;
@@ -861,21 +861,21 @@
 
             let Materials = {};
 
-            // Enlarged Board Block Dimensions (~38% larger per square so pieces fit comfortably)
-            const BOARD_STEP = 1.62;     // 1.54 block width + 0.08 brass channel gap
-            const BLOCK_SIZE = 1.54;
-            const BLOCK_HEIGHT = 0.34;
+            // Enlarged Monumental Board Block Dimensions (2.05 step, 1.94 block width)
+            const BOARD_STEP = 2.05;     // 1.94 block width + 0.11 brass channel gap
+            const BLOCK_SIZE = 1.94;
+            const BLOCK_HEIGHT = 0.42;
 
-            // Built-in Spherical Camera Orbit State (scaled for the larger 13x13 board)
+            // Built-in Spherical Camera Orbit State (scaled for the 16.4 x 16.4 board)
             const camControl = {
-                target: new THREE.Vector3(0, 0.65, 0),
-                desiredTarget: new THREE.Vector3(0, 0.65, 0),
+                target: new THREE.Vector3(0, 0.75, 0),
+                desiredTarget: new THREE.Vector3(0, 0.75, 0),
                 theta: 0,
-                phi: 0.92,
-                radius: 17.8,
+                phi: 0.90,
+                radius: 21.8,
                 desiredTheta: 0,
-                desiredPhi: 0.92,
-                desiredRadius: 17.8,
+                desiredPhi: 0.90,
+                desiredRadius: 21.8,
                 isDragging: false,
                 isPanning: false,
                 pointerDownPos: { x: 0, y: 0 },
@@ -1096,49 +1096,49 @@
              * 4. GOTHIC CATHEDRAL ARCHITECTURE & FLAMING BRAZIERS
              *******************************************************************/
             function buildGothicCathedral() {
-                const dais1 = new THREE.Mesh(new THREE.CylinderGeometry(11.4, 12.2, 0.50, 8), Materials.cathedralStone);
-                dais1.position.y = -0.65;
+                const dais1 = new THREE.Mesh(new THREE.CylinderGeometry(14.2, 15.2, 0.54, 8), Materials.cathedralStone);
+                dais1.position.y = -0.68;
                 dais1.rotation.y = Math.PI / 8;
                 dais1.receiveShadow = true;
                 cathedralGroup.add(dais1);
 
-                const dais2 = new THREE.Mesh(new THREE.CylinderGeometry(13.6, 14.5, 0.55, 8), Materials.darkBasalt);
-                dais2.position.y = -1.18;
+                const dais2 = new THREE.Mesh(new THREE.CylinderGeometry(16.8, 17.8, 0.60, 8), Materials.darkBasalt);
+                dais2.position.y = -1.24;
                 dais2.rotation.y = Math.PI / 8;
                 dais2.receiveShadow = true;
                 cathedralGroup.add(dais2);
 
-                const floor = new THREE.Mesh(new THREE.PlaneGeometry(150, 150), Materials.darkBasalt);
+                const floor = new THREE.Mesh(new THREE.PlaneGeometry(160, 160), Materials.darkBasalt);
                 floor.rotation.x = -Math.PI / 2;
-                floor.position.y = -1.45;
+                floor.position.y = -1.52;
                 floor.receiveShadow = true;
                 cathedralGroup.add(floor);
 
                 const pierCount = 12;
-                const radius = 26;
+                const radius = 30;
                 for (let i = 0; i < pierCount; i++) {
                     const angle = (i / pierCount) * Math.PI * 2;
                     const px = Math.cos(angle) * radius;
                     const pz = Math.sin(angle) * radius;
 
                     const pierGroup = new THREE.Group();
-                    pierGroup.position.set(px, -1.45, pz);
-                    pierGroup.lookAt(0, -1.45, 0);
+                    pierGroup.position.set(px, -1.52, pz);
+                    pierGroup.lookAt(0, -1.52, 0);
 
-                    const coreCol = new THREE.Mesh(new THREE.CylinderGeometry(0.85, 1.0, 28, 12), Materials.cathedralStone);
-                    coreCol.position.y = 14.0;
+                    const coreCol = new THREE.Mesh(new THREE.CylinderGeometry(0.90, 1.05, 29, 12), Materials.cathedralStone);
+                    coreCol.position.y = 14.5;
                     pierGroup.add(coreCol);
 
-                    const plinth = new THREE.Mesh(new THREE.BoxGeometry(2.5, 1.5, 2.5), Materials.brassTrim);
-                    plinth.position.y = 0.75;
+                    const plinth = new THREE.Mesh(new THREE.BoxGeometry(2.6, 1.6, 2.6), Materials.brassTrim);
+                    plinth.position.y = 0.80;
                     pierGroup.add(plinth);
 
                     const ribCurve = new THREE.QuadraticBezierCurve3(
-                        new THREE.Vector3(0, 21, 0),
-                        new THREE.Vector3(0, 29, radius * 0.48),
-                        new THREE.Vector3(0, 31.5, radius)
+                        new THREE.Vector3(0, 22, 0),
+                        new THREE.Vector3(0, 30, radius * 0.48),
+                        new THREE.Vector3(0, 32.5, radius)
                     );
-                    const ribGeo = new THREE.TubeGeometry(ribCurve, 16, 0.24, 8, false);
+                    const ribGeo = new THREE.TubeGeometry(ribCurve, 16, 0.26, 8, false);
                     const ribMesh = new THREE.Mesh(ribGeo, Materials.cathedralStone);
                     pierGroup.add(ribMesh);
 
@@ -1150,27 +1150,27 @@
                             transparent: true,
                             opacity: 0.86
                         });
-                        const winMesh = new THREE.Mesh(new THREE.PlaneGeometry(4.0, 14.0), glassMat);
-                        winMesh.position.set(0, 13.0, -1.6);
+                        const winMesh = new THREE.Mesh(new THREE.PlaneGeometry(4.2, 14.5), glassMat);
+                        winMesh.position.set(0, 13.5, -1.6);
                         pierGroup.add(winMesh);
                     }
 
                     cathedralGroup.add(pierGroup);
                 }
 
-                const boss = new THREE.Mesh(new THREE.OctahedronGeometry(1.25, 1), Materials.brassTrim);
-                boss.position.set(0, 30.2, 0);
+                const boss = new THREE.Mesh(new THREE.OctahedronGeometry(1.35, 1), Materials.brassTrim);
+                boss.position.set(0, 31.2, 0);
                 cathedralGroup.add(boss);
 
                 const corners = [
-                    [-8.8, -8.8], [8.8, -8.8], [-8.8, 8.8], [8.8, 8.8]
+                    [-10.8, -10.8], [10.8, -10.8], [-10.8, 10.8], [10.8, 10.8]
                 ];
                 braziers = [];
                 for (let i = 0; i < corners.length; i++) {
                     const bx = corners[i][0];
                     const bz = corners[i][1];
                     const bGroup = new THREE.Group();
-                    bGroup.position.set(bx, -0.40, bz);
+                    bGroup.position.set(bx, -0.42, bz);
 
                     const stand = new THREE.Mesh(new THREE.CylinderGeometry(0.32, 0.55, 1.4, 8), Materials.darkBasalt);
                     stand.position.y = 0.70;
@@ -1290,180 +1290,204 @@
             }
 
             /*******************************************************************
-             * 6. REAL-LIFE 3D ARTICULATED WARRIORS WITH DISTINCT SILHOUETTES
-             *    - Every piece has a High-Contrast Base Ring + Faction Halo
-             *      so White pops on light tiles and Black pops on dark tiles!
-             *    - Articulated leftLegGroup & rightLegGroup (or 4 horse legs)
-             *      for realistic walking, marching, stomping & galloping!
+             * 6. 360° UNMISTAKABLE LEGACY ARCHETYPES (FRONT & REAR SILHOUETTES)
+             *    - Designed specifically so the controlling player (looking at
+             *      their own pieces FROM BEHIND) can immediately distinguish
+             *      every single rank by its back profile, height, base shape,
+             *      and engraved rear rank badge!
              *******************************************************************/
-            function createHighContrastWarriorPlinth(radius, isWhite, primaryMat, accentMat) {
+            function createHighContrastWarriorPlinth(radius, isWhite, primaryMat, accentMat, rankType) {
                 const plinthGroup = new THREE.Group();
                 const contrastMat = isWhite ? Materials.marbleBaseContrast : Materials.obsidianBaseContrast;
 
+                // Distinct base geometry per rank (Octagonal for Rook, Wide Royal Step for King, Round for others)
+                const radialSegs = (rankType === 'r') ? 8 : (rankType === 'k' ? 12 : 28);
+
                 // Bottom high-contrast ring (Dark Ebony for White pieces; Bright Alabaster for Black pieces)
-                const baseDisc = new THREE.Mesh(new THREE.CylinderGeometry(radius, radius * 1.06, 0.08, 24), contrastMat);
-                baseDisc.position.y = 0.04;
+                const baseDisc = new THREE.Mesh(new THREE.CylinderGeometry(radius, radius * 1.08, 0.09, radialSegs), contrastMat);
+                baseDisc.position.y = 0.045;
                 baseDisc.castShadow = true;
                 baseDisc.receiveShadow = true;
                 plinthGroup.add(baseDisc);
 
                 // Gleaming Metallic Gold Bevel Ring
-                const goldRim = new THREE.Mesh(new THREE.TorusGeometry(radius * 1.02, 0.026, 10, 28), accentMat);
+                const goldRim = new THREE.Mesh(new THREE.TorusGeometry(radius * 1.03, 0.030, 10, 28), accentMat);
                 goldRim.rotation.x = Math.PI / 2;
-                goldRim.position.y = 0.08;
+                goldRim.position.y = 0.09;
                 plinthGroup.add(goldRim);
 
                 // Upper Faction Stone Step
-                const upperStep = new THREE.Mesh(new THREE.CylinderGeometry(radius * 0.88, radius * 0.96, 0.07, 24), primaryMat);
-                upperStep.position.y = 0.115;
+                const upperStep = new THREE.Mesh(new THREE.CylinderGeometry(radius * 0.88, radius * 0.96, 0.08, radialSegs), primaryMat);
+                upperStep.position.y = 0.13;
                 upperStep.castShadow = true;
                 upperStep.receiveShadow = true;
                 plinthGroup.add(upperStep);
 
-                // Subtle Faction Identification Halo Ring on the tile surface
+                // Faction Identification Halo Ring on the tile surface
                 const haloColor = isWhite ? 0xfef08a : 0xf59e0b;
                 const haloRing = new THREE.Mesh(
-                    new THREE.RingGeometry(radius * 1.05, radius * 1.14, 28),
+                    new THREE.RingGeometry(radius * 1.07, radius * 1.16, 32),
                     new THREE.MeshBasicMaterial({
                         color: haloColor,
                         side: THREE.DoubleSide,
                         transparent: true,
-                        opacity: isWhite ? 0.45 : 0.68
+                        opacity: isWhite ? 0.48 : 0.72
                     })
                 );
                 haloRing.rotation.x = -Math.PI / 2;
-                haloRing.position.y = 0.012;
+                haloRing.position.y = 0.014;
                 plinthGroup.add(haloRing);
 
                 return plinthGroup;
             }
 
-            function createArticulatedWarriorLeg(side, scale, primaryMat, accentMat) {
-                const s = scale || 1.0;
-                const legPivot = new THREE.Group();
+            function createArticulatedWarriorLeg(sideDir, scaleFactor, primaryMat, accentMat) {
+                const legGroup = new THREE.Group();
+                const s = scaleFactor || 1.0;
 
                 // Armored Thigh Cuisse
-                const thigh = new THREE.Mesh(new THREE.CylinderGeometry(0.072 * s, 0.062 * s, 0.24 * s, 12), primaryMat);
-                thigh.position.y = -0.11 * s;
+                const thigh = new THREE.Mesh(new THREE.CylinderGeometry(0.068 * s, 0.058 * s, 0.22 * s, 12), primaryMat);
+                thigh.position.y = -0.10 * s;
                 thigh.castShadow = true;
-                legPivot.add(thigh);
+                legGroup.add(thigh);
 
-                // Golden Knee Poleyn
-                const knee = new THREE.Mesh(new THREE.SphereGeometry(0.068 * s, 12, 10), accentMat);
-                knee.position.set(0, -0.23 * s, 0.02 * s);
-                legPivot.add(knee);
+                // Golden Knee Poleyn Guard
+                const kneeCop = new THREE.Mesh(new THREE.SphereGeometry(0.064 * s, 12, 10), accentMat);
+                kneeCop.position.set(0, -0.22 * s, 0.02 * s);
+                legGroup.add(kneeCop);
 
-                // Armored Shin Greave
-                const shin = new THREE.Mesh(new THREE.CylinderGeometry(0.064 * s, 0.052 * s, 0.24 * s, 12), primaryMat);
-                shin.position.y = -0.35 * s;
-                shin.castShadow = true;
-                legPivot.add(shin);
+                // Fluted Shin Greave
+                const greave = new THREE.Mesh(new THREE.CylinderGeometry(0.058 * s, 0.048 * s, 0.22 * s, 12), primaryMat);
+                greave.position.y = -0.33 * s;
+                greave.castShadow = true;
+                legGroup.add(greave);
 
-                // Armored Sabaton Boot
-                const boot = new THREE.Mesh(new THREE.BoxGeometry(0.11 * s, 0.07 * s, 0.19 * s), accentMat);
-                boot.position.set(0, -0.46 * s, 0.035 * s);
-                boot.castShadow = true;
-                legPivot.add(boot);
+                // Golden Ankle Spur Band
+                const ankleRing = new THREE.Mesh(new THREE.TorusGeometry(0.052 * s, 0.012 * s, 8, 16), accentMat);
+                ankleRing.rotation.x = Math.PI / 2;
+                ankleRing.position.y = -0.42 * s;
+                legGroup.add(ankleRing);
 
-                return legPivot;
+                // Armored Sabaton Foot
+                const sabaton = new THREE.Mesh(new THREE.BoxGeometry(0.11 * s, 0.065 * s, 0.19 * s), primaryMat);
+                sabaton.position.set(sideDir * 0.01 * s, -0.45 * s, 0.04 * s);
+                sabaton.castShadow = true;
+                legGroup.add(sabaton);
+
+                return legGroup;
             }
 
-            function createArticulatedShoulderArm(side, radius, armLen, primaryMat, accentMat) {
-                const shoulderPivot = new THREE.Group();
+            function createArticulatedShoulderArm(sideDir, pauldronRadius, armLength, primaryMat, accentMat) {
+                const armContainer = new THREE.Group();
+                const pRad = pauldronRadius || 0.11;
+                const aLen = armLength || 0.24;
 
-                const pauldron = new THREE.Mesh(new THREE.SphereGeometry(radius, 16, 14), primaryMat);
-                pauldron.scale.set(1.12, 0.98, 1.12);
+                // Layered Royal Shoulder Pauldron
+                const pauldron = new THREE.Mesh(
+                    new THREE.SphereGeometry(pRad, 16, 12, 0, Math.PI * 2, 0, Math.PI * 0.68),
+                    primaryMat
+                );
+                pauldron.rotation.z = sideDir * -0.32;
                 pauldron.castShadow = true;
-                shoulderPivot.add(pauldron);
+                armContainer.add(pauldron);
 
-                const cuff = new THREE.Mesh(new THREE.TorusGeometry(radius * 0.98, 0.020, 8, 20), accentMat);
-                cuff.rotation.y = Math.PI / 2;
-                cuff.rotation.x = side * 0.35;
-                shoulderPivot.add(cuff);
+                // Golden Pauldron Rim Trim
+                const pauldronRim = new THREE.Mesh(new THREE.TorusGeometry(pRad * 0.94, 0.016, 10, 20), accentMat);
+                pauldronRim.rotation.x = Math.PI / 2;
+                pauldronRim.rotation.y = sideDir * -0.32;
+                pauldronRim.position.y = -pRad * 0.18;
+                armContainer.add(pauldronRim);
 
-                const upperArm = new THREE.Mesh(new THREE.CylinderGeometry(radius * 0.52, radius * 0.46, armLen, 12), primaryMat);
-                upperArm.position.set(side * 0.02, -armLen * 0.55, 0.05);
-                upperArm.rotation.x = -0.32;
+                // Upper Arm Rerebrace
+                const upperArm = new THREE.Mesh(new THREE.CylinderGeometry(pRad * 0.48, pRad * 0.42, aLen, 12), primaryMat);
+                upperArm.position.set(sideDir * 0.02, -aLen * 0.55, 0.02);
+                upperArm.rotation.x = -0.25;
                 upperArm.castShadow = true;
-                shoulderPivot.add(upperArm);
+                armContainer.add(upperArm);
 
-                const gauntletCuff = new THREE.Mesh(new THREE.TorusGeometry(radius * 0.48, 0.016, 8, 16), accentMat);
-                gauntletCuff.position.set(side * 0.02, -armLen * 0.92, 0.09);
-                gauntletCuff.rotation.x = Math.PI / 2 - 0.32;
-                shoulderPivot.add(gauntletCuff);
+                // Golden Elbow Couter
+                const elbow = new THREE.Mesh(new THREE.SphereGeometry(pRad * 0.46, 10, 10), accentMat);
+                elbow.position.set(sideDir * 0.02, -aLen * 0.95, 0.06);
+                armContainer.add(elbow);
 
-                const fist = new THREE.Mesh(new THREE.SphereGeometry(radius * 0.45, 10, 10), accentMat);
-                fist.position.set(side * 0.02, -armLen * 1.02, 0.12);
-                shoulderPivot.add(fist);
+                // Forearm Vambrace & Gauntlet
+                const forearm = new THREE.Mesh(new THREE.CylinderGeometry(pRad * 0.42, pRad * 0.36, aLen * 0.85, 12), primaryMat);
+                forearm.position.set(sideDir * 0.02, -aLen * 1.15, 0.14);
+                forearm.rotation.x = -1.05;
+                forearm.castShadow = true;
+                armContainer.add(forearm);
 
-                return shoulderPivot;
+                const gauntlet = new THREE.Mesh(new THREE.SphereGeometry(pRad * 0.42, 10, 10), accentMat);
+                gauntlet.position.set(sideDir * 0.02, -aLen * 1.25, 0.22);
+                armContainer.add(gauntlet);
+
+                return armContainer;
             }
 
-            function createCrossHeaterShield(primaryMat, accentMat, scale) {
-                const s = scale || 1.0;
+            function createCrossHeaterShield(primaryMat, accentMat, scaleFactor) {
                 const shieldGroup = new THREE.Group();
+                const s = scaleFactor || 1.0;
 
-                const plate = new THREE.Mesh(new THREE.BoxGeometry(0.30 * s, 0.42 * s, 0.038 * s), primaryMat);
-                plate.castShadow = true;
-                shieldGroup.add(plate);
+                // Upper Curved Heater Shield Body
+                const upperShield = new THREE.Mesh(new THREE.BoxGeometry(0.34 * s, 0.28 * s, 0.042 * s), primaryMat);
+                upperShield.position.y = 0.08 * s;
+                upperShield.castShadow = true;
+                shieldGroup.add(upperShield);
 
-                const bottomWedge = new THREE.Mesh(new THREE.ConeGeometry(0.21 * s, 0.20 * s, 4), primaryMat);
-                bottomWedge.rotation.x = Math.PI;
-                bottomWedge.rotation.y = Math.PI / 4;
-                bottomWedge.scale.set(1.0, 1.0, 0.20);
-                bottomWedge.position.y = -0.29 * s;
-                bottomWedge.castShadow = true;
-                shieldGroup.add(bottomWedge);
+                // Lower Tapered Heater Shield Point
+                const lowerPoint = new THREE.Mesh(new THREE.ConeGeometry(0.24 * s, 0.28 * s, 4), primaryMat);
+                lowerPoint.position.y = -0.19 * s;
+                lowerPoint.rotation.z = Math.PI;
+                lowerPoint.rotation.y = Math.PI / 4;
+                lowerPoint.scale.set(1.0, 1.0, 0.18);
+                lowerPoint.castShadow = true;
+                shieldGroup.add(lowerPoint);
 
-                const topBorder = new THREE.Mesh(new THREE.BoxGeometry(0.32 * s, 0.030 * s, 0.046 * s), accentMat);
-                topBorder.position.y = 0.21 * s;
-                shieldGroup.add(topBorder);
+                // Raised Golden Cross Emblem on Shield Face
+                const crossVert = new THREE.Mesh(new THREE.BoxGeometry(0.055 * s, 0.44 * s, 0.052 * s), accentMat);
+                crossVert.position.set(0, -0.02 * s, 0.008 * s);
+                shieldGroup.add(crossVert);
 
-                const leftBorder = new THREE.Mesh(new THREE.BoxGeometry(0.028 * s, 0.44 * s, 0.046 * s), accentMat);
-                leftBorder.position.x = -0.15 * s;
-                shieldGroup.add(leftBorder);
+                const crossHoriz = new THREE.Mesh(new THREE.BoxGeometry(0.28 * s, 0.055 * s, 0.052 * s), accentMat);
+                crossHoriz.position.set(0, 0.06 * s, 0.008 * s);
+                shieldGroup.add(crossHoriz);
 
-                const rightBorder = new THREE.Mesh(new THREE.BoxGeometry(0.028 * s, 0.44 * s, 0.046 * s), accentMat);
-                rightBorder.position.x = 0.15 * s;
-                shieldGroup.add(rightBorder);
-
-                const crossV = new THREE.Mesh(new THREE.BoxGeometry(0.046 * s, 0.48 * s, 0.052 * s), accentMat);
-                crossV.position.y = -0.03 * s;
-                shieldGroup.add(crossV);
-
-                const crossH = new THREE.Mesh(new THREE.BoxGeometry(0.30 * s, 0.046 * s, 0.052 * s), accentMat);
-                crossH.position.y = 0.04 * s;
-                shieldGroup.add(crossH);
+                // Central Gem Boss
+                const centerBoss = new THREE.Mesh(new THREE.SphereGeometry(0.042 * s, 10, 10), accentMat);
+                centerBoss.position.set(0, 0.06 * s, 0.032 * s);
+                shieldGroup.add(centerBoss);
 
                 return shieldGroup;
             }
 
             function createUprightSteelSword(accentMat, bladeLength) {
-                const len = bladeLength || 0.74;
                 const swordGroup = new THREE.Group();
+                const bLen = bladeLength || 0.68;
 
-                const pommel = new THREE.Mesh(new THREE.SphereGeometry(0.040, 10, 10), accentMat);
+                // Golden Pommel
+                const pommel = new THREE.Mesh(new THREE.SphereGeometry(0.042, 10, 10), accentMat);
+                pommel.position.y = -0.14;
                 swordGroup.add(pommel);
 
-                const grip = new THREE.Mesh(new THREE.CylinderGeometry(0.024, 0.024, 0.15, 10), accentMat);
-                grip.position.y = 0.08;
+                // Ribbed Hilt Grip
+                const grip = new THREE.Mesh(new THREE.CylinderGeometry(0.024, 0.028, 0.14, 10), accentMat);
+                grip.position.y = -0.05;
                 swordGroup.add(grip);
 
-                const guard = new THREE.Mesh(new THREE.BoxGeometry(0.26, 0.034, 0.048), accentMat);
-                guard.position.y = 0.16;
-                swordGroup.add(guard);
+                // Cruciform Golden Crossguard
+                const crossguard = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.038, 0.048), accentMat);
+                crossguard.position.y = 0.03;
+                swordGroup.add(crossguard);
 
-                const blade = new THREE.Mesh(new THREE.BoxGeometry(0.068, len, 0.020), Materials.steelBlade);
-                blade.position.y = 0.16 + len * 0.5;
+                // Forged Double-Edged Silver Steel Blade
+                const blade = new THREE.Mesh(new THREE.BoxGeometry(0.068, bLen, 0.022), Materials.steelBlade);
+                blade.position.y = 0.03 + bLen * 0.5;
                 blade.castShadow = true;
                 swordGroup.add(blade);
 
-                const fuller = new THREE.Mesh(new THREE.BoxGeometry(0.020, len * 0.82, 0.024), accentMat);
-                fuller.position.y = 0.16 + len * 0.44;
-                swordGroup.add(fuller);
-
-                const tip = new THREE.Mesh(new THREE.ConeGeometry(0.048, 0.15, 4), Materials.steelBlade);
-                tip.position.y = 0.16 + len + 0.075;
+                // Sharp Tapered Sword Point
+                const tip = new THREE.Mesh(new THREE.ConeGeometry(0.048, 0.14, 4), Materials.steelBlade);
+                tip.position.y = 0.03 + bLen + 0.07;
                 tip.rotation.y = Math.PI / 4;
                 tip.scale.set(1.0, 1.0, 0.35);
                 swordGroup.add(tip);
@@ -1488,7 +1512,7 @@
                 const leftArmGroup = new THREE.Group();
                 const rightArmGroup = new THREE.Group();
                 const weaponGroup = new THREE.Group();
-                const horseLegs = []; // Used for Knight's 4-beat warhorse gallop animation
+                const horseLegs = [];
 
                 root.add(bodyGroup);
                 bodyGroup.add(mountGroup);
@@ -1501,233 +1525,270 @@
                 rightArmGroup.add(weaponGroup);
 
                 if (type === 'p') {
-                    // =========================================================
-                    // 1. PAWN: Real-Life Armored Vanguard Foot-Soldier (Compact & Agile)
-                    //    - Articulated walking legs, fauld armor tassets, breastplate,
-                    //      wide-brimmed Kettle Helm, Cross Heater Shield & Broadsword
-                    // =========================================================
-                    bodyGroup.add(createHighContrastWarriorPlinth(0.45, isWhite, primaryMat, accentMat));
+                    // =========================================================================
+                    // 1. PAWN — "THE PHALANX SENTINEL" (Compact, Low-Slung, Capeless Vanguard)
+                    //    - BACK VIEW: NO cape! Instead features a crossed Dual-Javelin Quiver
+                    //      and a Round Golden Buckler strapped to the back, plus a sweeping
+                    //      Longitudinal Spartan Horsehair Crest & Wide Kettle-Helm Brim!
+                    // =========================================================================
+                    bodyGroup.add(createHighContrastWarriorPlinth(0.46, isWhite, primaryMat, accentMat, 'p'));
 
-                    leftLegGroup.position.set(-0.11, 0.58, 0);
-                    leftLegGroup.add(createArticulatedWarriorLeg(-1, 0.90, primaryMat, accentMat));
+                    leftLegGroup.position.set(-0.11, 0.56, 0);
+                    leftLegGroup.add(createArticulatedWarriorLeg(-1, 0.86, primaryMat, accentMat));
 
-                    rightLegGroup.position.set(0.11, 0.58, 0);
-                    rightLegGroup.add(createArticulatedWarriorLeg(1, 0.90, primaryMat, accentMat));
+                    rightLegGroup.position.set(0.11, 0.56, 0);
+                    rightLegGroup.add(createArticulatedWarriorLeg(1, 0.86, primaryMat, accentMat));
 
-                    // Armored Waist Fauld & Plated Cuirass Torso
                     const hipBelt = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.14, 16), accentMat);
-                    hipBelt.position.y = 0.58;
+                    hipBelt.position.y = 0.56;
                     warriorGroup.add(hipBelt);
 
                     const torso = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.17, 0.34, 16), primaryMat);
-                    torso.position.y = 0.76;
+                    torso.position.y = 0.74;
                     torso.castShadow = true;
                     warriorGroup.add(torso);
 
-                    const breastplateCross = new THREE.Mesh(new THREE.BoxGeometry(0.036, 0.24, 0.036), accentMat);
-                    breastplateCross.position.set(0, 0.77, 0.195);
-                    warriorGroup.add(breastplateCross);
+                    // DISTINCT PAWN BACK PROFILE: Round Golden Buckler + Crossed War-Spears on Back (No Cape!)
+                    const backBuckler = new THREE.Mesh(new THREE.CylinderGeometry(0.17, 0.17, 0.04, 20), accentMat);
+                    backBuckler.rotation.x = Math.PI / 2;
+                    backBuckler.position.set(0, 0.75, -0.20);
+                    backBuckler.castShadow = true;
+                    warriorGroup.add(backBuckler);
 
-                    // Short Infantry Half-Cape
-                    const cape = new THREE.Mesh(new THREE.BoxGeometry(0.32, 0.42, 0.03), capeMat);
-                    cape.position.set(0, 0.68, -0.19);
-                    cape.rotation.x = 0.14;
-                    warriorGroup.add(cape);
+                    const bucklerBoss = new THREE.Mesh(new THREE.SphereGeometry(0.055, 12, 12), primaryMat);
+                    bucklerBoss.position.set(0, 0.75, -0.225);
+                    warriorGroup.add(bucklerBoss);
 
-                    // Left Arm with Cross Heater Shield
-                    leftArmGroup.position.set(-0.26, 0.86, 0);
-                    leftArmGroup.add(createArticulatedShoulderArm(-1, 0.11, 0.24, primaryMat, accentMat));
-                    const shield = createCrossHeaterShield(primaryMat, accentMat, 0.92);
-                    shield.position.set(0.06, -0.18, 0.25);
-                    shield.rotation.y = -0.25;
+                    const backSpear1 = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 0.78, 8), Materials.steelBlade);
+                    backSpear1.position.set(0, 0.82, -0.22);
+                    backSpear1.rotation.z = 0.46;
+                    warriorGroup.add(backSpear1);
+
+                    const backSpear2 = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 0.78, 8), Materials.steelBlade);
+                    backSpear2.position.set(0, 0.82, -0.22);
+                    backSpear2.rotation.z = -0.46;
+                    warriorGroup.add(backSpear2);
+
+                    // Left Arm with Curved Scutum Shield
+                    leftArmGroup.position.set(-0.26, 0.84, 0);
+                    leftArmGroup.add(createArticulatedShoulderArm(-1, 0.105, 0.23, primaryMat, accentMat));
+                    const shield = createCrossHeaterShield(primaryMat, accentMat, 0.94);
+                    shield.position.set(0.05, -0.18, 0.25);
+                    shield.rotation.y = -0.24;
                     leftArmGroup.add(shield);
 
-                    // Right Arm with Steel Broadsword
-                    rightArmGroup.position.set(0.26, 0.86, 0);
-                    rightArmGroup.add(createArticulatedShoulderArm(1, 0.11, 0.24, primaryMat, accentMat));
-                    weaponGroup.position.set(0.02, -0.22, 0.20);
+                    // Right Arm with Forward-Angled Halberd/Broadsword
+                    rightArmGroup.position.set(0.26, 0.84, 0);
+                    rightArmGroup.add(createArticulatedShoulderArm(1, 0.105, 0.23, primaryMat, accentMat));
+                    weaponGroup.position.set(0.02, -0.20, 0.20);
                     weaponGroup.add(createUprightSteelSword(accentMat, 0.68));
 
-                    // Head & Wide-Brimmed Kettle Hat (Chapel-de-Fer)
+                    // Head & Wide Kettle-Helm with Sweeping Front-to-Back Spartan Horsehair Plume
                     const headCyl = new THREE.Mesh(new THREE.CylinderGeometry(0.135, 0.135, 0.18, 16), primaryMat);
-                    headCyl.position.y = 1.02;
-                    headCyl.castShadow = true;
+                    headCyl.position.y = 1.00;
                     headGroup.add(headCyl);
 
                     const visorSlit = new THREE.Mesh(
                         new THREE.CylinderGeometry(0.140, 0.140, 0.038, 16, 1, false, -Math.PI * 0.32, Math.PI * 0.64),
                         visorMat
                     );
-                    visorSlit.position.y = 1.03;
+                    visorSlit.position.y = 1.01;
                     headGroup.add(visorSlit);
 
-                    const brim = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.32, 0.05, 24), primaryMat);
-                    brim.position.y = 1.10;
+                    const brim = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.34, 0.05, 24), primaryMat);
+                    brim.position.y = 1.08;
                     brim.castShadow = true;
                     headGroup.add(brim);
 
-                    const brimGoldEdge = new THREE.Mesh(new THREE.TorusGeometry(0.32, 0.018, 10, 28), accentMat);
+                    const brimGoldEdge = new THREE.Mesh(new THREE.TorusGeometry(0.34, 0.018, 10, 28), accentMat);
                     brimGoldEdge.rotation.x = Math.PI / 2;
-                    brimGoldEdge.position.y = 1.08;
+                    brimGoldEdge.position.y = 1.06;
                     headGroup.add(brimGoldEdge);
 
                     const kettleDome = new THREE.Mesh(
                         new THREE.SphereGeometry(0.17, 20, 14, 0, Math.PI * 2, 0, Math.PI * 0.55),
                         primaryMat
                     );
-                    kettleDome.position.y = 1.11;
-                    kettleDome.castShadow = true;
+                    kettleDome.position.y = 1.09;
                     headGroup.add(kettleDome);
 
-                    const topFin = new THREE.Mesh(new THREE.BoxGeometry(0.036, 0.08, 0.22), accentMat);
-                    topFin.position.set(0, 1.26, 0);
-                    headGroup.add(topFin);
+                    // Sweeping Front-to-Back Spartan Plume Fin (Highly visible from the back!)
+                    const crestHolder = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.08, 0.30), accentMat);
+                    crestHolder.position.set(0, 1.25, -0.02);
+                    headGroup.add(crestHolder);
+
+                    const horsehairPlume = new THREE.Mesh(new THREE.BoxGeometry(0.055, 0.14, 0.38), capeMat);
+                    horsehairPlume.position.set(0, 1.33, -0.05);
+                    headGroup.add(horsehairPlume);
 
                 } else if (type === 'r') {
-                    // =========================================================
-                    // 2. ROOK: Colossal Siege Juggernaut / Fortress Golem (Broad & Hulking)
-                    //    - Massive wide-set pillar legs, hulking barrel chestplate,
-                    //      crenellated castle-tower shoulder pauldrons, Turret Great-Helm,
-                    //      Siege Pavise Shield & Two-Handed Earthshaker War-Maul!
-                    // =========================================================
-                    bodyGroup.add(createHighContrastWarriorPlinth(0.56, isWhite, primaryMat, accentMat));
+                    // =========================================================================
+                    // 2. ROOK — "THE LIVING FORTRESS CITADEL" (360° Symmetrical Octagonal Keep)
+                    //    - BACK & FRONT VIEW: An unmistakable colossal walking Castle Tower!
+                    //      Features 4 outward-slanted stone buttress legs, an octagonal masonry
+                    //      keep body, 4 Gothic arrow slits around all sides, a wide corbelled
+                    //      parapet gallery, 8 towering battlements (merlons), a central flaming
+                    //      watchtower brazier on its roof, and twin Siege Battering-Ram arms!
+                    // =========================================================================
+                    bodyGroup.add(createHighContrastWarriorPlinth(0.68, isWhite, primaryMat, accentMat, 'r'));
 
-                    leftLegGroup.position.set(-0.17, 0.68, 0);
-                    leftLegGroup.add(createArticulatedWarriorLeg(-1, 1.18, primaryMat, accentMat));
+                    leftLegGroup.position.set(-0.24, 0.64, 0);
+                    leftLegGroup.add(createArticulatedWarriorLeg(-1, 1.24, primaryMat, accentMat));
 
-                    rightLegGroup.position.set(0.17, 0.68, 0);
-                    rightLegGroup.add(createArticulatedWarriorLeg(1, 1.18, primaryMat, accentMat));
+                    rightLegGroup.position.set(0.24, 0.64, 0);
+                    rightLegGroup.add(createArticulatedWarriorLeg(1, 1.24, primaryMat, accentMat));
 
-                    // Colossal Barrel Fortress Torso & Portcullis Grate
-                    const waistGirdle = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.31, 0.18, 12), accentMat);
-                    waistGirdle.position.y = 0.68;
-                    warriorGroup.add(waistGirdle);
+                    // Rear & Front Sloped Castle Buttress Spurs (gives Rook a 4-pillar fortress base from behind!)
+                    const rearButtress = new THREE.Mesh(new THREE.BoxGeometry(0.46, 0.54, 0.24), primaryMat);
+                    rearButtress.position.set(0, 0.42, -0.26);
+                    rearButtress.rotation.x = 0.22;
+                    rearButtress.castShadow = true;
+                    warriorGroup.add(rearButtress);
 
-                    const juggernautChest = new THREE.Mesh(new THREE.BoxGeometry(0.56, 0.48, 0.42), primaryMat);
-                    juggernautChest.position.y = 0.96;
-                    juggernautChest.castShadow = true;
-                    warriorGroup.add(juggernautChest);
+                    const rearGateGrate = new THREE.Mesh(new THREE.BoxGeometry(0.28, 0.42, 0.04), accentMat);
+                    rearGateGrate.position.set(0, 0.48, -0.37);
+                    rearGateGrate.rotation.x = 0.22;
+                    warriorGroup.add(rearGateGrate);
 
-                    const portcullisPlaca = new THREE.Mesh(new THREE.BoxGeometry(0.34, 0.34, 0.045), accentMat);
-                    portcullisPlaca.position.set(0, 0.96, 0.21);
-                    warriorGroup.add(portcullisPlaca);
+                    // Colossal Octagonal Castle Keep Body (Unmistakable from every angle!)
+                    const keepTower = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.50, 0.88, 8), primaryMat);
+                    keepTower.position.y = 0.88;
+                    keepTower.rotation.y = Math.PI / 8;
+                    keepTower.castShadow = true;
+                    warriorGroup.add(keepTower);
 
-                    // Towering Crenellated Castle-Wall Shoulder Towers on Left & Right Arms
-                    leftArmGroup.position.set(-0.38, 1.10, 0);
-                    leftArmGroup.add(createArticulatedShoulderArm(-1, 0.16, 0.32, primaryMat, accentMat));
-                    const leftTurretShoulder = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.14, 0.22, 8), accentMat);
-                    leftTurretShoulder.position.y = 0.12;
-                    leftArmGroup.add(leftTurretShoulder);
+                    // 3 Golden Masonry Bands wrapping 360° around the Castle Keep
+                    const bandHeights = [0.52, 0.88, 1.24];
+                    for (let b = 0; b < bandHeights.length; b++) {
+                        const rVal = 0.49 - b * 0.03;
+                        const band = new THREE.Mesh(new THREE.CylinderGeometry(rVal, rVal, 0.055, 8), accentMat);
+                        band.position.y = bandHeights[b];
+                        band.rotation.y = Math.PI / 8;
+                        warriorGroup.add(band);
+                    }
 
-                    // Rectangular Fortress Pavise Siege Shield
-                    const pavise = new THREE.Group();
-                    const pavisePlate = new THREE.Mesh(new THREE.BoxGeometry(0.38, 0.62, 0.05), primaryMat);
-                    pavisePlate.castShadow = true;
-                    pavise.add(pavisePlate);
-                    const paviseRim = new THREE.Mesh(new THREE.BoxGeometry(0.41, 0.65, 0.035), accentMat);
-                    paviseRim.position.z = -0.01;
-                    pavise.add(paviseRim);
-                    pavise.position.set(-0.04, -0.20, 0.26);
-                    pavise.rotation.y = -0.30;
-                    leftArmGroup.add(pavise);
+                    // 4 Glowing Gothic Arrow-Slit Windows on North, South, East, West faces (Visible from back!)
+                    for (let i = 0; i < 4; i++) {
+                        const a = (i / 4) * Math.PI * 2;
+                        const slit = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.34, 0.06), visorMat);
+                        slit.position.set(Math.sin(a) * 0.43, 0.96, Math.cos(a) * 0.43);
+                        slit.rotation.y = a;
+                        warriorGroup.add(slit);
+                    }
 
-                    rightArmGroup.position.set(0.38, 1.10, 0);
-                    rightArmGroup.add(createArticulatedShoulderArm(1, 0.16, 0.32, primaryMat, accentMat));
-                    const rightTurretShoulder = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.14, 0.22, 8), accentMat);
-                    rightTurretShoulder.position.y = 0.12;
-                    rightArmGroup.add(rightTurretShoulder);
+                    // Wide Flared Corbel Parapet Ring at the top of the Castle Tower
+                    const corbelRing = new THREE.Mesh(new THREE.CylinderGeometry(0.56, 0.42, 0.18, 8), primaryMat);
+                    corbelRing.position.y = 1.40;
+                    corbelRing.rotation.y = Math.PI / 8;
+                    corbelRing.castShadow = true;
+                    headGroup.add(corbelRing);
 
-                    // Colossal Siege Warhammer Maul
-                    weaponGroup.position.set(0.04, -0.26, 0.22);
-                    const maulShaft = new THREE.Mesh(new THREE.CylinderGeometry(0.032, 0.028, 1.28, 10), accentMat);
-                    maulShaft.position.y = 0.46;
-                    weaponGroup.add(maulShaft);
+                    const corbelGoldRim = new THREE.Mesh(new THREE.CylinderGeometry(0.58, 0.58, 0.045, 8), accentMat);
+                    corbelGoldRim.position.y = 1.49;
+                    corbelGoldRim.rotation.y = Math.PI / 8;
+                    headGroup.add(corbelGoldRim);
 
-                    const maulHead = new THREE.Mesh(new THREE.BoxGeometry(0.44, 0.22, 0.22), Materials.steelBlade);
-                    maulHead.position.y = 1.04;
-                    maulHead.castShadow = true;
-                    weaponGroup.add(maulHead);
-
-                    const maulBand = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.24, 0.24), accentMat);
-                    maulBand.position.y = 1.04;
-                    weaponGroup.add(maulBand);
-
-                    // Turret Great-Helm Crowned with 6 Fortress Battlement Merlons
-                    const rookHelm = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.25, 0.28, 12), primaryMat);
-                    rookHelm.position.y = 1.34;
-                    rookHelm.castShadow = true;
-                    headGroup.add(rookHelm);
-
-                    const rookVisor = new THREE.Mesh(
-                        new THREE.CylinderGeometry(0.255, 0.255, 0.048, 12, 1, false, -Math.PI * 0.28, Math.PI * 0.56),
-                        visorMat
-                    );
-                    rookVisor.position.y = 1.35;
-                    headGroup.add(rookVisor);
-
-                    for (let i = 0; i < 6; i++) {
-                        const angle = (i / 6) * Math.PI * 2;
-                        const merlon = new THREE.Mesh(new THREE.BoxGeometry(0.13, 0.19, 0.09), primaryMat);
-                        merlon.position.set(Math.sin(angle) * 0.22, 1.52, Math.cos(angle) * 0.22);
+                    // 8 Towering Castle Battlement Merlons around the 360° Crown
+                    for (let i = 0; i < 8; i++) {
+                        const angle = (i / 8) * Math.PI * 2 + (Math.PI / 8);
+                        const merlon = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.26, 0.13), primaryMat);
+                        merlon.position.set(Math.sin(angle) * 0.47, 1.62, Math.cos(angle) * 0.47);
                         merlon.rotation.y = angle;
                         merlon.castShadow = true;
                         headGroup.add(merlon);
 
-                        const cap = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.030, 0.10), accentMat);
-                        cap.position.set(Math.sin(angle) * 0.22, 1.62, Math.cos(angle) * 0.22);
-                        cap.rotation.y = angle;
-                        headGroup.add(cap);
+                        const merlonCap = new THREE.Mesh(new THREE.BoxGeometry(0.20, 0.038, 0.15), accentMat);
+                        merlonCap.position.set(Math.sin(angle) * 0.47, 1.76, Math.cos(angle) * 0.47);
+                        merlonCap.rotation.y = angle;
+                        headGroup.add(merlonCap);
                     }
 
-                } else if (type === 'n') {
-                    // =========================================================
-                    // 3. KNIGHT: Mounted Royal Crusader Sitting Astride an
-                    //    Articulated 4-Legged Destrier Warhorse!
-                    // =========================================================
-                    bodyGroup.add(createHighContrastWarriorPlinth(0.56, isWhite, primaryMat, accentMat));
+                    // Flaming Citadel Beacon Brazier in the center of the Rook's Roof
+                    const roofBeacon = new THREE.Mesh(new THREE.ConeGeometry(0.22, 0.34, 8), Materials.glowingVisor);
+                    roofBeacon.position.y = 1.66;
+                    headGroup.add(roofBeacon);
 
-                    // Pivot mountGroup at rear hooves so the Warhorse + Rider can REAR UP and GALLOP!
-                    mountGroup.position.set(0, 0.15, -0.16);
+                    // Left & Right Crenellated Siege Turret Arms + Colossal Earthshaker Maul
+                    leftArmGroup.position.set(-0.54, 1.06, 0);
+                    const leftTurretArm = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.56, 8), primaryMat);
+                    leftTurretArm.position.y = -0.14;
+                    leftTurretArm.castShadow = true;
+                    leftArmGroup.add(leftTurretArm);
+                    const leftTurretCap = new THREE.Mesh(new THREE.CylinderGeometry(0.19, 0.19, 0.08, 8), accentMat);
+                    leftTurretCap.position.y = 0.16;
+                    leftArmGroup.add(leftTurretCap);
+
+                    rightArmGroup.position.set(0.54, 1.06, 0);
+                    const rightTurretArm = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.56, 8), primaryMat);
+                    rightTurretArm.position.y = -0.14;
+                    rightTurretArm.castShadow = true;
+                    rightArmGroup.add(rightTurretArm);
+                    const rightTurretCap = new THREE.Mesh(new THREE.CylinderGeometry(0.19, 0.19, 0.08, 8), accentMat);
+                    rightTurretCap.position.y = 0.16;
+                    rightArmGroup.add(rightTurretCap);
+
+                    weaponGroup.position.set(0.04, -0.26, 0.24);
+                    const maulShaft = new THREE.Mesh(new THREE.CylinderGeometry(0.036, 0.032, 1.40, 10), accentMat);
+                    maulShaft.position.y = 0.50;
+                    weaponGroup.add(maulShaft);
+
+                    const maulHead = new THREE.Mesh(new THREE.BoxGeometry(0.52, 0.26, 0.26), Materials.steelBlade);
+                    maulHead.position.y = 1.14;
+                    maulHead.castShadow = true;
+                    weaponGroup.add(maulHead);
+
+                } else if (type === 'n') {
+                    // =========================================================================
+                    // 3. KNIGHT — "THE WINGED-HUSSAR CAVALIER" (Mounted on a 4-Legged Warhorse)
+                    //    - BACK VIEW: Unmistakably elongated equine body with sculpted horse
+                    //      haunches, a long flowing Golden Horse Tail extending backward, and
+                    //      TWIN TOWERING WINGED-HUSSAR FEATHER ARCHES rising in a dramatic
+                    //      V-shape from the rider's back!
+                    // =========================================================================
+                    bodyGroup.add(createHighContrastWarriorPlinth(0.64, isWhite, primaryMat, accentMat, 'n'));
+
+                    mountGroup.position.set(0, 0.16, -0.18);
 
                     // Muscular Warhorse Barrel, Chest & Haunches
-                    const horseBarrel = new THREE.Mesh(new THREE.CylinderGeometry(0.20, 0.21, 0.64, 16), primaryMat);
+                    const horseBarrel = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.23, 0.72, 16), primaryMat);
                     horseBarrel.rotation.x = Math.PI / 2;
-                    horseBarrel.position.set(0, 0.48, 0.16);
+                    horseBarrel.position.set(0, 0.50, 0.16);
                     horseBarrel.castShadow = true;
                     mountGroup.add(horseBarrel);
 
-                    const horseChest = new THREE.Mesh(new THREE.SphereGeometry(0.22, 16, 14), primaryMat);
-                    horseChest.position.set(0, 0.50, 0.44);
+                    const horseChest = new THREE.Mesh(new THREE.SphereGeometry(0.24, 16, 14), primaryMat);
+                    horseChest.position.set(0, 0.52, 0.48);
                     horseChest.castShadow = true;
                     mountGroup.add(horseChest);
 
-                    const horseHaunch = new THREE.Mesh(new THREE.SphereGeometry(0.21, 16, 14), primaryMat);
-                    horseHaunch.position.set(0, 0.48, -0.12);
+                    const horseHaunch = new THREE.Mesh(new THREE.SphereGeometry(0.24, 16, 14), primaryMat);
+                    horseHaunch.position.set(0, 0.50, -0.16);
                     horseHaunch.castShadow = true;
                     mountGroup.add(horseHaunch);
 
-                    // Flowing Sculpted Horse Tail
-                    const horseTail = new THREE.Mesh(new THREE.ConeGeometry(0.075, 0.42, 10), accentMat);
-                    horseTail.position.set(0, 0.36, -0.36);
-                    horseTail.rotation.x = -0.48;
-                    mountGroup.add(horseTail);
+                    // Sweeping Multi-Plume Horse Tail extending out the back (Clear rear identifier!)
+                    const horseTailUpper = new THREE.Mesh(new THREE.ConeGeometry(0.10, 0.54, 12), accentMat);
+                    horseTailUpper.position.set(0, 0.40, -0.44);
+                    horseTailUpper.rotation.x = -0.62;
+                    horseTailUpper.castShadow = true;
+                    mountGroup.add(horseTailUpper);
 
                     // Royal Caparison Barding Cloth & Golden Trim
-                    const bardingSkirt = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.26, 0.62), capeMat);
-                    bardingSkirt.position.set(0, 0.38, 0.16);
+                    const bardingSkirt = new THREE.Mesh(new THREE.BoxGeometry(0.48, 0.28, 0.68), capeMat);
+                    bardingSkirt.position.set(0, 0.40, 0.16);
                     bardingSkirt.castShadow = true;
                     mountGroup.add(bardingSkirt);
 
-                    const bardingGoldTrim = new THREE.Mesh(new THREE.BoxGeometry(0.47, 0.036, 0.65), accentMat);
-                    bardingGoldTrim.position.set(0, 0.25, 0.16);
+                    const bardingGoldTrim = new THREE.Mesh(new THREE.BoxGeometry(0.50, 0.040, 0.71), accentMat);
+                    bardingGoldTrim.position.set(0, 0.26, 0.16);
                     mountGroup.add(bardingGoldTrim);
 
-                    // 4 Articulated Warhorse Legs (stored in horseLegs[] for real-time gallop animation)
+                    // 4 Articulated Warhorse Legs
                     const legSpecs = [
-                        [-0.15, 0.42, 0.14],   // 0: Front Right
-                        [0.15, 0.42, -0.08],   // 1: Front Left
-                        [-0.15, -0.10, -0.08], // 2: Rear Right
-                        [0.15, -0.10, 0.12]    // 3: Rear Left
+                        [-0.17, 0.44, 0.14],
+                        [0.17, 0.44, -0.08],
+                        [-0.17, -0.14, -0.08],
+                        [0.17, -0.14, 0.12]
                     ];
                     for (let i = 0; i < legSpecs.length; i++) {
                         const lx = legSpecs[i][0];
@@ -1735,164 +1796,145 @@
                         const baseTilt = legSpecs[i][2];
 
                         const hLegPivot = new THREE.Group();
-                        hLegPivot.position.set(lx, 0.42, lz);
+                        hLegPivot.position.set(lx, 0.44, lz);
                         hLegPivot.rotation.x = baseTilt;
 
-                        const upperLeg = new THREE.Mesh(new THREE.CylinderGeometry(0.068, 0.052, 0.42, 10), primaryMat);
-                        upperLeg.position.y = -0.20;
+                        const upperLeg = new THREE.Mesh(new THREE.CylinderGeometry(0.072, 0.056, 0.44, 10), primaryMat);
+                        upperLeg.position.y = -0.21;
                         upperLeg.castShadow = true;
                         hLegPivot.add(upperLeg);
 
-                        const fetlock = new THREE.Mesh(new THREE.SphereGeometry(0.054, 8, 8), accentMat);
-                        fetlock.position.y = -0.34;
+                        const fetlock = new THREE.Mesh(new THREE.SphereGeometry(0.058, 8, 8), accentMat);
+                        fetlock.position.y = -0.36;
                         hLegPivot.add(fetlock);
 
-                        const hoof = new THREE.Mesh(new THREE.CylinderGeometry(0.056, 0.068, 0.07, 10), accentMat);
-                        hoof.position.y = -0.40;
+                        const hoof = new THREE.Mesh(new THREE.CylinderGeometry(0.060, 0.072, 0.075, 10), accentMat);
+                        hoof.position.y = -0.42;
                         hLegPivot.add(hoof);
 
                         mountGroup.add(hLegPivot);
                         horseLegs.push(hLegPivot);
                     }
 
-                    // Warhorse Arched Neck, Sculpted Head, Golden Chanfron Armor, Ears & Bridle Reins
-                    const horseNeck = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.19, 0.48, 14), primaryMat);
-                    horseNeck.position.set(0, 0.74, 0.48);
+                    // Warhorse Arched Neck, Sculpted Head, Spiked Chanfron Armor & Mane
+                    const horseNeck = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.21, 0.52, 14), primaryMat);
+                    horseNeck.position.set(0, 0.78, 0.52);
                     horseNeck.rotation.x = 0.46;
                     horseNeck.castShadow = true;
                     mountGroup.add(horseNeck);
 
-                    const horseSkull = new THREE.Mesh(new THREE.SphereGeometry(0.14, 14, 12), primaryMat);
-                    horseSkull.position.set(0, 0.94, 0.58);
+                    const horseSkull = new THREE.Mesh(new THREE.SphereGeometry(0.15, 14, 12), primaryMat);
+                    horseSkull.position.set(0, 1.00, 0.62);
                     mountGroup.add(horseSkull);
 
-                    const horseMuzzle = new THREE.Mesh(new THREE.ConeGeometry(0.12, 0.36, 12), primaryMat);
-                    horseMuzzle.position.set(0, 0.87, 0.76);
+                    const horseMuzzle = new THREE.Mesh(new THREE.ConeGeometry(0.13, 0.38, 12), primaryMat);
+                    horseMuzzle.position.set(0, 0.92, 0.80);
                     horseMuzzle.rotation.x = Math.PI * 0.42;
                     horseMuzzle.castShadow = true;
                     mountGroup.add(horseMuzzle);
 
-                    const chanfron = new THREE.Mesh(new THREE.BoxGeometry(0.09, 0.32, 0.04), accentMat);
-                    chanfron.position.set(0, 0.94, 0.73);
+                    const chanfron = new THREE.Mesh(new THREE.BoxGeometry(0.10, 0.34, 0.045), accentMat);
+                    chanfron.position.set(0, 0.98, 0.77);
                     chanfron.rotation.x = -0.35;
                     mountGroup.add(chanfron);
 
-                    const earL = new THREE.Mesh(new THREE.ConeGeometry(0.035, 0.12, 6), primaryMat);
-                    earL.position.set(0.07, 1.08, 0.54);
-                    mountGroup.add(earL);
-                    const earR = new THREE.Mesh(new THREE.ConeGeometry(0.035, 0.12, 6), primaryMat);
-                    earR.position.set(-0.07, 1.08, 0.54);
-                    mountGroup.add(earR);
-
-                    for (let m = 0; m < 5; m++) {
-                        const manePlate = new THREE.Mesh(new THREE.BoxGeometry(0.038, 0.10, 0.09), accentMat);
-                        manePlate.position.set(0, 0.62 + m * 0.085, 0.34 + m * 0.038);
+                    for (let m = 0; m < 6; m++) {
+                        const manePlate = new THREE.Mesh(new THREE.BoxGeometry(0.048, 0.11, 0.10), accentMat);
+                        manePlate.position.set(0, 0.64 + m * 0.085, 0.34 + m * 0.038);
                         manePlate.rotation.x = 0.45;
                         mountGroup.add(manePlate);
                     }
 
-                    // High-Cantled War Saddle
-                    const saddle = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.09, 0.34), capeMat);
-                    saddle.position.set(0, 0.68, 0.14);
-                    mountGroup.add(saddle);
-
-                    // MOUNTED CRUSADER WARRIOR ASTRIDE THE WARHORSE
+                    // MOUNTED WINGED-HUSSAR CAVALIER ASTRIDE THE WARHORSE
                     bodyGroup.remove(warriorGroup);
                     mountGroup.add(warriorGroup);
-                    warriorGroup.position.set(0, 0.70, 0.12);
+                    warriorGroup.position.set(0, 0.74, 0.12);
 
-                    // Rider's Armored Legs & Stirrups straddling the horse's flanks
                     const riderSides = [-1, 1];
                     for (let s = 0; s < riderSides.length; s++) {
                         const dir = riderSides[s];
-                        const thigh = new THREE.Mesh(new THREE.CylinderGeometry(0.068, 0.058, 0.26, 10), primaryMat);
-                        thigh.position.set(dir * 0.22, -0.08, 0.06);
-                        thigh.rotation.z = dir * 0.36;
+                        const thigh = new THREE.Mesh(new THREE.CylinderGeometry(0.072, 0.062, 0.28, 10), primaryMat);
+                        thigh.position.set(dir * 0.24, -0.08, 0.06);
+                        thigh.rotation.z = dir * 0.38;
                         thigh.rotation.x = 0.45;
-                        thigh.castShadow = true;
                         warriorGroup.add(thigh);
 
-                        const kneeCop = new THREE.Mesh(new THREE.SphereGeometry(0.062, 10, 10), accentMat);
-                        kneeCop.position.set(dir * 0.25, -0.18, 0.15);
-                        warriorGroup.add(kneeCop);
-
-                        const greave = new THREE.Mesh(new THREE.CylinderGeometry(0.056, 0.046, 0.25, 10), primaryMat);
-                        greave.position.set(dir * 0.25, -0.31, 0.11);
+                        const greave = new THREE.Mesh(new THREE.CylinderGeometry(0.060, 0.048, 0.26, 10), primaryMat);
+                        greave.position.set(dir * 0.27, -0.32, 0.11);
                         greave.rotation.x = -0.15;
-                        greave.castShadow = true;
                         warriorGroup.add(greave);
-
-                        const sabaton = new THREE.Mesh(new THREE.BoxGeometry(0.07, 0.05, 0.14), accentMat);
-                        sabaton.position.set(dir * 0.25, -0.43, 0.15);
-                        warriorGroup.add(sabaton);
                     }
 
-                    const riderTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.185, 0.155, 0.40, 14), primaryMat);
-                    riderTorso.position.set(0, 0.20, 0);
+                    const riderTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.19, 0.16, 0.42, 14), primaryMat);
+                    riderTorso.position.set(0, 0.22, 0);
                     riderTorso.castShadow = true;
                     warriorGroup.add(riderTorso);
 
-                    const riderCape = new THREE.Mesh(new THREE.BoxGeometry(0.32, 0.42, 0.03), capeMat);
-                    riderCape.position.set(0, 0.18, -0.18);
-                    riderCape.rotation.x = 0.26;
-                    warriorGroup.add(riderCape);
+                    // TWIN POLISH WINGED-HUSSAR BACK ARCHES (Unmistakable from behind!)
+                    for (let s = 0; s < riderSides.length; s++) {
+                        const dir = riderSides[s];
+                        const hussarWingGroup = new THREE.Group();
+                        hussarWingGroup.position.set(dir * 0.14, 0.18, -0.18);
+                        hussarWingGroup.rotation.z = dir * -0.34;
+                        hussarWingGroup.rotation.x = -0.18;
 
-                    // Rider's Left Arm with Crusader Shield
-                    leftArmGroup.position.set(-0.24, 0.34, 0.02);
-                    leftArmGroup.add(createArticulatedShoulderArm(-1, 0.105, 0.23, primaryMat, accentMat));
-                    const kShield = createCrossHeaterShield(primaryMat, accentMat, 0.88);
-                    kShield.position.set(-0.04, -0.14, 0.19);
+                        const wingFrame = new THREE.Mesh(new THREE.BoxGeometry(0.045, 0.92, 0.045), accentMat);
+                        wingFrame.position.y = 0.42;
+                        hussarWingGroup.add(wingFrame);
+
+                        for (let f = 0; f < 6; f++) {
+                            const feather = new THREE.Mesh(new THREE.BoxGeometry(0.028, 0.045, 0.26 - f * 0.02), primaryMat);
+                            feather.position.set(0, 0.22 + f * 0.11, -0.13);
+                            feather.rotation.x = 0.35;
+                            hussarWingGroup.add(feather);
+                        }
+                        warriorGroup.add(hussarWingGroup);
+                    }
+
+                    leftArmGroup.position.set(-0.25, 0.36, 0.02);
+                    leftArmGroup.add(createArticulatedShoulderArm(-1, 0.11, 0.24, primaryMat, accentMat));
+                    const kShield = createCrossHeaterShield(primaryMat, accentMat, 0.90);
+                    kShield.position.set(-0.04, -0.14, 0.20);
                     kShield.rotation.y = -0.55;
                     leftArmGroup.add(kShield);
 
-                    // Rider's Right Arm with Long Jousting Lance & Pennant Banner
-                    rightArmGroup.position.set(0.24, 0.34, 0.02);
-                    rightArmGroup.add(createArticulatedShoulderArm(1, 0.105, 0.23, primaryMat, accentMat));
+                    rightArmGroup.position.set(0.25, 0.36, 0.02);
+                    rightArmGroup.add(createArticulatedShoulderArm(1, 0.11, 0.24, primaryMat, accentMat));
                     weaponGroup.position.set(0.04, -0.18, 0.18);
 
-                    const lanceShaft = new THREE.Mesh(new THREE.CylinderGeometry(0.018, 0.032, 1.38, 12), Materials.steelBlade);
-                    lanceShaft.position.y = 0.56;
+                    const lanceShaft = new THREE.Mesh(new THREE.ConeGeometry(0.042, 1.56, 12), Materials.steelBlade);
+                    lanceShaft.position.y = 0.64;
                     lanceShaft.castShadow = true;
                     weaponGroup.add(lanceShaft);
 
-                    const vamplate = new THREE.Mesh(new THREE.ConeGeometry(0.095, 0.14, 12), accentMat);
+                    const vamplate = new THREE.Mesh(new THREE.ConeGeometry(0.11, 0.16, 12), accentMat);
                     vamplate.position.y = 0.16;
                     weaponGroup.add(vamplate);
 
-                    const pennant = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.12, 0.015), capeMat);
-                    pennant.position.set(0.12, 1.12, 0);
+                    const pennant = new THREE.Mesh(new THREE.BoxGeometry(0.28, 0.14, 0.018), capeMat);
+                    pennant.position.set(0.14, 1.26, 0);
                     weaponGroup.add(pennant);
 
-                    // Rider's Plumed Crusader Great-Helm
                     const greatHelm = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.15, 0.26, 16), primaryMat);
-                    greatHelm.position.set(0, 0.54, 0);
-                    greatHelm.castShadow = true;
+                    greatHelm.position.set(0, 0.56, 0);
                     headGroup.add(greatHelm);
 
                     const kVisor = new THREE.Mesh(
                         new THREE.CylinderGeometry(0.154, 0.154, 0.038, 16, 1, false, -Math.PI * 0.30, Math.PI * 0.60),
                         visorMat
                     );
-                    kVisor.position.set(0, 0.56, 0);
+                    kVisor.position.set(0, 0.58, 0);
                     headGroup.add(kVisor);
 
-                    const hCrossV = new THREE.Mesh(new THREE.BoxGeometry(0.032, 0.22, 0.032), accentMat);
-                    hCrossV.position.set(0, 0.54, 0.145);
-                    headGroup.add(hCrossV);
-
-                    const plume = new THREE.Mesh(new THREE.ConeGeometry(0.065, 0.24, 8), capeMat);
-                    plume.position.set(0, 0.74, -0.06);
-                    plume.rotation.x = -0.45;
-                    headGroup.add(plume);
-
                 } else if (type === 'b') {
-                    // =========================================================
-                    // 4. BISHOP: High Inquisitor Arch-Prelate (Tall, Mystical & Regal)
-                    //    - Layered Ecclesiastical Robes, Draped Cardinal Cape,
-                    //      Split-Cleft Mitre with Gold Cross, Levitating Illuminated
-                    //      Grimoire Tome, and Tall Radiant Spiral Crosier Staff
-                    // =========================================================
-                    bodyGroup.add(createHighContrastWarriorPlinth(0.50, isWhite, primaryMat, accentMat));
+                    // =========================================================================
+                    // 4. BISHOP — "THE CELESTIAL HIEROPHANT" (Tallest Narrow Spire & Sunburst)
+                    //    - BACK VIEW: Framed by a Giant Circular 12-Ray Golden Sunburst
+                    //      Astrolabe Mandorla Ring behind his shoulders, Twin Trailing Mitre
+                    //      Infulae Ribbons hanging down the back, and an authentic Deep Split
+                    //      Cleft Mitre Crown!
+                    // =========================================================================
+                    bodyGroup.add(createHighContrastWarriorPlinth(0.54, isWhite, primaryMat, accentMat, 'b'));
 
                     leftLegGroup.position.set(-0.10, 0.54, 0);
                     leftLegGroup.add(createArticulatedWarriorLeg(-1, 0.85, primaryMat, accentMat));
@@ -1900,32 +1942,55 @@
                     rightLegGroup.position.set(0.10, 0.54, 0);
                     rightLegGroup.add(createArticulatedWarriorLeg(1, 0.85, primaryMat, accentMat));
 
-                    // Layered Pleated Cassock Robes & Embroidered Golden Stole
-                    const lowerRobe = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.38, 0.66, 18), primaryMat);
-                    lowerRobe.position.y = 0.48;
+                    // Slender Fluted Ecclesiastical Robe Column
+                    const lowerRobe = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.40, 0.74, 20), primaryMat);
+                    lowerRobe.position.y = 0.52;
                     lowerRobe.castShadow = true;
                     warriorGroup.add(lowerRobe);
 
-                    const upperVestment = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.23, 0.42, 18), primaryMat);
-                    upperVestment.position.y = 0.94;
+                    const upperVestment = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.22, 0.44, 20), primaryMat);
+                    upperVestment.position.y = 1.00;
                     upperVestment.castShadow = true;
                     warriorGroup.add(upperVestment);
 
-                    const stoleL = new THREE.Mesh(new THREE.BoxGeometry(0.055, 0.78, 0.035), accentMat);
-                    stoleL.position.set(-0.07, 0.68, 0.24);
-                    warriorGroup.add(stoleL);
+                    // GIANT 12-RAY GOLDEN SUNBURST ASTROLABE HALO BEHIND THE BISHOP'S BACK!
+                    const sunburstGroup = new THREE.Group();
+                    sunburstGroup.position.set(0, 1.24, -0.24);
 
-                    const stoleR = new THREE.Mesh(new THREE.BoxGeometry(0.055, 0.78, 0.035), accentMat);
-                    stoleR.position.set(0.07, 0.68, 0.24);
-                    warriorGroup.add(stoleR);
+                    const astrolabeOuter = new THREE.Mesh(new THREE.TorusGeometry(0.46, 0.028, 12, 32), accentMat);
+                    astrolabeOuter.castShadow = true;
+                    sunburstGroup.add(astrolabeOuter);
 
-                    const cardinalCape = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.88, 0.04), capeMat);
-                    cardinalCape.position.set(0, 0.68, -0.23);
-                    cardinalCape.rotation.x = 0.12;
-                    warriorGroup.add(cardinalCape);
+                    const astrolabeInner = new THREE.Mesh(new THREE.TorusGeometry(0.30, 0.020, 10, 28), primaryMat);
+                    sunburstGroup.add(astrolabeInner);
+
+                    const crossBarV = new THREE.Mesh(new THREE.BoxGeometry(0.045, 0.92, 0.035), accentMat);
+                    sunburstGroup.add(crossBarV);
+                    const crossBarH = new THREE.Mesh(new THREE.BoxGeometry(0.92, 0.045, 0.035), accentMat);
+                    sunburstGroup.add(crossBarH);
+
+                    for (let r = 0; r < 12; r++) {
+                        const rAngle = (r / 12) * Math.PI * 2;
+                        const raySpike = new THREE.Mesh(new THREE.ConeGeometry(0.032, 0.20, 6), accentMat);
+                        raySpike.position.set(Math.cos(rAngle) * 0.55, Math.sin(rAngle) * 0.55, 0);
+                        raySpike.rotation.z = rAngle - Math.PI / 2;
+                        sunburstGroup.add(raySpike);
+                    }
+                    warriorGroup.add(sunburstGroup);
+
+                    // Twin Embroidered Mitre Lappets (Infulae) hanging down the back
+                    const lappetL = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.68, 0.03), capeMat);
+                    lappetL.position.set(-0.08, 0.86, -0.22);
+                    lappetL.rotation.z = 0.08;
+                    warriorGroup.add(lappetL);
+
+                    const lappetR = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.68, 0.03), capeMat);
+                    lappetR.position.set(0.08, 0.86, -0.22);
+                    lappetR.rotation.z = -0.08;
+                    warriorGroup.add(lappetR);
 
                     // Left Arm presenting the Open Illuminated Grimoire Scripture Tome
-                    leftArmGroup.position.set(-0.29, 1.02, 0);
+                    leftArmGroup.position.set(-0.29, 1.08, 0);
                     leftArmGroup.add(createArticulatedShoulderArm(-1, 0.115, 0.25, primaryMat, accentMat));
 
                     const bookGroup = new THREE.Group();
@@ -1949,64 +2014,63 @@
                     leftArmGroup.add(bookGroup);
 
                     // Right Arm wielding Tall Spiral Golden Crosier Staff with Radiant Gem
-                    rightArmGroup.position.set(0.29, 1.02, 0);
+                    rightArmGroup.position.set(0.29, 1.08, 0);
                     rightArmGroup.add(createArticulatedShoulderArm(1, 0.115, 0.25, primaryMat, accentMat));
 
                     weaponGroup.position.set(0.02, -0.12, 0.18);
-                    const staff = new THREE.Mesh(new THREE.CylinderGeometry(0.026, 0.022, 1.68, 10), accentMat);
+                    const staff = new THREE.Mesh(new THREE.CylinderGeometry(0.028, 0.024, 1.82, 10), accentMat);
                     weaponGroup.add(staff);
 
-                    const outerCrook = new THREE.Mesh(new THREE.TorusGeometry(0.13, 0.028, 10, 24, Math.PI * 1.65), accentMat);
-                    outerCrook.position.set(0, 0.86, 0);
+                    const outerCrook = new THREE.Mesh(new THREE.TorusGeometry(0.15, 0.032, 10, 24, Math.PI * 1.65), accentMat);
+                    outerCrook.position.set(0, 0.94, 0);
                     outerCrook.rotation.y = Math.PI / 2;
                     weaponGroup.add(outerCrook);
 
-                    const staffGem = new THREE.Mesh(new THREE.OctahedronGeometry(0.055, 0), Materials.glowingVisor);
-                    staffGem.position.set(0, 0.86, 0);
+                    const staffGem = new THREE.Mesh(new THREE.OctahedronGeometry(0.065, 0), Materials.glowingVisor);
+                    staffGem.position.set(0, 0.94, 0);
                     weaponGroup.add(staffGem);
 
-                    // Prelate Head & Tall Pointed Mitre with Golden Cross
+                    // Prelate Head & Authentic Twin-Peak Split-Cleft Mitre (Visible from Front & Back!)
                     const headCyl = new THREE.Mesh(new THREE.CylinderGeometry(0.145, 0.145, 0.20, 16), primaryMat);
-                    headCyl.position.y = 1.22;
-                    headCyl.castShadow = true;
+                    headCyl.position.y = 1.28;
                     headGroup.add(headCyl);
 
-                    const browSlit = new THREE.Mesh(
-                        new THREE.CylinderGeometry(0.150, 0.150, 0.036, 16, 1, false, -Math.PI * 0.28, Math.PI * 0.56),
-                        visorMat
-                    );
-                    browSlit.position.y = 1.23;
-                    headGroup.add(browSlit);
-
-                    const mitreBaseRing = new THREE.Mesh(new THREE.TorusGeometry(0.165, 0.024, 10, 24), accentMat);
+                    const mitreBaseRing = new THREE.Mesh(new THREE.TorusGeometry(0.165, 0.026, 10, 24), accentMat);
                     mitreBaseRing.rotation.x = Math.PI / 2;
-                    mitreBaseRing.position.y = 1.31;
+                    mitreBaseRing.position.y = 1.37;
                     headGroup.add(mitreBaseRing);
 
-                    const mitreCone = new THREE.Mesh(new THREE.ConeGeometry(0.185, 0.46, 16), primaryMat);
-                    mitreCone.position.y = 1.54;
-                    mitreCone.scale.set(1.0, 1.0, 0.82);
-                    mitreCone.castShadow = true;
-                    headGroup.add(mitreCone);
+                    // Twin Split Mitre Horns (Front Peak & Rear Peak separated by a deep cleft!)
+                    const frontMitrePeak = new THREE.Mesh(new THREE.ConeGeometry(0.16, 0.50, 14), primaryMat);
+                    frontMitrePeak.position.set(0, 1.62, 0.055);
+                    frontMitrePeak.rotation.x = 0.12;
+                    frontMitrePeak.scale.set(1.0, 1.0, 0.55);
+                    frontMitrePeak.castShadow = true;
+                    headGroup.add(frontMitrePeak);
 
-                    const mitreCrossV = new THREE.Mesh(new THREE.BoxGeometry(0.036, 0.30, 0.032), accentMat);
-                    mitreCrossV.position.set(0, 1.50, 0.125);
-                    mitreCrossV.rotation.x = -0.32;
-                    headGroup.add(mitreCrossV);
+                    const rearMitrePeak = new THREE.Mesh(new THREE.ConeGeometry(0.16, 0.50, 14), primaryMat);
+                    rearMitrePeak.position.set(0, 1.62, -0.055);
+                    rearMitrePeak.rotation.x = -0.12;
+                    rearMitrePeak.scale.set(1.0, 1.0, 0.55);
+                    rearMitrePeak.castShadow = true;
+                    headGroup.add(rearMitrePeak);
 
-                    const mitreCrossH = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.036, 0.032), accentMat);
-                    mitreCrossH.position.set(0, 1.52, 0.125);
-                    mitreCrossH.rotation.x = -0.32;
-                    headGroup.add(mitreCrossH);
+                    const mitreTopCrossV = new THREE.Mesh(new THREE.BoxGeometry(0.036, 0.18, 0.036), accentMat);
+                    mitreTopCrossV.position.set(0, 1.92, 0);
+                    headGroup.add(mitreTopCrossV);
+                    const mitreTopCrossH = new THREE.Mesh(new THREE.BoxGeometry(0.13, 0.036, 0.036), accentMat);
+                    mitreTopCrossH.position.set(0, 1.94, 0);
+                    headGroup.add(mitreTopCrossH);
 
                 } else if (type === 'q') {
-                    // =========================================================
-                    // 5. QUEEN: Winged Valkyrie Battle-Empress (Graceful & Fierce)
-                    //    - Flared Battle-Skirt & Armored Bodice, Twin Golden Valkyrie
-                    //      Back Wings, 10-Spiked Imperial Crown, Sun-Aegis Shield &
-                    //      Twin-Bladed Royal Glaive-Scepter!
-                    // =========================================================
-                    bodyGroup.add(createHighContrastWarriorPlinth(0.54, isWhite, primaryMat, accentMat));
+                    // =========================================================================
+                    // 5. QUEEN — "THE SERAPHIM VALKYRIE EMPRESS" (Wide 4-Winged Archangel Silhouette)
+                    //    - BACK VIEW: Unmistakable WIDE X-SHAPED FOUR GOLDEN SERAPHIM ARCHANGEL
+                    //      WINGS spanning 1.45 units across her back, a flared pleated royal
+                    //      train skirt, a High Peacock-Fan Collar behind her head, and a
+                    //      12-Spiked Imperial Starlight Coronet!
+                    // =========================================================================
+                    bodyGroup.add(createHighContrastWarriorPlinth(0.58, isWhite, primaryMat, accentMat, 'q'));
 
                     leftLegGroup.position.set(-0.11, 0.62, 0);
                     leftLegGroup.add(createArticulatedWarriorLeg(-1, 0.98, primaryMat, accentMat));
@@ -2014,265 +2078,270 @@
                     rightLegGroup.position.set(0.11, 0.62, 0);
                     rightLegGroup.add(createArticulatedWarriorLeg(1, 0.98, primaryMat, accentMat));
 
-                    // Flared Armored Battle-Gown Skirt & Sculpted Cuirass Bodice
-                    const battleSkirt = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.42, 0.68, 20), primaryMat);
+                    // Hourglass Flared Royal Gown Skirt & Bodice
+                    const battleSkirt = new THREE.Mesh(new THREE.CylinderGeometry(0.20, 0.46, 0.72, 24), primaryMat);
                     battleSkirt.position.y = 0.50;
                     battleSkirt.castShadow = true;
                     warriorGroup.add(battleSkirt);
 
-                    const waistCoronet = new THREE.Mesh(new THREE.TorusGeometry(0.23, 0.024, 10, 24), accentMat);
+                    // Sweeping Royal Gown Train extending behind her base
+                    const royalTrain = new THREE.Mesh(new THREE.ConeGeometry(0.36, 0.72, 14), capeMat);
+                    royalTrain.position.set(0, 0.42, -0.26);
+                    royalTrain.rotation.x = -0.38;
+                    royalTrain.castShadow = true;
+                    warriorGroup.add(royalTrain);
+
+                    const waistCoronet = new THREE.Mesh(new THREE.TorusGeometry(0.22, 0.028, 10, 24), accentMat);
                     waistCoronet.rotation.x = Math.PI / 2;
-                    waistCoronet.position.y = 0.82;
+                    waistCoronet.position.y = 0.85;
                     warriorGroup.add(waistCoronet);
 
-                    const bodice = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.21, 0.42, 18), primaryMat);
-                    bodice.position.y = 1.02;
+                    const bodice = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.20, 0.44, 20), primaryMat);
+                    bodice.position.y = 1.06;
                     bodice.castShadow = true;
                     warriorGroup.add(bodice);
 
-                    // Twin Golden Valkyrie Wing-Pinions rising behind her shoulders!
+                    // High Royal Medici Fan-Collar framing the back of her head
+                    const fanCollar = new THREE.Mesh(
+                        new THREE.CylinderGeometry(0.32, 0.18, 0.28, 18, 1, true, Math.PI * 0.55, Math.PI * 0.90),
+                        accentMat
+                    );
+                    fanCollar.material = accentMat;
+                    fanCollar.position.set(0, 1.34, -0.04);
+                    warriorGroup.add(fanCollar);
+
+                    // FOUR SWEEPING GOLDEN SERAPHIM ARCHANGEL WINGS (Upper & Lower Wing Pairs!)
                     const wingSides = [-1, 1];
                     for (let w = 0; w < wingSides.length; w++) {
                         const d = wingSides[w];
-                        const wingGroup = new THREE.Group();
-                        wingGroup.position.set(d * 0.16, 1.12, -0.18);
-                        wingGroup.rotation.z = d * -0.42;
-                        wingGroup.rotation.y = d * -0.25;
+
+                        // Upper Ascending Archangel Wing
+                        const upperWing = new THREE.Group();
+                        upperWing.position.set(d * 0.16, 1.18, -0.20);
+                        upperWing.rotation.z = d * -0.62;
+                        upperWing.rotation.y = d * -0.18;
+
+                        for (let f = 0; f < 5; f++) {
+                            const pinion = new THREE.Mesh(new THREE.BoxGeometry(0.065, 0.68 - f * 0.09, 0.028), accentMat);
+                            pinion.position.set(d * f * 0.07, 0.28 - f * 0.04, 0);
+                            pinion.rotation.z = d * -f * 0.11;
+                            pinion.castShadow = true;
+                            upperWing.add(pinion);
+                        }
+                        warriorGroup.add(upperWing);
+
+                        // Lower Descending Seraphim Wing
+                        const lowerWing = new THREE.Group();
+                        lowerWing.position.set(d * 0.16, 0.96, -0.20);
+                        lowerWing.rotation.z = d * -1.28;
+                        lowerWing.rotation.y = d * -0.12;
 
                         for (let f = 0; f < 4; f++) {
-                            const feather = new THREE.Mesh(new THREE.BoxGeometry(0.055, 0.48 - f * 0.07, 0.025), accentMat);
-                            feather.position.set(d * f * 0.055, 0.18 - f * 0.03, 0);
-                            feather.rotation.z = d * -f * 0.12;
-                            wingGroup.add(feather);
+                            const pinion = new THREE.Mesh(new THREE.BoxGeometry(0.055, 0.48 - f * 0.07, 0.025), primaryMat);
+                            pinion.position.set(d * f * 0.06, 0.20 - f * 0.03, -0.01);
+                            pinion.rotation.z = d * -f * 0.10;
+                            lowerWing.add(pinion);
                         }
-                        warriorGroup.add(wingGroup);
+                        warriorGroup.add(lowerWing);
                     }
 
                     // Left Arm with Radiant Round Sun-Aegis Buckler
-                    leftArmGroup.position.set(-0.30, 1.14, 0);
+                    leftArmGroup.position.set(-0.30, 1.16, 0);
                     leftArmGroup.add(createArticulatedShoulderArm(-1, 0.12, 0.26, primaryMat, accentMat));
                     const aegis = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.035, 20), accentMat);
                     aegis.rotation.x = Math.PI / 2;
                     aegis.position.set(-0.04, -0.18, 0.24);
                     leftArmGroup.add(aegis);
 
-                    // Right Arm with Royal Valkyrie Glaive / Flanged Scepter
-                    rightArmGroup.position.set(0.30, 1.14, 0);
+                    // Right Arm with Twin-Bladed Royal Valkyrie Glaive-Scepter
+                    rightArmGroup.position.set(0.30, 1.16, 0);
                     rightArmGroup.add(createArticulatedShoulderArm(1, 0.12, 0.26, primaryMat, accentMat));
 
                     weaponGroup.position.set(0.02, -0.18, 0.18);
-                    const glaiveShaft = new THREE.Mesh(new THREE.CylinderGeometry(0.024, 0.022, 1.56, 10), accentMat);
+                    const glaiveShaft = new THREE.Mesh(new THREE.CylinderGeometry(0.026, 0.024, 1.68, 10), accentMat);
                     weaponGroup.add(glaiveShaft);
 
-                    const glaiveCrown = new THREE.Mesh(new THREE.CylinderGeometry(0.095, 0.055, 0.24, 8), accentMat);
-                    glaiveCrown.position.y = 0.72;
+                    const glaiveCrown = new THREE.Mesh(new THREE.CylinderGeometry(0.10, 0.06, 0.24, 8), accentMat);
+                    glaiveCrown.position.y = 0.78;
                     weaponGroup.add(glaiveCrown);
 
-                    const glaiveBlade = new THREE.Mesh(new THREE.ConeGeometry(0.075, 0.38, 4), Materials.steelBlade);
-                    glaiveBlade.position.y = 0.98;
+                    const glaiveBlade = new THREE.Mesh(new THREE.ConeGeometry(0.085, 0.42, 4), Materials.steelBlade);
+                    glaiveBlade.position.y = 1.06;
                     glaiveBlade.rotation.y = Math.PI / 4;
                     glaiveBlade.scale.set(1.0, 1.0, 0.35);
                     weaponGroup.add(glaiveBlade);
 
-                    // Queen's Head & 10-Spiked Golden Imperial Coronet
+                    // Queen's Head & Flared 12-Spiked Imperial Starlight Coronet
                     const qHead = new THREE.Mesh(new THREE.CylinderGeometry(0.145, 0.145, 0.22, 18), primaryMat);
-                    qHead.position.y = 1.34;
-                    qHead.castShadow = true;
+                    qHead.position.y = 1.38;
                     headGroup.add(qHead);
 
-                    const qEyes = new THREE.Mesh(
-                        new THREE.CylinderGeometry(0.150, 0.150, 0.034, 16, 1, false, -Math.PI * 0.26, Math.PI * 0.52),
-                        visorMat
-                    );
-                    qEyes.position.y = 1.36;
-                    headGroup.add(qEyes);
-
-                    const crownBand = new THREE.Mesh(new THREE.CylinderGeometry(0.17, 0.155, 0.09, 20), accentMat);
-                    crownBand.position.y = 1.48;
+                    const crownBand = new THREE.Mesh(new THREE.CylinderGeometry(0.20, 0.155, 0.11, 20), accentMat);
+                    crownBand.position.y = 1.52;
                     headGroup.add(crownBand);
 
-                    for (let i = 0; i < 10; i++) {
-                        const a = (i / 10) * Math.PI * 2;
-                        const spikeH = (i % 2 === 0) ? 0.25 : 0.16;
+                    for (let i = 0; i < 12; i++) {
+                        const a = (i / 12) * Math.PI * 2;
+                        const spikeH = (i % 2 === 0) ? 0.28 : 0.18;
                         const spike = new THREE.Mesh(new THREE.ConeGeometry(0.028, spikeH, 8), accentMat);
-                        spike.position.set(Math.sin(a) * 0.16, 1.52 + spikeH * 0.5, Math.cos(a) * 0.16);
+                        spike.position.set(Math.sin(a) * 0.18, 1.56 + spikeH * 0.5, Math.cos(a) * 0.18);
+                        spike.rotation.z = -Math.sin(a) * 0.22;
+                        spike.rotation.x = Math.cos(a) * 0.22;
                         headGroup.add(spike);
                     }
 
                 } else if (type === 'k') {
-                    // =========================================================
-                    // 6. KING: Bearded Warrior-Monarch Seated on a Grand Gothic Throne!
-                    //    - Towering High-Backed Gothic Throne with Lion Armrests &
-                    //      Twin Golden Spires; Articulated Warrior-King who stands
-                    //      and steps off his throne during his Greatsword execution!
-                    // =========================================================
-                    mountGroup.add(createHighContrastWarriorPlinth(0.62, isWhite, primaryMat, accentMat));
+                    // =========================================================================
+                    // 6. KING — "THE IMMORTAL SOVEREIGN ON THE 3-SPIRE CATHEDRAL THRONE"
+                    //    - BACK VIEW: Unmistakably the largest & most monumental piece on the
+                    //      board! Features a wide 3-Spire Gothic Cathedral Throne Backrest,
+                    //      an engraved Golden Rose-Window on the rear of the throne, a long
+                    //      Royal Velvet Carpet Runner cascading down the rear steps, and
+                    //      Two Golden Guardian Lions flanking the armrests!
+                    // =========================================================================
+                    mountGroup.add(createHighContrastWarriorPlinth(0.72, isWhite, primaryMat, accentMat, 'k'));
 
                     // GRAND CARVED GOTHIC THRONE
-                    const throneSeat = new THREE.Mesh(new THREE.BoxGeometry(0.72, 0.36, 0.60), primaryMat);
-                    throneSeat.position.set(0, 0.34, -0.04);
+                    const throneSeat = new THREE.Mesh(new THREE.BoxGeometry(0.84, 0.38, 0.68), primaryMat);
+                    throneSeat.position.set(0, 0.36, -0.04);
                     throneSeat.castShadow = true;
                     mountGroup.add(throneSeat);
 
-                    const velvetCushion = new THREE.Mesh(new THREE.BoxGeometry(0.58, 0.08, 0.52), capeMat);
-                    velvetCushion.position.set(0, 0.54, -0.02);
-                    mountGroup.add(velvetCushion);
+                    // Royal Velvet Carpet Train cascading down the BACK of the Throne
+                    const rearRoyalBanner = new THREE.Mesh(new THREE.BoxGeometry(0.58, 1.62, 0.045), capeMat);
+                    rearRoyalBanner.position.set(0, 0.96, -0.40);
+                    mountGroup.add(rearRoyalBanner);
+
+                    // Sculpted Golden Rose-Window Emblem on the BACK of the Throne (Clear rear identifier!)
+                    const rearRoseRing = new THREE.Mesh(new THREE.TorusGeometry(0.24, 0.032, 10, 24), accentMat);
+                    rearRoseRing.position.set(0, 1.32, -0.43);
+                    mountGroup.add(rearRoseRing);
+
+                    const rearCrossV = new THREE.Mesh(new THREE.BoxGeometry(0.055, 0.48, 0.04), accentMat);
+                    rearCrossV.position.set(0, 1.32, -0.43);
+                    mountGroup.add(rearCrossV);
+                    const rearCrossH = new THREE.Mesh(new THREE.BoxGeometry(0.48, 0.055, 0.04), accentMat);
+                    rearCrossH.position.set(0, 1.32, -0.43);
+                    mountGroup.add(rearCrossH);
 
                     const armSides = [-1, 1];
                     for (let i = 0; i < armSides.length; i++) {
                         const d = armSides[i];
-                        const armrest = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.28, 0.62), primaryMat);
-                        armrest.position.set(d * 0.36, 0.62, -0.02);
+                        const armrest = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.30, 0.68), primaryMat);
+                        armrest.position.set(d * 0.42, 0.64, -0.02);
                         armrest.castShadow = true;
                         mountGroup.add(armrest);
 
-                        const armGoldCap = new THREE.Mesh(new THREE.BoxGeometry(0.135, 0.038, 0.64), accentMat);
-                        armGoldCap.position.set(d * 0.36, 0.77, -0.02);
+                        const armGoldCap = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.042, 0.70), accentMat);
+                        armGoldCap.position.set(d * 0.42, 0.80, -0.02);
                         mountGroup.add(armGoldCap);
 
-                        const lionPommel = new THREE.Mesh(new THREE.SphereGeometry(0.075, 12, 12), accentMat);
-                        lionPommel.position.set(d * 0.36, 0.82, 0.28);
-                        mountGroup.add(lionPommel);
+                        // Golden Guardian Lion Finials on the armrests
+                        const lionBody = new THREE.Mesh(new THREE.SphereGeometry(0.095, 12, 12), accentMat);
+                        lionBody.position.set(d * 0.42, 0.88, 0.30);
+                        mountGroup.add(lionBody);
                     }
 
-                    // Towering High-Backed Gothic Throne Backrest & Twin Golden Pinnacle Pillars
-                    const backrest = new THREE.Mesh(new THREE.BoxGeometry(0.74, 1.58, 0.12), primaryMat);
-                    backrest.position.set(0, 0.98, -0.30);
+                    // Towering High-Backed Gothic Throne Backrest & THREE Golden Cathedral Spires
+                    const backrest = new THREE.Mesh(new THREE.BoxGeometry(0.86, 1.68, 0.14), primaryMat);
+                    backrest.position.set(0, 1.02, -0.32);
                     backrest.castShadow = true;
                     mountGroup.add(backrest);
 
-                    const tapestry = new THREE.Mesh(new THREE.BoxGeometry(0.50, 1.32, 0.035), capeMat);
-                    tapestry.position.set(0, 1.00, -0.23);
+                    const tapestry = new THREE.Mesh(new THREE.BoxGeometry(0.56, 1.40, 0.035), capeMat);
+                    tapestry.position.set(0, 1.04, -0.24);
                     mountGroup.add(tapestry);
 
-                    const gableRoof = new THREE.Mesh(new THREE.ConeGeometry(0.52, 0.44, 4), primaryMat);
-                    gableRoof.position.set(0, 1.98, -0.30);
+                    const gableRoof = new THREE.Mesh(new THREE.ConeGeometry(0.58, 0.48, 4), primaryMat);
+                    gableRoof.position.set(0, 2.08, -0.32);
                     gableRoof.rotation.y = Math.PI / 4;
-                    gableRoof.scale.set(1.0, 1.0, 0.26);
+                    gableRoof.scale.set(1.0, 1.0, 0.28);
                     gableRoof.castShadow = true;
                     mountGroup.add(gableRoof);
 
-                    const gableCrossV = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.22, 0.04), accentMat);
-                    gableCrossV.position.set(0, 2.24, -0.30);
+                    // Center Towering Golden Cross Finial on the Throne Apex
+                    const gableCrossV = new THREE.Mesh(new THREE.BoxGeometry(0.055, 0.30, 0.055), accentMat);
+                    gableCrossV.position.set(0, 2.40, -0.32);
                     mountGroup.add(gableCrossV);
-                    const gableCrossH = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.04, 0.04), accentMat);
-                    gableCrossH.position.set(0, 2.26, -0.30);
+                    const gableCrossH = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.055, 0.055), accentMat);
+                    gableCrossH.position.set(0, 2.42, -0.32);
                     mountGroup.add(gableCrossH);
 
+                    // Twin Outer Golden Cathedral Spires flanking the Throne Backrest
                     for (let i = 0; i < armSides.length; i++) {
                         const d = armSides[i];
-                        const pillar = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.07, 1.66, 12), accentMat);
-                        pillar.position.set(d * 0.38, 1.00, -0.30);
+                        const pillar = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.08, 1.76, 12), accentMat);
+                        pillar.position.set(d * 0.44, 1.04, -0.32);
                         mountGroup.add(pillar);
 
-                        const spire = new THREE.Mesh(new THREE.ConeGeometry(0.08, 0.30, 8), accentMat);
-                        spire.position.set(d * 0.38, 1.98, -0.30);
+                        const spire = new THREE.Mesh(new THREE.ConeGeometry(0.095, 0.36, 8), accentMat);
+                        spire.position.set(d * 0.44, 2.08, -0.32);
                         mountGroup.add(spire);
                     }
 
-                    // SEATED BEARDED WARRIOR-KING (In warriorGroup so he can RISE from his throne!)
-                    leftLegGroup.position.set(-0.15, 0.62, 0.20);
-                    leftLegGroup.add(createArticulatedWarriorLeg(-1, 0.95, primaryMat, accentMat));
+                    // SEATED BEARDED WARRIOR-KING
+                    leftLegGroup.position.set(-0.16, 0.64, 0.22);
+                    leftLegGroup.add(createArticulatedWarriorLeg(-1, 0.98, primaryMat, accentMat));
 
-                    rightLegGroup.position.set(0.15, 0.62, 0.20);
-                    rightLegGroup.add(createArticulatedWarriorLeg(1, 0.95, primaryMat, accentMat));
+                    rightLegGroup.position.set(0.16, 0.64, 0.22);
+                    rightLegGroup.add(createArticulatedWarriorLeg(1, 0.98, primaryMat, accentMat));
 
-                    const kingTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.23, 0.60, 16), primaryMat);
-                    kingTorso.position.set(0, 0.88, 0.02);
+                    const kingTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.26, 0.24, 0.62, 16), primaryMat);
+                    kingTorso.position.set(0, 0.90, 0.02);
                     kingTorso.castShadow = true;
                     warriorGroup.add(kingTorso);
 
-                    const chestPlaque = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.28, 0.048), accentMat);
-                    chestPlaque.position.set(0, 0.94, 0.25);
-                    warriorGroup.add(chestPlaque);
+                    leftArmGroup.position.set(-0.32, 1.08, 0.04);
+                    leftArmGroup.add(createArticulatedShoulderArm(-1, 0.135, 0.28, primaryMat, accentMat));
 
-                    leftArmGroup.position.set(-0.30, 1.06, 0.04);
-                    leftArmGroup.add(createArticulatedShoulderArm(-1, 0.13, 0.27, primaryMat, accentMat));
-
-                    rightArmGroup.position.set(0.30, 1.06, 0.04);
-                    rightArmGroup.add(createArticulatedShoulderArm(1, 0.13, 0.27, primaryMat, accentMat));
+                    rightArmGroup.position.set(0.32, 1.08, 0.04);
+                    rightArmGroup.add(createArticulatedShoulderArm(1, 0.135, 0.28, primaryMat, accentMat));
 
                     // Two-Handed Royal Greatsword Planted Vertically Down the Front
                     rightArmGroup.remove(weaponGroup);
                     warriorGroup.add(weaponGroup);
-                    weaponGroup.position.set(0, 0.90, 0.36);
+                    weaponGroup.position.set(0, 0.92, 0.38);
 
-                    const hilt = new THREE.Mesh(new THREE.CylinderGeometry(0.030, 0.030, 0.25, 10), accentMat);
+                    const hilt = new THREE.Mesh(new THREE.CylinderGeometry(0.032, 0.032, 0.26, 10), accentMat);
                     weaponGroup.add(hilt);
 
-                    const pommel = new THREE.Mesh(new THREE.SphereGeometry(0.052, 12, 12), accentMat);
-                    pommel.position.set(0, 0.14, 0);
-                    weaponGroup.add(pommel);
-
-                    const guard = new THREE.Mesh(new THREE.BoxGeometry(0.36, 0.045, 0.058), accentMat);
+                    const guard = new THREE.Mesh(new THREE.BoxGeometry(0.38, 0.048, 0.060), accentMat);
                     guard.position.set(0, -0.12, 0);
                     weaponGroup.add(guard);
 
-                    const blade = new THREE.Mesh(new THREE.BoxGeometry(0.09, 0.68, 0.026), Materials.steelBlade);
-                    blade.position.set(0, -0.46, 0);
+                    const blade = new THREE.Mesh(new THREE.BoxGeometry(0.095, 0.70, 0.028), Materials.steelBlade);
+                    blade.position.set(0, -0.47, 0);
                     blade.castShadow = true;
                     weaponGroup.add(blade);
 
-                    const fuller = new THREE.Mesh(new THREE.BoxGeometry(0.026, 0.54, 0.032), accentMat);
-                    fuller.position.set(0, -0.42, 0);
-                    weaponGroup.add(fuller);
-
-                    const bladeTip = new THREE.Mesh(new THREE.ConeGeometry(0.064, 0.14, 4), Materials.steelBlade);
-                    bladeTip.position.set(0, -0.84, 0);
-                    bladeTip.rotation.x = Math.PI;
-                    bladeTip.rotation.y = Math.PI / 4;
-                    bladeTip.scale.set(1.0, 1.0, 0.35);
-                    weaponGroup.add(bladeTip);
-
-                    // Sculpted Royal Head with Full Beard, Mustache & High-Arched Golden Imperial Crown
-                    const kHead = new THREE.Mesh(new THREE.CylinderGeometry(0.17, 0.17, 0.25, 18), primaryMat);
-                    kHead.position.set(0, 1.32, 0.02);
-                    kHead.castShadow = true;
+                    // Sculpted Royal Head with Full Beard & High-Arched Golden Imperial Crown
+                    const kHead = new THREE.Mesh(new THREE.CylinderGeometry(0.175, 0.175, 0.26, 18), primaryMat);
+                    kHead.position.set(0, 1.34, 0.02);
                     headGroup.add(kHead);
 
-                    const kEyes = new THREE.Mesh(
-                        new THREE.CylinderGeometry(0.175, 0.175, 0.036, 16, 1, false, -Math.PI * 0.26, Math.PI * 0.52),
-                        visorMat
-                    );
-                    kEyes.position.set(0, 1.36, 0.02);
-                    headGroup.add(kEyes);
-
-                    const beard = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.16, 0.14), primaryMat);
-                    beard.position.set(0, 1.24, 0.15);
-                    beard.castShadow = true;
+                    const beard = new THREE.Mesh(new THREE.BoxGeometry(0.25, 0.17, 0.15), primaryMat);
+                    beard.position.set(0, 1.26, 0.15);
                     headGroup.add(beard);
 
-                    const mustache = new THREE.Mesh(new THREE.BoxGeometry(0.20, 0.038, 0.045), accentMat);
-                    mustache.position.set(0, 1.30, 0.205);
-                    headGroup.add(mustache);
-
-                    const kCrownBase = new THREE.Mesh(new THREE.CylinderGeometry(0.195, 0.18, 0.11, 20), accentMat);
-                    kCrownBase.position.set(0, 1.46, 0.02);
+                    const kCrownBase = new THREE.Mesh(new THREE.CylinderGeometry(0.20, 0.185, 0.12, 20), accentMat);
+                    kCrownBase.position.set(0, 1.48, 0.02);
                     headGroup.add(kCrownBase);
 
-                    const velvetCap = new THREE.Mesh(new THREE.SphereGeometry(0.17, 16, 12), capeMat);
-                    velvetCap.position.set(0, 1.49, 0.02);
-                    headGroup.add(velvetCap);
-
-                    const arch1 = new THREE.Mesh(new THREE.TorusGeometry(0.18, 0.026, 10, 24, Math.PI), accentMat);
-                    arch1.position.set(0, 1.48, 0.02);
+                    const arch1 = new THREE.Mesh(new THREE.TorusGeometry(0.19, 0.028, 10, 24, Math.PI), accentMat);
+                    arch1.position.set(0, 1.50, 0.02);
                     headGroup.add(arch1);
 
-                    const arch2 = new THREE.Mesh(new THREE.TorusGeometry(0.18, 0.026, 10, 24, Math.PI), accentMat);
-                    arch2.position.set(0, 1.48, 0.02);
+                    const arch2 = new THREE.Mesh(new THREE.TorusGeometry(0.19, 0.028, 10, 24, Math.PI), accentMat);
+                    arch2.position.set(0, 1.50, 0.02);
                     arch2.rotation.y = Math.PI / 2;
                     headGroup.add(arch2);
 
-                    const mondoOrb = new THREE.Mesh(new THREE.SphereGeometry(0.048, 12, 12), accentMat);
-                    mondoOrb.position.set(0, 1.69, 0.02);
-                    headGroup.add(mondoOrb);
-
-                    const crossV = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.19, 0.04), accentMat);
-                    crossV.position.set(0, 1.80, 0.02);
+                    const crossV = new THREE.Mesh(new THREE.BoxGeometry(0.042, 0.20, 0.042), accentMat);
+                    crossV.position.set(0, 1.82, 0.02);
                     headGroup.add(crossV);
 
-                    const crossH = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.04, 0.04), accentMat);
-                    crossH.position.set(0, 1.82, 0.02);
+                    const crossH = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.042, 0.042), accentMat);
+                    crossH.position.set(0, 1.84, 0.02);
                     headGroup.add(crossH);
                 }
 
@@ -2436,13 +2505,13 @@
                 }
 
                 if (ud.type === 'n') {
-                    ud.mountGroup.position.set(0, 0.15, -0.16);
+                    ud.mountGroup.position.set(0, 0.16, -0.18);
                     ud.mountGroup.rotation.set(0, 0, 0);
-                    ud.warriorGroup.position.set(0, 0.70, 0.12);
+                    ud.warriorGroup.position.set(0, 0.74, 0.12);
                     ud.warriorGroup.rotation.set(0, 0, 0);
-                    ud.leftArmGroup.position.set(-0.24, 0.34, 0.02);
+                    ud.leftArmGroup.position.set(-0.25, 0.36, 0.02);
                     ud.leftArmGroup.rotation.set(0, 0, 0);
-                    ud.rightArmGroup.position.set(0.24, 0.34, 0.02);
+                    ud.rightArmGroup.position.set(0.25, 0.36, 0.02);
                     ud.rightArmGroup.rotation.set(0, 0, 0);
                     ud.weaponGroup.position.set(0.04, -0.18, 0.18);
                     ud.weaponGroup.rotation.set(0, 0, 0);
@@ -2451,11 +2520,11 @@
                     ud.mountGroup.rotation.set(0, 0, 0);
                     ud.warriorGroup.position.set(0, 0, 0);
                     ud.warriorGroup.rotation.set(0, 0, 0);
-                    ud.leftArmGroup.position.set(-0.30, 1.06, 0.04);
+                    ud.leftArmGroup.position.set(-0.32, 1.08, 0.04);
                     ud.leftArmGroup.rotation.set(0, 0, 0);
-                    ud.rightArmGroup.position.set(0.30, 1.06, 0.04);
+                    ud.rightArmGroup.position.set(0.32, 1.08, 0.04);
                     ud.rightArmGroup.rotation.set(0, 0, 0);
-                    ud.weaponGroup.position.set(0, 0.90, 0.36);
+                    ud.weaponGroup.position.set(0, 0.92, 0.38);
                     ud.weaponGroup.rotation.set(0, 0, 0);
                 } else {
                     ud.mountGroup.position.set(0, 0, 0);
@@ -2466,6 +2535,7 @@
                     ud.rightArmGroup.rotation.set(0, 0, 0);
                     ud.weaponGroup.rotation.set(0, 0, 0);
                 }
+                mesh.scale.set(1, 1, 1);
             }
 
             function syncAllPiecesFromFEN() {
@@ -2502,11 +2572,11 @@
                 for (let i = 0; i < lastMoveSquares.length; i++) {
                     const lPos = squareToWorld(lastMoveSquares[i]);
                     const trail = new THREE.Mesh(
-                        new THREE.RingGeometry(0.56, 0.68, 28),
-                        new THREE.MeshBasicMaterial({ color: 0x38bdf8, side: THREE.DoubleSide, transparent: true, opacity: 0.52 })
+                        new THREE.RingGeometry(0.68, 0.84, 32),
+                        new THREE.MeshBasicMaterial({ color: 0x38bdf8, side: THREE.DoubleSide, transparent: true, opacity: 0.55 })
                     );
                     trail.rotation.x = -Math.PI / 2;
-                    trail.position.set(lPos.x, 0.016, lPos.z);
+                    trail.position.set(lPos.x, 0.018, lPos.z);
                     highlightsGroup.add(trail);
                 }
 
@@ -2519,11 +2589,11 @@
                             if (p && p.type === 'k' && p.color === turnColor) {
                                 const kPos = squareToWorld(FILES[f] + RANKS[r]);
                                 const checkHalo = new THREE.Mesh(
-                                    new THREE.RingGeometry(0.45, 0.72, 28),
-                                    new THREE.MeshBasicMaterial({ color: 0xef4444, side: THREE.DoubleSide, transparent: true, opacity: 0.92 })
+                                    new THREE.RingGeometry(0.60, 0.90, 32),
+                                    new THREE.MeshBasicMaterial({ color: 0xef4444, side: THREE.DoubleSide, transparent: true, opacity: 0.94 })
                                 );
                                 checkHalo.rotation.x = -Math.PI / 2;
-                                checkHalo.position.set(kPos.x, 0.026, kPos.z);
+                                checkHalo.position.set(kPos.x, 0.028, kPos.z);
                                 highlightsGroup.add(checkHalo);
                             }
                         }
@@ -2533,11 +2603,11 @@
                 if (selSq) {
                     const sPos = squareToWorld(selSq);
                     const selRing = new THREE.Mesh(
-                        new THREE.RingGeometry(0.56, 0.70, 28),
+                        new THREE.RingGeometry(0.70, 0.88, 32),
                         new THREE.MeshBasicMaterial({ color: 0xfbbf24, side: THREE.DoubleSide })
                     );
                     selRing.rotation.x = -Math.PI / 2;
-                    selRing.position.set(sPos.x, 0.024, sPos.z);
+                    selRing.position.set(sPos.x, 0.026, sPos.z);
                     highlightsGroup.add(selRing);
                 }
 
@@ -2549,18 +2619,18 @@
 
                         if (isCapture) {
                             const capRing = new THREE.Mesh(
-                                new THREE.RingGeometry(0.52, 0.70, 28),
-                                new THREE.MeshBasicMaterial({ color: 0xf43f5e, side: THREE.DoubleSide, transparent: true, opacity: 0.94 })
+                                new THREE.RingGeometry(0.68, 0.88, 32),
+                                new THREE.MeshBasicMaterial({ color: 0xf43f5e, side: THREE.DoubleSide, transparent: true, opacity: 0.95 })
                             );
                             capRing.rotation.x = -Math.PI / 2;
-                            capRing.position.set(mPos.x, 0.026, mPos.z);
+                            capRing.position.set(mPos.x, 0.028, mPos.z);
                             highlightsGroup.add(capRing);
                         } else {
                             const pad = new THREE.Mesh(
-                                new THREE.CylinderGeometry(0.24, 0.24, 0.045, 20),
-                                new THREE.MeshBasicMaterial({ color: 0x10b981, transparent: true, opacity: 0.86 })
+                                new THREE.CylinderGeometry(0.30, 0.30, 0.05, 24),
+                                new THREE.MeshBasicMaterial({ color: 0x10b981, transparent: true, opacity: 0.88 })
                             );
-                            pad.position.set(mPos.x, 0.022, mPos.z);
+                            pad.position.set(mPos.x, 0.024, mPos.z);
                             highlightsGroup.add(pad);
                         }
                     }
@@ -2570,14 +2640,14 @@
                     const hFrom = squareToWorld(hintMove.from);
                     const hTo = squareToWorld(hintMove.to);
                     const hMat = new THREE.MeshBasicMaterial({ color: 0xfde047, side: THREE.DoubleSide });
-                    const r1 = new THREE.Mesh(new THREE.RingGeometry(0.58, 0.72, 24), hMat);
+                    const r1 = new THREE.Mesh(new THREE.RingGeometry(0.72, 0.90, 28), hMat);
                     r1.rotation.x = -Math.PI / 2;
-                    r1.position.set(hFrom.x, 0.03, hFrom.z);
+                    r1.position.set(hFrom.x, 0.032, hFrom.z);
                     highlightsGroup.add(r1);
 
-                    const r2 = new THREE.Mesh(new THREE.RingGeometry(0.58, 0.72, 24), hMat);
+                    const r2 = new THREE.Mesh(new THREE.RingGeometry(0.72, 0.90, 28), hMat);
                     r2.rotation.x = -Math.PI / 2;
-                    r2.position.set(hTo.x, 0.03, hTo.z);
+                    r2.position.set(hTo.x, 0.032, hTo.z);
                     highlightsGroup.add(r2);
                 }
             }
@@ -3818,23 +3888,23 @@
                     if (btn) btn.classList.toggle('md-btn-active', presets[i] === preset);
                 }
 
-                camControl.desiredTarget.set(0, 0.65, 0);
+                camControl.desiredTarget.set(0, 0.75, 0);
                 if (preset === 'white') {
                     camControl.desiredTheta = 0;
-                    camControl.desiredPhi = 0.92;
-                    camControl.desiredRadius = 17.8;
+                    camControl.desiredPhi = 0.90;
+                    camControl.desiredRadius = 21.8;
                 } else if (preset === 'black') {
                     camControl.desiredTheta = Math.PI;
-                    camControl.desiredPhi = 0.92;
-                    camControl.desiredRadius = 17.8;
+                    camControl.desiredPhi = 0.90;
+                    camControl.desiredRadius = 21.8;
                 } else if (preset === 'top') {
                     camControl.desiredTheta = 0;
                     camControl.desiredPhi = 0.14;
-                    camControl.desiredRadius = 19.2;
+                    camControl.desiredRadius = 23.5;
                 } else if (preset === 'cathedral') {
                     camControl.desiredTheta = 0.68;
-                    camControl.desiredPhi = 1.04;
-                    camControl.desiredRadius = 24.5;
+                    camControl.desiredPhi = 1.02;
+                    camControl.desiredRadius = 28.5;
                 }
             }
 
@@ -3937,7 +4007,7 @@
 
                 domElement.addEventListener('wheel', function(e) {
                     e.preventDefault();
-                    camControl.desiredRadius = Math.max(6.5, Math.min(32.0, camControl.desiredRadius + e.deltaY * 0.012));
+                    camControl.desiredRadius = Math.max(7.5, Math.min(38.0, camControl.desiredRadius + e.deltaY * 0.014));
                 }, { passive: false });
 
                 domElement.addEventListener('touchstart', function(e) {
@@ -3970,7 +4040,7 @@
                         );
                         const delta = camControl.pinchDistance - dist;
                         camControl.pinchDistance = dist;
-                        camControl.desiredRadius = Math.max(6.5, Math.min(32.0, camControl.desiredRadius + delta * 0.035));
+                        camControl.desiredRadius = Math.max(7.5, Math.min(38.0, camControl.desiredRadius + delta * 0.040));
                     }
                 }, { passive: true });
 
@@ -4017,7 +4087,7 @@
             }
 
             /*******************************************************************
-             * 14. MAIN 60FPS RENDER, WARRIOR IDLE ANIMATION & SHARD PHYSICS LOOP
+             * 14. MAIN 60FPS RENDER & SHARD PHYSICS LOOP (NO UNNECESSARY IDLE SWAY)
              *******************************************************************/
             function animate() {
                 requestAnimationFrame(animate);
@@ -4049,29 +4119,7 @@
 
                 camera.lookAt(camControl.target);
 
-                // 2. Custom Warrior Idle Animations (Breathing, Warhorse Pawing, Tome Hover & Throne Poise)
-                const allSquares = Object.keys(pieceObjects);
-                for (let i = 0; i < allSquares.length; i++) {
-                    const pGroup = pieceObjects[allSquares[i]];
-                    if (!pGroup) continue;
-                    const ud = pGroup.userData;
-                    const phase = elapsed * 2.1 + ud.seed;
-
-                    if (!isAnimating) {
-                        ud.headGroup.rotation.y = Math.sin(phase * 0.7) * 0.075;
-                        ud.rightArmGroup.rotation.z = Math.cos(phase * 0.85) * 0.04;
-                        if (ud.type === 'n') {
-                            ud.mountGroup.rotation.x = Math.sin(phase * 1.1) * 0.03;
-                            if (ud.horseLegs && ud.horseLegs.length > 0) {
-                                ud.horseLegs[0].rotation.x = 0.14 + Math.sin(phase * 1.6) * 0.08;
-                            }
-                        } else if (ud.type === 'k') {
-                            ud.warriorGroup.position.y = Math.sin(phase) * 0.018;
-                        } else {
-                            ud.warriorGroup.position.y = Math.sin(phase) * 0.022;
-                        }
-                    }
-                }
+                // 2. Warriors stand completely still as regal stone statues until commanded to move or strike!
 
                 // 3. Active Move & Combat Sequence Tweens
                 for (let i = activeAnimations.length - 1; i >= 0; i--) {
