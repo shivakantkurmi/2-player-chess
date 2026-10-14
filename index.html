@@ -131,9 +131,8 @@
     <!-- 3D WebGL Viewport Container -->
     <div id="canvas-container" aria-label="3D Wizard's Chess Cathedral Viewport"></div>
 
-    <!-- SINGLE-LEVEL TOP MATERIAL DESIGN NAVIGATION BAR -->
     <header class="fixed top-0 left-0 right-0 z-20 p-2 sm:p-3 pointer-events-none">
-        <div class="max-w-[1480px] mx-auto flex flex-wrap items-center justify-between gap-2">
+        <div class="max-w-[1520px] mx-auto flex flex-wrap items-center justify-between gap-2">
 
             <!-- Brand Identity, Live Turn Badge & Online Room Pill -->
             <div class="md-surface rounded-2xl px-3 py-2 flex items-center gap-2.5 pointer-events-auto">
@@ -142,7 +141,7 @@
                 </div>
                 <div class="pr-2 border-r border-white/10 hidden sm:block">
                     <h1 class="font-gothic text-xs sm:text-sm font-bold tracking-wider text-amber-100 leading-tight">WIZARD'S CHESS</h1>
-                    <p class="text-[10px] text-slate-400 tracking-wide uppercase">Gothic Sanctuary 3D</p>
+                    <p class="text-[10px] text-slate-400 tracking-wide uppercase">Royal Warriors 3D</p>
                 </div>
 
                 <!-- Turn & Check Status Indicator -->
@@ -150,7 +149,7 @@
                     <span id="turn-orb" class="w-3 h-3 rounded-full bg-stone-100 shadow-[0_0_10px_#ffffff] transition-all duration-300 shrink-0"></span>
                     <div class="flex flex-col">
                         <span id="status-primary" class="text-xs font-semibold text-white leading-tight">White's Turn (Marble)</span>
-                        <span id="status-secondary" class="text-[10px] text-slate-300 leading-tight">Select a piece to command</span>
+                        <span id="status-secondary" class="text-[10px] text-slate-300 leading-tight">Select a warrior to command</span>
                     </div>
                 </div>
 
@@ -209,11 +208,11 @@
                 </button>
             </nav>
 
-            <!-- Right Utilities: Strike Demo, Hint, Undo, Audio, New Game -->
+            <!-- Right Utilities: Unique Kill Demo, Hint, Undo, Audio, New Game -->
             <div class="md-surface rounded-2xl p-1.5 flex items-center gap-1 pointer-events-auto">
-                <button id="btn-strike-demo" type="button" class="md-btn px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1 bg-rose-500/20 hover:bg-rose-500/30 text-rose-200 border border-rose-400/40" title="Execute or stage an immediate capture to see the 3D shatter animation">
-                    <span class="material-symbols-outlined text-rose-300">bolt</span>
-                    <span class="hidden sm:inline">Strike Demo</span>
+                <button id="btn-strike-demo" type="button" class="md-btn px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1 bg-rose-500/20 hover:bg-rose-500/30 text-rose-200 border border-rose-400/40" title="Execute an immediate capture or advance to witness each piece's unique kill animation">
+                    <span class="material-symbols-outlined text-rose-300">swords</span>
+                    <span class="hidden sm:inline">Kill Demo</span>
                 </button>
                 <button id="btn-hint" type="button" class="md-btn px-2.5 py-1.5 rounded-xl text-xs font-medium flex items-center gap-1 text-amber-200" title="Highlight Best Tactical Move">
                     <span class="material-symbols-outlined">lightbulb</span>
@@ -226,7 +225,7 @@
                 <button id="btn-audio" type="button" class="md-btn p-1.5 rounded-xl text-slate-200" title="Toggle Stone & Shatter Acoustics">
                     <span id="icon-audio" class="material-symbols-outlined">volume_up</span>
                 </button>
-                <button id="btn-new-game" type="button" class="md-btn px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1 bg-white/10 text-white border border-white/15" title="Reset 32 Pieces & 64 Blocks">
+                <button id="btn-new-game" type="button" class="md-btn px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1 bg-white/10 text-white border border-white/15" title="Reset 32 Warriors & 64 Blocks">
                     <span class="material-symbols-outlined">restart_alt</span>
                     <span class="hidden sm:inline">New Game</span>
                 </button>
@@ -279,17 +278,17 @@
                     </div>
 
                     <!-- Join Card (Black Obsidian) -->
-                    <div class="rounded-2xl p-4 bg-white/5 border border-purple-400/30 flex flex-col justify-between">
+                    <div class="rounded-2xl p-4 bg-white/5 border border-amber-400/30 flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between mb-2">
-                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-purple-500/20 text-purple-200">Challenger • Player 2</span>
-                                <span class="w-3.5 h-3.5 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]"></span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-amber-500/20 text-amber-200">Challenger • Player 2</span>
+                                <span class="w-3.5 h-3.5 rounded-full bg-neutral-900 border-2 border-amber-400 shadow-[0_0_8px_#f59e0b]"></span>
                             </div>
                             <h3 class="text-sm font-bold text-white mb-1">Command Black Obsidian</h3>
                             <p class="text-[11px] text-slate-300 mb-2">Enter the 6-character Room Code from the Host to join their board.</p>
-                            <input id="input-join-code" type="text" maxlength="6" placeholder="ENTER CODE (E.G. WZ7K9P)" class="font-mono-code w-full px-3 py-2 rounded-xl bg-black/50 border border-white/20 text-center text-sm font-bold tracking-widest text-amber-200 placeholder:text-slate-500 placeholder:font-sans placeholder:text-[10px] placeholder:tracking-normal focus:outline-none focus:border-purple-400 mb-2.5 uppercase" />
+                            <input id="input-join-code" type="text" maxlength="6" placeholder="ENTER CODE (E.G. WZ7K9P)" class="font-mono-code w-full px-3 py-2 rounded-xl bg-black/50 border border-white/20 text-center text-sm font-bold tracking-widest text-amber-200 placeholder:text-slate-500 placeholder:font-sans placeholder:text-[10px] placeholder:tracking-normal focus:outline-none focus:border-amber-400 mb-2.5 uppercase" />
                         </div>
-                        <button id="btn-join-online" type="button" class="md-btn w-full py-2.5 px-3 rounded-xl bg-purple-500/30 hover:bg-purple-500/40 border border-purple-400/60 text-purple-100 text-xs font-semibold flex items-center justify-center gap-1.5 shadow-lg">
+                        <button id="btn-join-online" type="button" class="md-btn w-full py-2.5 px-3 rounded-xl bg-amber-500/30 hover:bg-amber-500/40 border border-amber-400/60 text-amber-100 text-xs font-semibold flex items-center justify-center gap-1.5 shadow-lg">
                             <span class="material-symbols-outlined text-sm">login</span>
                             <span>Join Sanctuary</span>
                         </button>
@@ -299,7 +298,7 @@
                 <div class="rounded-2xl p-3 bg-slate-900/85 border border-white/10 flex items-start gap-2.5 text-[11px] text-slate-300">
                     <span class="material-symbols-outlined text-amber-300 text-base shrink-0 mt-0.5">verified_user</span>
                     <div>
-                        <strong class="text-white">Strict Piece Ownership & Synchronized Combat:</strong> Host commands <span class="text-amber-200 font-semibold">White Marble</span>; Challenger commands <span class="text-purple-300 font-semibold">Black Obsidian</span>. Neither player can move the other's pieces, and all 3D attacks and stone shatters sync live.
+                        <strong class="text-white">Strict Piece Ownership & Synchronized Combat:</strong> Host commands <span class="text-amber-200 font-semibold">White Marble</span>; Challenger commands <span class="text-amber-400 font-semibold">Black Obsidian</span>. Neither player can move the other's warriors, and all 6 unique 3D kill animations sync live.
                     </div>
                 </div>
             </div>
@@ -352,8 +351,8 @@
     <!-- PAWN PROMOTION DIALOG -->
     <div id="promotion-modal" class="fixed inset-0 z-40 bg-black/75 backdrop-blur-sm hidden items-center justify-center p-4">
         <div class="md-surface rounded-3xl p-6 max-w-sm w-full text-center border border-amber-400/40">
-            <h2 class="font-gothic text-lg font-bold text-amber-200 mb-1">Ascension of the Pawn</h2>
-            <p class="text-xs text-slate-300 mb-4">Choose the consecrated rank for your promoted stone piece:</p>
+            <h2 class="font-gothic text-lg font-bold text-amber-200 mb-1">Ascension of the Warrior</h2>
+            <p class="text-xs text-slate-300 mb-4">Choose the royal rank for your promoted warrior:</p>
             <div class="grid grid-cols-4 gap-2">
                 <button type="button" data-promote="q" class="promo-choice md-btn rounded-2xl p-3 bg-white/5 border border-white/10 flex flex-col items-center gap-1 text-amber-200">
                     <span class="text-2xl">♛</span>
@@ -397,18 +396,18 @@
 
     <!-- BOTTOM MATERIAL HUD: Shattered Piece Trays & Algebraic Move Ticker -->
     <footer class="fixed bottom-0 left-0 right-0 z-20 p-2 sm:p-3 pointer-events-none">
-        <div class="max-w-[1480px] mx-auto flex flex-col md:flex-row items-stretch md:items-center justify-between gap-2">
+        <div class="max-w-[1520px] mx-auto flex flex-col md:flex-row items-stretch md:items-center justify-between gap-2">
 
             <!-- Captured / Shattered Trays -->
             <div class="md-surface rounded-2xl px-3.5 py-2 flex items-center gap-4 pointer-events-auto">
                 <div class="flex items-center gap-2">
                     <span class="text-[10px] uppercase tracking-wider text-amber-200/90 font-semibold">Shattered Obsidian:</span>
-                    <div id="captured-by-white" class="flex items-center gap-0.5 text-sm min-h-[20px] min-w-[44px] text-purple-300"></div>
+                    <div id="captured-by-white" class="flex items-center gap-0.5 text-sm min-h-[20px] min-w-[44px] text-amber-300"></div>
                     <span id="adv-white" class="text-[10px] font-bold text-emerald-400"></span>
                 </div>
                 <div class="h-4 w-[1px] bg-white/10"></div>
                 <div class="flex items-center gap-2">
-                    <span class="text-[10px] uppercase tracking-wider text-purple-300/90 font-semibold">Shattered Marble:</span>
+                    <span class="text-[10px] uppercase tracking-wider text-slate-300 font-semibold">Shattered Marble:</span>
                     <div id="captured-by-black" class="flex items-center gap-0.5 text-sm min-h-[20px] min-w-[44px] text-stone-200"></div>
                     <span id="adv-black" class="text-[10px] font-bold text-emerald-400"></span>
                 </div>
@@ -421,7 +420,7 @@
                     <span class="font-semibold uppercase tracking-wider text-[10px]">Chronicle:</span>
                 </div>
                 <div id="move-history-strip" class="thin-scroll flex items-center gap-2 overflow-x-auto whitespace-nowrap text-xs text-slate-200 py-0.5 flex-1">
-                    <span class="text-slate-400 italic text-[11px]">Click any raised stone block or piece to command. Drag to orbit, scroll to zoom.</span>
+                    <span class="text-slate-400 italic text-[11px]">Click any warrior or stone block to command. Each rank unleashes a unique 3D kill animation on capture!</span>
                 </div>
                 <div class="hidden xl:flex items-center gap-1 text-[10px] text-slate-400 shrink-0 border-l border-white/10 pl-3">
                     <span class="material-symbols-outlined text-xs">3d_rotation</span>
@@ -437,7 +436,9 @@
 
             /*******************************************************************
              * 1. ZERO-DEPENDENCY WEB AUDIO PROCEDURAL SOUND SYNTHESIZER
-             *    Synthesizes stone slides, deep thuds, sword lunges & shatters
+             *    Includes unique rank combat acoustics: shield bash, warhorse
+             *    rear, celestial bishop choir beam, rook quake, queen whirlwind,
+             *    and king greatsword judgment cleave.
              *******************************************************************/
             let audioEnabled = true;
             let audioCtx = null;
@@ -473,7 +474,7 @@
                         const gain = ctx.createGain();
                         osc.type = 'triangle';
                         osc.frequency.setValueAtTime(520, now);
-                        osc.frequency.exponentialRampToValueAtTime(680, now + 0.08);
+                        osc.frequency.exponentialRampToValueAtTime(690, now + 0.08);
                         gain.gain.setValueAtTime(0.08, now);
                         gain.gain.exponentialRampToValueAtTime(0.001, now + 0.09);
                         osc.connect(gain);
@@ -520,18 +521,81 @@
                         osc.start(now);
                         osc.stop(now + 0.18);
 
+                    } else if (type === 'shield_bash') {
+                        const osc = ctx.createOscillator();
+                        const gain = ctx.createGain();
+                        osc.type = 'square';
+                        osc.frequency.setValueAtTime(180, now);
+                        osc.frequency.exponentialRampToValueAtTime(55, now + 0.14);
+                        gain.gain.setValueAtTime(0.22, now);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+                        osc.connect(gain);
+                        gain.connect(ctx.destination);
+                        osc.start(now);
+                        osc.stop(now + 0.16);
+
+                    } else if (type === 'horse_rear') {
+                        // Metallic cavalry charge & warhorse whinny harmonic sweep
+                        const freqs = [380, 570, 760];
+                        for (let i = 0; i < freqs.length; i++) {
+                            const osc = ctx.createOscillator();
+                            const gain = ctx.createGain();
+                            osc.type = 'sawtooth';
+                            osc.frequency.setValueAtTime(freqs[i], now);
+                            osc.frequency.linearRampToValueAtTime(freqs[i] * 1.35, now + 0.14);
+                            osc.frequency.exponentialRampToValueAtTime(freqs[i] * 0.72, now + 0.34);
+                            gain.gain.setValueAtTime(0.045, now);
+                            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+                            osc.connect(gain);
+                            gain.connect(ctx.destination);
+                            osc.start(now);
+                            osc.stop(now + 0.36);
+                        }
+
+                    } else if (type === 'celestial_beam') {
+                        // Resonant Gothic organ/choir chord for Bishop's heavenly smite
+                        const chord = [261.63, 329.63, 392.00, 523.25, 659.25];
+                        for (let i = 0; i < chord.length; i++) {
+                            const osc = ctx.createOscillator();
+                            const gain = ctx.createGain();
+                            osc.type = 'triangle';
+                            osc.frequency.setValueAtTime(chord[i], now);
+                            gain.gain.setValueAtTime(0.01, now);
+                            gain.gain.linearRampToValueAtTime(0.08, now + 0.08);
+                            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.55);
+                            osc.connect(gain);
+                            gain.connect(ctx.destination);
+                            osc.start(now);
+                            osc.stop(now + 0.56);
+                        }
+
+                    } else if (type === 'whirlwind') {
+                        // High-speed metallic blade whoosh for Queen's Valkyrie spin
+                        const osc = ctx.createOscillator();
+                        const gain = ctx.createGain();
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(280, now);
+                        osc.frequency.exponentialRampToValueAtTime(880, now + 0.18);
+                        osc.frequency.exponentialRampToValueAtTime(220, now + 0.36);
+                        gain.gain.setValueAtTime(0.14, now);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.37);
+                        osc.connect(gain);
+                        gain.connect(ctx.destination);
+                        osc.start(now);
+                        osc.stop(now + 0.38);
+
                     } else if (type === 'shatter') {
                         const boomOsc = ctx.createOscillator();
                         const boomGain = ctx.createGain();
                         boomOsc.type = 'sawtooth';
                         boomOsc.frequency.setValueAtTime(95, now);
-                        boomOsc.frequency.exponentialRampToValueAtTime(28, now + 0.45);
-                        boomGain.gain.setValueAtTime(0.32, now);
-                        boomGain.gain.exponentialRampToValueAtTime(0.001, now + 0.46);
+                        boomOsc.frequency.exponentialRampToValueAtTime(26, now + 0.48);
+                        boomGain.gain.setValueAtTime(0.34, now);
+                        boomGain.gain.exponentialRampToValueAtTime(0.001, now + 0.49);
                         boomOsc.connect(boomGain);
                         boomGain.connect(ctx.destination);
                         boomOsc.start(now);
-                        boomOsc.stop(now + 0.47);
+                        boomOsc.stop(now + 0.50);
 
                         const bufferSize = Math.floor(ctx.sampleRate * 0.55);
                         const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
@@ -604,11 +668,11 @@
                 toastTimeout = setTimeout(function() {
                     banner.classList.remove('opacity-100', 'translate-y-0');
                     banner.classList.add('opacity-0', '-translate-y-2');
-                }, 2900);
+                }, 3100);
             }
 
             /*******************************************************************
-             * 2. PROCEDURAL TEXTURES FOR MARBLE, OBSIDIAN & STAINED GLASS
+             * 2. PROCEDURAL TEXTURES FOR MARBLE, OBSIDIAN & CATHEDRAL MASONRY
              *******************************************************************/
             function createStoneTexture(type) {
                 const canvas = document.createElement('canvas');
@@ -618,47 +682,62 @@
 
                 if (type === 'marble') {
                     const grad = ctx.createLinearGradient(0, 0, 512, 512);
-                    grad.addColorStop(0, '#fcfaf5');
-                    grad.addColorStop(0.5, '#f2ece1');
-                    grad.addColorStop(1, '#e4dccb');
+                    grad.addColorStop(0, '#fbf7f0');
+                    grad.addColorStop(0.5, '#f3ede0');
+                    grad.addColorStop(1, '#e8decb');
                     ctx.fillStyle = grad;
                     ctx.fillRect(0, 0, 512, 512);
 
-                    for (let i = 0; i < 24; i++) {
+                    for (let i = 0; i < 18; i++) {
                         ctx.beginPath();
-                        ctx.strokeStyle = i % 4 === 0 ? 'rgba(212, 163, 75, 0.28)' : 'rgba(130, 122, 110, 0.22)';
-                        ctx.lineWidth = 1 + Math.random() * 2.5;
-                        let x = Math.random() * 512;
-                        let y = Math.random() * 512;
-                        ctx.moveTo(x, y);
-                        for (let s = 0; s < 10; s++) {
-                            x += (Math.random() - 0.45) * 85;
-                            y += (Math.random() - 0.45) * 85;
-                            ctx.lineTo(x, y);
-                        }
-                        ctx.stroke();
-                    }
-                } else {
-                    const grad = ctx.createLinearGradient(0, 0, 512, 512);
-                    grad.addColorStop(0, '#2a3142');
-                    grad.addColorStop(0.5, '#1e2433');
-                    grad.addColorStop(1, '#141824');
-                    ctx.fillStyle = grad;
-                    ctx.fillRect(0, 0, 512, 512);
-
-                    for (let i = 0; i < 24; i++) {
-                        ctx.beginPath();
-                        ctx.strokeStyle = i % 3 === 0 ? 'rgba(168, 85, 247, 0.38)' : 'rgba(148, 163, 184, 0.16)';
-                        ctx.lineWidth = 1 + Math.random() * 2.2;
+                        ctx.strokeStyle = i % 4 === 0 ? 'rgba(212, 163, 75, 0.18)' : 'rgba(160, 148, 132, 0.14)';
+                        ctx.lineWidth = 1 + Math.random() * 2.0;
                         let x = Math.random() * 512;
                         let y = Math.random() * 512;
                         ctx.moveTo(x, y);
                         for (let s = 0; s < 8; s++) {
-                            x += (Math.random() - 0.5) * 75;
-                            y += (Math.random() - 0.5) * 75;
+                            x += (Math.random() - 0.45) * 80;
+                            y += (Math.random() - 0.45) * 80;
                             ctx.lineTo(x, y);
                         }
                         ctx.stroke();
+                    }
+                } else if (type === 'obsidian') {
+                    const grad = ctx.createLinearGradient(0, 0, 512, 512);
+                    grad.addColorStop(0, '#1c1f26');
+                    grad.addColorStop(0.5, '#12141a');
+                    grad.addColorStop(1, '#0b0d12');
+                    ctx.fillStyle = grad;
+                    ctx.fillRect(0, 0, 512, 512);
+
+                    for (let i = 0; i < 16; i++) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = i % 3 === 0 ? 'rgba(212, 175, 55, 0.16)' : 'rgba(255, 255, 255, 0.06)';
+                        ctx.lineWidth = 1 + Math.random() * 1.8;
+                        let x = Math.random() * 512;
+                        let y = Math.random() * 512;
+                        ctx.moveTo(x, y);
+                        for (let s = 0; s < 7; s++) {
+                            x += (Math.random() - 0.5) * 70;
+                            y += (Math.random() - 0.5) * 70;
+                            ctx.lineTo(x, y);
+                        }
+                        ctx.stroke();
+                    }
+                } else if (type === 'sandstone') {
+                    ctx.fillStyle = '#5c4632';
+                    ctx.fillRect(0, 0, 512, 512);
+                    const rows = 8;
+                    const rowH = 512 / rows;
+                    for (let r = 0; r < rows; r++) {
+                        const cols = 4;
+                        const colW = 512 / cols;
+                        const offset = (r % 2) * (colW / 2);
+                        for (let c = -1; c <= cols; c++) {
+                            const shade = 75 + Math.floor(Math.random() * 22);
+                            ctx.fillStyle = 'rgb(' + (shade + 22) + ',' + (shade + 4) + ',' + (shade - 14) + ')';
+                            ctx.fillRect(c * colW + offset + 2, r * rowH + 2, colW - 4, rowH - 4);
+                        }
                     }
                 }
 
@@ -689,13 +768,13 @@
                 const ctx = canvas.getContext('2d');
 
                 const grad = ctx.createLinearGradient(0, 0, 0, 512);
-                grad.addColorStop(0, hueShift ? '#fbbf24' : '#a855f7');
-                grad.addColorStop(0.5, '#3b82f6');
-                grad.addColorStop(1, '#1e1b4b');
+                grad.addColorStop(0, hueShift ? '#fbbf24' : '#f59e0b');
+                grad.addColorStop(0.5, '#d97706');
+                grad.addColorStop(1, '#451a03');
                 ctx.fillStyle = grad;
                 ctx.fillRect(0, 0, 256, 512);
 
-                ctx.strokeStyle = '#090b10';
+                ctx.strokeStyle = '#1c130c';
                 ctx.lineWidth = 7;
                 for (let y = 64; y < 512; y += 64) {
                     ctx.beginPath();
@@ -716,6 +795,7 @@
             let activeAnimations = [];
             let activeShards = [];
             let shockwaves = [];
+            let activeBeams = [];
             let braziers = [];
             let emberSystem = null;
             let screenShakePower = 0;
@@ -724,14 +804,14 @@
 
             // Built-in Spherical Camera Orbit State
             const camControl = {
-                target: new THREE.Vector3(0, 0.3, 0),
-                desiredTarget: new THREE.Vector3(0, 0.3, 0),
+                target: new THREE.Vector3(0, 0.45, 0),
+                desiredTarget: new THREE.Vector3(0, 0.45, 0),
                 theta: 0,              // Horizontal azimuth angle (radians)
-                phi: 0.92,             // Polar angle from Y axis (radians)
-                radius: 13.8,          // Distance from target
+                phi: 0.94,             // Polar angle from Y axis (radians)
+                radius: 13.6,          // Distance from target
                 desiredTheta: 0,
-                desiredPhi: 0.92,
-                desiredRadius: 13.8,
+                desiredPhi: 0.94,
+                desiredRadius: 13.6,
                 isDragging: false,
                 isPanning: false,
                 pointerDownPos: { x: 0, y: 0 },
@@ -761,10 +841,10 @@
             function initThreeScene() {
                 const container = document.getElementById('canvas-container');
                 scene = new THREE.Scene();
-                scene.background = new THREE.Color(0x0b0e17);
-                scene.fog = new THREE.FogExp2(0x0b0e17, 0.014);
+                scene.background = new THREE.Color(0x1e1712);
+                scene.fog = new THREE.FogExp2(0x1e1712, 0.011);
 
-                camera = new THREE.PerspectiveCamera(42, window.innerWidth / window.innerHeight, 0.1, 160);
+                camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 160);
                 clock = new THREE.Clock();
 
                 renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
@@ -773,70 +853,85 @@
                 renderer.shadowMap.enabled = true;
                 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
                 renderer.toneMapping = THREE.ACESFilmicToneMapping;
-                renderer.toneMappingExposure = 1.25;
+                renderer.toneMappingExposure = 1.26;
                 container.appendChild(renderer.domElement);
 
-                // Initialize Shared Textures & Materials
                 const marbleTex = createStoneTexture('marble');
                 const obsidianTex = createStoneTexture('obsidian');
+                const sandstoneTex = createStoneTexture('sandstone');
+                sandstoneTex.repeat.set(3, 3);
+
+                const sharedGoldAccent = new THREE.MeshStandardMaterial({
+                    color: 0xd4a017,
+                    roughness: 0.20,
+                    metalness: 0.88,
+                    emissive: 0x3b2504,
+                    emissiveIntensity: 0.18
+                });
+
+                const steelBladeMat = new THREE.MeshStandardMaterial({
+                    color: 0xe2e8f0,
+                    roughness: 0.16,
+                    metalness: 0.92
+                });
+
+                const darkVisorMat = new THREE.MeshStandardMaterial({
+                    color: 0x090a0f,
+                    roughness: 0.4,
+                    metalness: 0.25
+                });
+
+                const royalVelvetMat = new THREE.MeshStandardMaterial({
+                    color: 0x6b141a,
+                    roughness: 0.65,
+                    metalness: 0.12
+                });
 
                 Materials = {
                     marbleBlock: new THREE.MeshStandardMaterial({
                         map: marbleTex,
-                        color: 0xf7f2e7,
-                        roughness: 0.22,
-                        metalness: 0.06
+                        color: 0xf5efe2,
+                        roughness: 0.18,
+                        metalness: 0.05
                     }),
                     obsidianBlock: new THREE.MeshStandardMaterial({
                         map: obsidianTex,
-                        color: 0x2d3548,
-                        roughness: 0.26,
-                        metalness: 0.22
+                        color: 0x14171f,
+                        roughness: 0.15,
+                        metalness: 0.25
                     }),
                     marblePiece: new THREE.MeshStandardMaterial({
                         map: marbleTex,
-                        color: 0xfaf6ed,
-                        roughness: 0.18,
-                        metalness: 0.08,
-                        emissive: 0x241d10,
-                        emissiveIntensity: 0.12
+                        color: 0xf7f0e2,
+                        roughness: 0.20,
+                        metalness: 0.06,
+                        emissive: 0x1c160c,
+                        emissiveIntensity: 0.08
                     }),
-                    marbleAccent: new THREE.MeshStandardMaterial({
-                        color: 0xeab308,
-                        roughness: 0.22,
-                        metalness: 0.85,
-                        emissive: 0x422006,
-                        emissiveIntensity: 0.22
-                    }),
+                    marbleAccent: sharedGoldAccent,
                     obsidianPiece: new THREE.MeshStandardMaterial({
                         map: obsidianTex,
-                        color: 0x1e2436,
+                        color: 0x15171e,
                         roughness: 0.16,
-                        metalness: 0.42,
-                        emissive: 0x2e1065,
-                        emissiveIntensity: 0.22
+                        metalness: 0.35,
+                        emissive: 0x090a0f,
+                        emissiveIntensity: 0.10
                     }),
-                    obsidianAccent: new THREE.MeshStandardMaterial({
-                        color: 0xa855f7,
-                        roughness: 0.2,
-                        metalness: 0.78,
-                        emissive: 0x581c87,
-                        emissiveIntensity: 0.45
-                    }),
-                    brassTrim: new THREE.MeshStandardMaterial({
-                        color: 0xb48a3e,
-                        roughness: 0.28,
-                        metalness: 0.82
-                    }),
+                    obsidianAccent: sharedGoldAccent,
+                    steelBlade: steelBladeMat,
+                    darkVisor: darkVisorMat,
+                    royalVelvet: royalVelvetMat,
+                    brassTrim: sharedGoldAccent,
                     darkBasalt: new THREE.MeshStandardMaterial({
-                        color: 0x151922,
-                        roughness: 0.7,
-                        metalness: 0.15
+                        color: 0x121318,
+                        roughness: 0.35,
+                        metalness: 0.25
                     }),
                     cathedralStone: new THREE.MeshStandardMaterial({
-                        color: 0x1a202c,
-                        roughness: 0.85,
-                        metalness: 0.08
+                        map: sandstoneTex,
+                        color: 0x8c6d50,
+                        roughness: 0.78,
+                        metalness: 0.06
                     })
                 };
 
@@ -862,39 +957,38 @@
             }
 
             function setupCathedralLighting() {
-                const hemiLight = new THREE.HemisphereLight(0xfef3c7, 0x1e1b4b, 0.85);
+                const hemiLight = new THREE.HemisphereLight(0xffe8b8, 0x2e2118, 0.95);
                 hemiLight.position.set(0, 28, 0);
                 scene.add(hemiLight);
 
-                // Main overhead sanctuary spotlight for crisp 64-block contrast & shadows
-                const mainSpot = new THREE.SpotLight(0xfffbeb, 1.6);
-                mainSpot.position.set(5, 21, 7);
-                mainSpot.angle = Math.PI / 3.2;
+                // Warm overhead cathedral spotlight for sharp armor highlights & shadows
+                const mainSpot = new THREE.SpotLight(0xfff5d6, 1.78);
+                mainSpot.position.set(6, 21, 8);
+                mainSpot.angle = Math.PI / 3.0;
                 mainSpot.penumbra = 0.55;
-                mainSpot.decay = 1.2;
-                mainSpot.distance = 60;
+                mainSpot.decay = 1.1;
+                mainSpot.distance = 65;
                 mainSpot.castShadow = true;
                 mainSpot.shadow.mapSize.width = 2048;
                 mainSpot.shadow.mapSize.height = 2048;
                 mainSpot.shadow.bias = -0.0005;
                 scene.add(mainSpot);
 
-                // Warm Gold Rim Light from White Marble Side
-                const warmLight = new THREE.DirectionalLight(0xf59e0b, 0.55);
-                warmLight.position.set(-12, 12, 14);
+                // Warm Golden Sunlight from South-West
+                const warmLight = new THREE.DirectionalLight(0xfbbf24, 0.68);
+                warmLight.position.set(-14, 14, 14);
                 scene.add(warmLight);
 
-                // Arcane Amethyst Rim Light from Black Obsidian Side
-                const coolLight = new THREE.DirectionalLight(0xa855f7, 0.65);
-                coolLight.position.set(12, 12, -14);
-                scene.add(coolLight);
+                // Rim Fill Light from North-East so Black Obsidian warrior armor gleams
+                const rimLight = new THREE.DirectionalLight(0xfde68a, 0.58);
+                rimLight.position.set(14, 13, -14);
+                scene.add(rimLight);
             }
 
             /*******************************************************************
              * 4. GOTHIC CATHEDRAL ARCHITECTURE & FLAMING BRAZIERS
              *******************************************************************/
             function buildGothicCathedral() {
-                // Octagonal Stepped Sanctuary Dais
                 const dais1 = new THREE.Mesh(new THREE.CylinderGeometry(8.6, 9.2, 0.45, 8), Materials.cathedralStone);
                 dais1.position.y = -0.58;
                 dais1.rotation.y = Math.PI / 8;
@@ -913,7 +1007,6 @@
                 floor.receiveShadow = true;
                 cathedralGroup.add(floor);
 
-                // 12 Clustered Gothic Piers & Ribbed Ceiling Vaults
                 const pierCount = 12;
                 const radius = 21;
                 for (let i = 0; i < pierCount; i++) {
@@ -933,7 +1026,6 @@
                     plinth.position.y = 0.7;
                     pierGroup.add(plinth);
 
-                    // Vault rib arching toward the central ceiling boss
                     const ribCurve = new THREE.QuadraticBezierCurve3(
                         new THREE.Vector3(0, 19, 0),
                         new THREE.Vector3(0, 26, radius * 0.48),
@@ -943,7 +1035,6 @@
                     const ribMesh = new THREE.Mesh(ribGeo, Materials.cathedralStone);
                     pierGroup.add(ribMesh);
 
-                    // Illuminated Lancet Stained-Glass Windows between alternate piers
                     if (i % 2 === 0) {
                         const glassTex = createStainedGlassTexture(i % 4 === 0);
                         const glassMat = new THREE.MeshBasicMaterial({
@@ -960,12 +1051,10 @@
                     cathedralGroup.add(pierGroup);
                 }
 
-                // Central Golden Ceiling Boss Stone
                 const boss = new THREE.Mesh(new THREE.OctahedronGeometry(1.1, 1), Materials.brassTrim);
                 boss.position.set(0, 27.2, 0);
                 cathedralGroup.add(boss);
 
-                // 4 Corner Flaming Sanctuary Braziers
                 const corners = [
                     [-6.7, -6.7], [6.7, -6.7], [-6.7, 6.7], [6.7, 6.7]
                 ];
@@ -984,12 +1073,12 @@
                     bowl.position.y = 1.4;
                     bGroup.add(bowl);
 
-                    const flameMat = new THREE.MeshBasicMaterial({ color: i < 2 ? 0xa855f7 : 0xf59e0b });
+                    const flameMat = new THREE.MeshBasicMaterial({ color: 0xf59e0b });
                     const flame = new THREE.Mesh(new THREE.ConeGeometry(0.38, 0.9, 7), flameMat);
                     flame.position.y = 1.9;
                     bGroup.add(flame);
 
-                    const fLight = new THREE.PointLight(i < 2 ? 0xa855f7 : 0xf59e0b, 0.9, 13);
+                    const fLight = new THREE.PointLight(0xf59e0b, 0.9, 13);
                     fLight.position.y = 2.2;
                     bGroup.add(fLight);
 
@@ -997,7 +1086,6 @@
                     braziers.push({ flame: flame, light: fLight, phase: i * 1.7 });
                 }
 
-                // Floating Sanctuary Ember Particles
                 const emberCount = 120;
                 const emberGeo = new THREE.BufferGeometry();
                 const posArr = new Float32Array(emberCount * 3);
@@ -1023,13 +1111,11 @@
             function build64BlockChessboard() {
                 squareBlocks = {};
 
-                // Recessed Metallic Brass Grout Bed underneath the 64 blocks
                 const brassBed = new THREE.Mesh(new THREE.BoxGeometry(9.66, 0.16, 9.66), Materials.brassTrim);
                 brassBed.position.y = -0.22;
                 brassBed.receiveShadow = true;
                 boardGroup.add(brassBed);
 
-                // Dark Basalt Outer Sanctuary Border Frame
                 const outerFrame = new THREE.Mesh(new THREE.BoxGeometry(10.8, 0.34, 10.8), Materials.darkBasalt);
                 outerFrame.position.y = -0.32;
                 outerFrame.receiveShadow = true;
@@ -1038,7 +1124,7 @@
                 const blockGeo = new THREE.BoxGeometry(BLOCK_SIZE, BLOCK_HEIGHT, BLOCK_SIZE);
                 const edgesGeo = new THREE.EdgesGeometry(blockGeo);
                 const lightEdgeMat = new THREE.LineBasicMaterial({ color: 0xd4af37, transparent: true, opacity: 0.48 });
-                const darkEdgeMat = new THREE.LineBasicMaterial({ color: 0x818cf8, transparent: true, opacity: 0.42 });
+                const darkEdgeMat = new THREE.LineBasicMaterial({ color: 0x94a3b8, transparent: true, opacity: 0.38 });
 
                 for (let r = 0; r < 8; r++) {
                     for (let f = 0; f < 8; f++) {
@@ -1053,7 +1139,6 @@
                         blockMesh.castShadow = true;
                         blockMesh.userData = { square: sqName, isLight: isLight };
 
-                        // Subtle metallic edge outline on every 3D block so blocks never blend together
                         const wireframe = new THREE.LineSegments(edgesGeo, isLight ? lightEdgeMat : darkEdgeMat);
                         blockMesh.add(wireframe);
 
@@ -1062,7 +1147,6 @@
                     }
                 }
 
-                // Engraved Coordinate Plaques (A-H and 1-8) along all 4 borders
                 const labelGeo = new THREE.PlaneGeometry(0.42, 0.42);
                 for (let i = 0; i < 8; i++) {
                     const fileTex = createCoordinateTexture(FILES[i].toUpperCase());
@@ -1095,19 +1179,155 @@
             }
 
             /*******************************************************************
-             * 6. ACCURATE 3D STAUNTON + WIZARD'S CHESS PIECE SCULPTOR (r128)
-             *    Uses THREE.LatheGeometry pedestals + hierarchical details
+             * 6. REAL-LIFE 3D WARRIOR CHESS FIGURINES (r128)
+             *    - PAWN: Armored Vanguard Foot-Soldier with Kettle Helm, Shield & Broadsword
+             *    - KNIGHT: Crusader Warrior Sitting Astride a 4-Legged Armored Warhorse
+             *    - BISHOP: Battle-Inquisitor Prelate with Cross Mitre, Holy Tome & Spiral Crosier
+             *    - ROOK: Colossal Siege Juggernaut Warrior with Battlement Pauldrons & War Maul
+             *    - QUEEN: Valkyrie Warrior-Monarch with Spiked Crown, Aegis Shield & Flanged Mace
+             *    - KING: Bearded Warrior-Monarch Seated upon a Grand High-Backed Gothic Throne
              *******************************************************************/
             function createLathePedestal(profilePoints, segments, mat) {
                 const pts = [];
                 for (let i = 0; i < profilePoints.length; i++) {
                     pts.push(new THREE.Vector2(profilePoints[i][0], profilePoints[i][1]));
                 }
-                const geo = new THREE.LatheGeometry(pts, segments || 24);
+                const geo = new THREE.LatheGeometry(pts, segments || 20);
                 const mesh = new THREE.Mesh(geo, mat);
                 mesh.castShadow = true;
                 mesh.receiveShadow = true;
                 return mesh;
+            }
+
+            function addGoldTrimRings(parentGroup, radiiAndHeights, accentMat) {
+                for (let i = 0; i < radiiAndHeights.length; i++) {
+                    const r = radiiAndHeights[i][0];
+                    const y = radiiAndHeights[i][1];
+                    const tube = radiiAndHeights[i][2] || 0.020;
+                    const ring = new THREE.Mesh(new THREE.TorusGeometry(r, tube, 10, 26), accentMat);
+                    ring.rotation.x = Math.PI / 2;
+                    ring.position.y = y;
+                    parentGroup.add(ring);
+                }
+            }
+
+            function addPleatedGoldStrips(parentGroup, count, radiusBottom, radiusTop, yBottom, yTop, accentMat) {
+                const h = yTop - yBottom;
+                const yMid = (yBottom + yTop) * 0.5;
+                const rMid = (radiusBottom + radiusTop) * 0.5;
+                const tilt = Math.atan2(radiusBottom - radiusTop, h);
+                for (let i = 0; i < count; i++) {
+                    const angle = (i / count) * Math.PI * 2;
+                    const strip = new THREE.Mesh(new THREE.BoxGeometry(0.022, h, 0.022), accentMat);
+                    strip.position.set(Math.sin(angle) * rMid, yMid, Math.cos(angle) * rMid);
+                    strip.rotation.y = angle;
+                    strip.rotation.x = -tilt;
+                    parentGroup.add(strip);
+                }
+            }
+
+            function createArticulatedShoulderArm(side, radius, armLen, primaryMat, accentMat) {
+                // side: -1 (right side of piece in local +Z forward), +1 (left side)
+                const shoulderPivot = new THREE.Group();
+
+                const pauldron = new THREE.Mesh(new THREE.SphereGeometry(radius, 16, 14), primaryMat);
+                pauldron.scale.set(1.08, 0.96, 1.08);
+                pauldron.castShadow = true;
+                shoulderPivot.add(pauldron);
+
+                const cuff = new THREE.Mesh(new THREE.TorusGeometry(radius * 0.96, 0.018, 8, 20), accentMat);
+                cuff.rotation.y = Math.PI / 2;
+                cuff.rotation.x = side * 0.35;
+                shoulderPivot.add(cuff);
+
+                const upperArm = new THREE.Mesh(new THREE.CylinderGeometry(radius * 0.50, radius * 0.46, armLen, 12), primaryMat);
+                upperArm.position.set(side * 0.02, -armLen * 0.55, 0.05);
+                upperArm.rotation.x = -0.32;
+                upperArm.castShadow = true;
+                shoulderPivot.add(upperArm);
+
+                const gauntletCuff = new THREE.Mesh(new THREE.TorusGeometry(radius * 0.48, 0.015, 8, 16), accentMat);
+                gauntletCuff.position.set(side * 0.02, -armLen * 0.92, 0.09);
+                gauntletCuff.rotation.x = Math.PI / 2 - 0.32;
+                shoulderPivot.add(gauntletCuff);
+
+                const fist = new THREE.Mesh(new THREE.SphereGeometry(radius * 0.44, 10, 10), accentMat);
+                fist.position.set(side * 0.02, -armLen * 1.02, 0.12);
+                shoulderPivot.add(fist);
+
+                return shoulderPivot;
+            }
+
+            function createCrossHeaterShield(primaryMat, accentMat, scale) {
+                const s = scale || 1.0;
+                const shieldGroup = new THREE.Group();
+
+                const plate = new THREE.Mesh(new THREE.BoxGeometry(0.28 * s, 0.40 * s, 0.036 * s), primaryMat);
+                plate.castShadow = true;
+                shieldGroup.add(plate);
+
+                const bottomWedge = new THREE.Mesh(new THREE.ConeGeometry(0.195 * s, 0.18 * s, 4), primaryMat);
+                bottomWedge.rotation.x = Math.PI;
+                bottomWedge.rotation.y = Math.PI / 4;
+                bottomWedge.scale.set(1.0, 1.0, 0.20);
+                bottomWedge.position.y = -0.27 * s;
+                bottomWedge.castShadow = true;
+                shieldGroup.add(bottomWedge);
+
+                const topBorder = new THREE.Mesh(new THREE.BoxGeometry(0.30 * s, 0.028 * s, 0.044 * s), accentMat);
+                topBorder.position.y = 0.20 * s;
+                shieldGroup.add(topBorder);
+
+                const leftBorder = new THREE.Mesh(new THREE.BoxGeometry(0.026 * s, 0.42 * s, 0.044 * s), accentMat);
+                leftBorder.position.x = -0.14 * s;
+                shieldGroup.add(leftBorder);
+
+                const rightBorder = new THREE.Mesh(new THREE.BoxGeometry(0.026 * s, 0.42 * s, 0.044 * s), accentMat);
+                rightBorder.position.x = 0.14 * s;
+                shieldGroup.add(rightBorder);
+
+                const crossV = new THREE.Mesh(new THREE.BoxGeometry(0.042 * s, 0.46 * s, 0.048 * s), accentMat);
+                crossV.position.y = -0.03 * s;
+                shieldGroup.add(crossV);
+
+                const crossH = new THREE.Mesh(new THREE.BoxGeometry(0.28 * s, 0.042 * s, 0.048 * s), accentMat);
+                crossH.position.y = 0.04 * s;
+                shieldGroup.add(crossH);
+
+                return shieldGroup;
+            }
+
+            function createUprightSteelSword(accentMat, bladeLength) {
+                const len = bladeLength || 0.72;
+                const swordGroup = new THREE.Group();
+
+                const pommel = new THREE.Mesh(new THREE.SphereGeometry(0.038, 10, 10), accentMat);
+                swordGroup.add(pommel);
+
+                const grip = new THREE.Mesh(new THREE.CylinderGeometry(0.022, 0.022, 0.14, 10), accentMat);
+                grip.position.y = 0.08;
+                swordGroup.add(grip);
+
+                const guard = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.032, 0.045), accentMat);
+                guard.position.y = 0.16;
+                swordGroup.add(guard);
+
+                const blade = new THREE.Mesh(new THREE.BoxGeometry(0.064, len, 0.018), Materials.steelBlade);
+                blade.position.y = 0.16 + len * 0.5;
+                blade.castShadow = true;
+                swordGroup.add(blade);
+
+                const fuller = new THREE.Mesh(new THREE.BoxGeometry(0.018, len * 0.82, 0.022), accentMat);
+                fuller.position.y = 0.16 + len * 0.44;
+                swordGroup.add(fuller);
+
+                const tip = new THREE.Mesh(new THREE.ConeGeometry(0.046, 0.14, 4), Materials.steelBlade);
+                tip.position.y = 0.16 + len + 0.07;
+                tip.rotation.y = Math.PI / 4;
+                tip.scale.set(1.0, 1.0, 0.35);
+                swordGroup.add(tip);
+
+                return swordGroup;
             }
 
             function buildChessPieceMesh(type, color) {
@@ -1117,256 +1337,760 @@
 
                 const root = new THREE.Group();
                 const bodyGroup = new THREE.Group();
+                const mountGroup = new THREE.Group();   // Warhorse (Knight) or Grand Throne (King)
+                const warriorGroup = new THREE.Group(); // Articulated Warrior body
                 const headGroup = new THREE.Group();
+                const leftArmGroup = new THREE.Group();
+                const rightArmGroup = new THREE.Group();
                 const weaponGroup = new THREE.Group();
 
                 root.add(bodyGroup);
-                bodyGroup.add(headGroup);
-                bodyGroup.add(weaponGroup);
-
-                // Base Rune Ring
-                const baseRing = new THREE.Mesh(new THREE.TorusGeometry(0.41, 0.025, 10, 28), accentMat);
-                baseRing.rotation.x = Math.PI / 2;
-                baseRing.position.y = 0.03;
-                bodyGroup.add(baseRing);
+                bodyGroup.add(mountGroup);
+                bodyGroup.add(warriorGroup);
+                warriorGroup.add(headGroup);
+                warriorGroup.add(leftArmGroup);
+                warriorGroup.add(rightArmGroup);
+                rightArmGroup.add(weaponGroup);
 
                 if (type === 'p') {
-                    // PAWN: Turned Staunton pedestal + visored helm + heater shield + halberd poleaxe
+                    // =========================================================
+                    // 1. PAWN: Armored Kettle-Helm Foot Soldier Warrior
+                    // =========================================================
                     const ped = createLathePedestal([
-                        [0.0, 0.0], [0.40, 0.0], [0.40, 0.08], [0.34, 0.14],
-                        [0.24, 0.25], [0.18, 0.52], [0.25, 0.60], [0.22, 0.78], [0.0, 0.80]
-                    ], 22, primaryMat);
-                    bodyGroup.add(ped);
+                        [0.0, 0.0], [0.42, 0.0], [0.42, 0.07], [0.36, 0.12],
+                        [0.32, 0.18], [0.25, 0.44], [0.22, 0.48], [0.24, 0.72], [0.0, 0.74]
+                    ], 16, primaryMat);
+                    warriorGroup.add(ped);
 
-                    const helm = new THREE.Mesh(new THREE.SphereGeometry(0.20, 18, 16), primaryMat);
-                    helm.position.y = 0.96;
-                    helm.castShadow = true;
-                    headGroup.add(helm);
+                    addGoldTrimRings(warriorGroup, [
+                        [0.42, 0.03, 0.022],
+                        [0.35, 0.13, 0.018],
+                        [0.23, 0.46, 0.020],
+                        [0.24, 0.72, 0.020]
+                    ], accentMat);
 
-                    const visor = new THREE.Mesh(new THREE.CylinderGeometry(0.21, 0.21, 0.08, 14, 1, false, -Math.PI * 0.35, Math.PI * 0.7), accentMat);
-                    visor.position.y = 0.95;
-                    headGroup.add(visor);
+                    addPleatedGoldStrips(warriorGroup, 6, 0.32, 0.24, 0.15, 0.45, accentMat);
+                    addPleatedGoldStrips(warriorGroup, 4, 0.23, 0.24, 0.47, 0.71, accentMat);
 
-                    // Left-side Heater Shield
-                    const shield = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.38, 0.26), accentMat);
-                    shield.position.set(-0.24, 0.62, 0.14);
-                    shield.rotation.y = 0.35;
-                    shield.castShadow = true;
-                    weaponGroup.add(shield);
+                    // Articulated Left Arm (holds Cross Heater Shield)
+                    leftArmGroup.position.set(-0.26, 0.66, 0);
+                    const lArmMesh = createArticulatedShoulderArm(-1, 0.115, 0.24, primaryMat, accentMat);
+                    leftArmGroup.add(lArmMesh);
 
-                    // Right-hand Poleaxe
-                    const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.022, 0.022, 1.05, 8), accentMat);
-                    shaft.position.set(0.24, 0.64, 0.12);
-                    weaponGroup.add(shaft);
+                    const shield = createCrossHeaterShield(primaryMat, accentMat, 0.92);
+                    shield.position.set(0.08, -0.18, 0.26);
+                    shield.rotation.y = -0.25;
+                    leftArmGroup.add(shield);
 
-                    const axeBlade = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.22, 0.18), primaryMat);
-                    axeBlade.position.set(0.24, 1.04, 0.20);
-                    weaponGroup.add(axeBlade);
+                    // Articulated Right Arm (wields Upright Steel Broadsword)
+                    rightArmGroup.position.set(0.26, 0.66, 0);
+                    const rArmMesh = createArticulatedShoulderArm(1, 0.115, 0.24, primaryMat, accentMat);
+                    rightArmGroup.add(rArmMesh);
 
-                } else if (type === 'r') {
-                    // ROOK: Turned base + tapered siege tower + 6 distinct battlements (merlons)
-                    const tower = createLathePedestal([
-                        [0.0, 0.0], [0.45, 0.0], [0.45, 0.10], [0.39, 0.18],
-                        [0.32, 0.35], [0.28, 0.92], [0.36, 1.02], [0.36, 1.18],
-                        [0.24, 1.18], [0.24, 1.05], [0.0, 1.05]
-                    ], 24, primaryMat);
-                    bodyGroup.add(tower);
+                    weaponGroup.position.set(0.02, -0.22, 0.20);
+                    const sword = createUprightSteelSword(accentMat, 0.68);
+                    weaponGroup.add(sword);
 
-                    const corbelRing = new THREE.Mesh(new THREE.TorusGeometry(0.35, 0.03, 8, 24), accentMat);
-                    corbelRing.rotation.x = Math.PI / 2;
-                    corbelRing.position.y = 1.0;
-                    bodyGroup.add(corbelRing);
+                    // Head & Wide-Brimmed Kettle Hat (Chapel-de-Fer)
+                    const headCyl = new THREE.Mesh(new THREE.CylinderGeometry(0.145, 0.145, 0.19, 16), primaryMat);
+                    headCyl.position.y = 0.82;
+                    headCyl.castShadow = true;
+                    headGroup.add(headCyl);
 
-                    // 6 Raised Crenellation Merlons
-                    for (let i = 0; i < 6; i++) {
-                        const angle = (i / 6) * Math.PI * 2;
-                        const merlon = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.20, 0.12), primaryMat);
-                        merlon.position.set(Math.cos(angle) * 0.30, 1.26, Math.sin(angle) * 0.30);
-                        merlon.rotation.y = -angle;
-                        merlon.castShadow = true;
-                        headGroup.add(merlon);
-                    }
+                    const visorSlit = new THREE.Mesh(
+                        new THREE.CylinderGeometry(0.150, 0.150, 0.042, 16, 1, false, -Math.PI * 0.32, Math.PI * 0.64),
+                        Materials.darkVisor
+                    );
+                    visorSlit.position.y = 0.83;
+                    headGroup.add(visorSlit);
 
-                    // 4 Gothic Arrow Slits
-                    for (let i = 0; i < 4; i++) {
-                        const a = (i / 4) * Math.PI * 2;
-                        const slit = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.32, 0.05), accentMat);
-                        slit.position.set(Math.cos(a) * 0.29, 0.64, Math.sin(a) * 0.29);
-                        slit.rotation.y = -a;
-                        bodyGroup.add(slit);
-                    }
+                    const brim = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.31, 0.055, 24), primaryMat);
+                    brim.position.y = 0.91;
+                    brim.castShadow = true;
+                    headGroup.add(brim);
+
+                    const brimGoldEdge = new THREE.Mesh(new THREE.TorusGeometry(0.31, 0.018, 10, 28), accentMat);
+                    brimGoldEdge.rotation.x = Math.PI / 2;
+                    brimGoldEdge.position.y = 0.89;
+                    headGroup.add(brimGoldEdge);
+
+                    const kettleDome = new THREE.Mesh(
+                        new THREE.SphereGeometry(0.175, 20, 14, 0, Math.PI * 2, 0, Math.PI * 0.55),
+                        primaryMat
+                    );
+                    kettleDome.position.y = 0.92;
+                    kettleDome.castShadow = true;
+                    headGroup.add(kettleDome);
+
+                    const topRidge = new THREE.Mesh(new THREE.BoxGeometry(0.036, 0.09, 0.22), accentMat);
+                    topRidge.position.set(0, 1.07, 0);
+                    headGroup.add(topRidge);
 
                 } else if (type === 'n') {
-                    // KNIGHT: Turned pedestal + arched warhorse neck + equine head, muzzle, ears & mane
-                    const ped = createLathePedestal([
-                        [0.0, 0.0], [0.44, 0.0], [0.44, 0.10], [0.37, 0.18],
-                        [0.28, 0.34], [0.31, 0.42], [0.0, 0.44]
-                    ], 24, primaryMat);
-                    bodyGroup.add(ped);
+                    // =========================================================
+                    // 2. KNIGHT: Real Warrior Sitting Astride an Armored Warhorse!
+                    // =========================================================
+                    // Low Cavalry Plinth Base
+                    const basePlinth = createLathePedestal([
+                        [0.0, 0.0], [0.46, 0.0], [0.46, 0.08], [0.40, 0.14], [0.0, 0.15]
+                    ], 18, primaryMat);
+                    bodyGroup.add(basePlinth);
+                    addGoldTrimRings(bodyGroup, [[0.46, 0.03, 0.022], [0.40, 0.14, 0.018]], accentMat);
 
-                    const lowerNeck = new THREE.Mesh(new THREE.CylinderGeometry(0.21, 0.27, 0.48, 14), primaryMat);
-                    lowerNeck.position.set(0, 0.62, -0.03);
-                    lowerNeck.rotation.x = 0.24;
-                    lowerNeck.castShadow = true;
-                    bodyGroup.add(lowerNeck);
+                    // Pivot mountGroup at rear hooves so the Warhorse + Rider can REAR UP on hind legs!
+                    mountGroup.position.set(0, 0.15, -0.14);
 
-                    const upperNeck = new THREE.Mesh(new THREE.CylinderGeometry(0.17, 0.22, 0.42, 14), primaryMat);
-                    upperNeck.position.set(0, 0.94, 0.05);
-                    upperNeck.rotation.x = 0.42;
-                    upperNeck.castShadow = true;
-                    headGroup.add(upperNeck);
+                    // Warhorse Body & Barding Armor (relative to mountGroup pivot)
+                    const horseBarrel = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.19, 0.56, 16), primaryMat);
+                    horseBarrel.rotation.x = Math.PI / 2;
+                    horseBarrel.position.set(0, 0.44, 0.14);
+                    horseBarrel.castShadow = true;
+                    mountGroup.add(horseBarrel);
 
-                    const cranium = new THREE.Mesh(new THREE.SphereGeometry(0.19, 14, 14), primaryMat);
-                    cranium.position.set(0, 1.16, 0.12);
-                    headGroup.add(cranium);
+                    const horseChest = new THREE.Mesh(new THREE.SphereGeometry(0.195, 16, 14), primaryMat);
+                    horseChest.position.set(0, 0.46, 0.38);
+                    horseChest.castShadow = true;
+                    mountGroup.add(horseChest);
 
-                    const muzzle = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.16, 0.38, 12), primaryMat);
-                    muzzle.position.set(0, 1.07, 0.30);
-                    muzzle.rotation.x = Math.PI * 0.38;
-                    muzzle.castShadow = true;
-                    headGroup.add(muzzle);
+                    const horseHaunch = new THREE.Mesh(new THREE.SphereGeometry(0.185, 16, 14), primaryMat);
+                    horseHaunch.position.set(0, 0.44, -0.10);
+                    horseHaunch.castShadow = true;
+                    mountGroup.add(horseHaunch);
 
-                    // Forehead Chanfron Armor Plate
-                    const chanfron = new THREE.Mesh(new THREE.ConeGeometry(0.07, 0.28, 4), accentMat);
-                    chanfron.position.set(0, 1.18, 0.29);
-                    chanfron.rotation.x = Math.PI * 0.36;
-                    headGroup.add(chanfron);
+                    // Golden Horse Caparison / Barding Skirt & Breastplate Trim
+                    const bardingSkirt = new THREE.Mesh(new THREE.BoxGeometry(0.41, 0.24, 0.54), primaryMat);
+                    bardingSkirt.position.set(0, 0.34, 0.14);
+                    bardingSkirt.castShadow = true;
+                    mountGroup.add(bardingSkirt);
 
-                    // Alert Pointed Ears
-                    const earGeo = new THREE.ConeGeometry(0.05, 0.20, 6);
-                    const leftEar = new THREE.Mesh(earGeo, primaryMat);
-                    leftEar.position.set(-0.10, 1.35, 0.06);
-                    leftEar.rotation.z = 0.18;
-                    headGroup.add(leftEar);
+                    const bardingGoldTrim = new THREE.Mesh(new THREE.BoxGeometry(0.43, 0.032, 0.58), accentMat);
+                    bardingGoldTrim.position.set(0, 0.23, 0.14);
+                    mountGroup.add(bardingGoldTrim);
 
-                    const rightEar = new THREE.Mesh(earGeo, primaryMat);
-                    rightEar.position.set(0.10, 1.35, 0.06);
-                    rightEar.rotation.z = -0.18;
-                    headGroup.add(rightEar);
+                    // 4 Sculpted Warhorse Legs with Golden Hooves
+                    const legCoords = [
+                        [-0.13, 0.36, 0.12],  // Front Right
+                        [0.13, 0.36, 0.12],   // Front Left
+                        [-0.13, -0.08, -0.05], // Rear Right
+                        [0.13, -0.08, -0.05]   // Rear Left
+                    ];
+                    for (let i = 0; i < legCoords.length; i++) {
+                        const lx = legCoords[i][0];
+                        const lz = legCoords[i][1];
+                        const tilt = legCoords[i][2];
 
-                    // 6-Plate Flowing Mane along spine
-                    for (let m = 0; m < 6; m++) {
-                        const manePlate = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.14, 0.14), accentMat);
-                        manePlate.position.set(0, 0.56 + m * 0.12, -0.15 + m * 0.025);
-                        manePlate.rotation.x = 0.35;
-                        headGroup.add(manePlate);
+                        const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.058, 0.045, 0.42, 10), primaryMat);
+                        leg.position.set(lx, 0.20, lz);
+                        leg.rotation.x = tilt;
+                        leg.castShadow = true;
+                        mountGroup.add(leg);
+
+                        const hoof = new THREE.Mesh(new THREE.CylinderGeometry(0.052, 0.062, 0.06, 10), accentMat);
+                        hoof.position.set(lx, 0.02, lz + Math.sin(tilt) * 0.18);
+                        mountGroup.add(hoof);
+                    }
+
+                    // Warhorse Arched Neck, Sculpted Head, Golden Chanfron Armor, Ears & Flowing Mane
+                    const horseNeck = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.17, 0.44, 14), primaryMat);
+                    horseNeck.position.set(0, 0.68, 0.44);
+                    horseNeck.rotation.x = 0.46;
+                    horseNeck.castShadow = true;
+                    mountGroup.add(horseNeck);
+
+                    const horseSkull = new THREE.Mesh(new THREE.SphereGeometry(0.13, 14, 12), primaryMat);
+                    horseSkull.position.set(0, 0.86, 0.54);
+                    mountGroup.add(horseSkull);
+
+                    const horseMuzzle = new THREE.Mesh(new THREE.ConeGeometry(0.115, 0.34, 12), primaryMat);
+                    horseMuzzle.position.set(0, 0.80, 0.70);
+                    horseMuzzle.rotation.x = Math.PI * 0.42;
+                    horseMuzzle.castShadow = true;
+                    mountGroup.add(horseMuzzle);
+
+                    // Golden Forehead Chanfron Plate & Rein Straps
+                    const chanfron = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.30, 0.035), accentMat);
+                    chanfron.position.set(0, 0.86, 0.68);
+                    chanfron.rotation.x = -0.35;
+                    mountGroup.add(chanfron);
+
+                    const noseSpike = new THREE.Mesh(new THREE.ConeGeometry(0.026, 0.09, 6), accentMat);
+                    noseSpike.position.set(0, 0.86, 0.73);
+                    noseSpike.rotation.x = Math.PI * 0.42;
+                    mountGroup.add(noseSpike);
+
+                    // Alert Horse Ears & Segmented Golden Mane
+                    const earL = new THREE.Mesh(new THREE.ConeGeometry(0.032, 0.11, 6), primaryMat);
+                    earL.position.set(0.065, 0.99, 0.50);
+                    mountGroup.add(earL);
+                    const earR = new THREE.Mesh(new THREE.ConeGeometry(0.032, 0.11, 6), primaryMat);
+                    earR.position.set(-0.065, 0.99, 0.50);
+                    mountGroup.add(earR);
+
+                    for (let m = 0; m < 5; m++) {
+                        const manePlate = new THREE.Mesh(new THREE.BoxGeometry(0.035, 0.09, 0.08), accentMat);
+                        manePlate.position.set(0, 0.58 + m * 0.08, 0.31 + m * 0.035);
+                        manePlate.rotation.x = 0.45;
+                        mountGroup.add(manePlate);
+                    }
+
+                    // Royal Saddle & Stirrups
+                    const saddle = new THREE.Mesh(new THREE.BoxGeometry(0.32, 0.08, 0.30), Materials.royalVelvet);
+                    saddle.position.set(0, 0.62, 0.12);
+                    mountGroup.add(saddle);
+
+                    // CRUSADER WARRIOR SITTING ASTRIDE THE HORSE (Attached to mountGroup so rider moves with horse!)
+                    mountGroup.remove(warriorGroup);
+                    mountGroup.add(warriorGroup);
+                    warriorGroup.position.set(0, 0.64, 0.10);
+
+                    // Rider's Armored Legs & Greaves straddling the horse's flanks + Golden Stirrups
+                    const riderSides = [-1, 1];
+                    for (let s = 0; s < riderSides.length; s++) {
+                        const dir = riderSides[s];
+                        const thigh = new THREE.Mesh(new THREE.CylinderGeometry(0.062, 0.055, 0.24, 10), primaryMat);
+                        thigh.position.set(dir * 0.20, -0.08, 0.06);
+                        thigh.rotation.z = dir * 0.35;
+                        thigh.rotation.x = 0.45;
+                        thigh.castShadow = true;
+                        warriorGroup.add(thigh);
+
+                        const kneeCop = new THREE.Mesh(new THREE.SphereGeometry(0.058, 10, 10), accentMat);
+                        kneeCop.position.set(dir * 0.23, -0.17, 0.14);
+                        warriorGroup.add(kneeCop);
+
+                        const greave = new THREE.Mesh(new THREE.CylinderGeometry(0.052, 0.044, 0.24, 10), primaryMat);
+                        greave.position.set(dir * 0.23, -0.29, 0.10);
+                        greave.rotation.x = -0.15;
+                        greave.castShadow = true;
+                        warriorGroup.add(greave);
+
+                        const sabaton = new THREE.Mesh(new THREE.BoxGeometry(0.065, 0.045, 0.13), accentMat);
+                        sabaton.position.set(dir * 0.23, -0.40, 0.14);
+                        warriorGroup.add(sabaton);
+                    }
+
+                    // Mounted Warrior Cuirass Torso & Gold Belt
+                    const riderTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.175, 0.15, 0.38, 14), primaryMat);
+                    riderTorso.position.set(0, 0.19, 0);
+                    riderTorso.castShadow = true;
+                    warriorGroup.add(riderTorso);
+
+                    const riderBelt = new THREE.Mesh(new THREE.TorusGeometry(0.155, 0.020, 8, 20), accentMat);
+                    riderBelt.rotation.x = Math.PI / 2;
+                    riderBelt.position.y = 0.04;
+                    warriorGroup.add(riderBelt);
+
+                    const chestCrossV = new THREE.Mesh(new THREE.BoxGeometry(0.032, 0.24, 0.03), accentMat);
+                    chestCrossV.position.set(0, 0.20, 0.165);
+                    warriorGroup.add(chestCrossV);
+
+                    // Rider's Articulated Left Arm with Crusader Heater Shield
+                    leftArmGroup.position.set(-0.22, 0.32, 0.02);
+                    leftArmGroup.add(createArticulatedShoulderArm(-1, 0.10, 0.22, primaryMat, accentMat));
+                    const kShield = createCrossHeaterShield(primaryMat, accentMat, 0.85);
+                    kShield.position.set(-0.04, -0.14, 0.18);
+                    kShield.rotation.y = -0.55;
+                    leftArmGroup.add(kShield);
+
+                    // Rider's Articulated Right Arm with Long Cavalry Broadsword / Lance
+                    rightArmGroup.position.set(0.22, 0.32, 0.02);
+                    rightArmGroup.add(createArticulatedShoulderArm(1, 0.10, 0.22, primaryMat, accentMat));
+                    weaponGroup.position.set(0.04, -0.18, 0.16);
+                    const cavalrySword = createUprightSteelSword(accentMat, 0.82);
+                    weaponGroup.add(cavalrySword);
+
+                    // Rider's Crusader Great Helm with Gold Cross Faceplate & Plume
+                    const greatHelm = new THREE.Mesh(new THREE.CylinderGeometry(0.135, 0.145, 0.25, 16), primaryMat);
+                    greatHelm.position.set(0, 0.52, 0);
+                    greatHelm.castShadow = true;
+                    headGroup.add(greatHelm);
+
+                    const kVisor = new THREE.Mesh(
+                        new THREE.CylinderGeometry(0.148, 0.148, 0.036, 16, 1, false, -Math.PI * 0.30, Math.PI * 0.60),
+                        Materials.darkVisor
+                    );
+                    kVisor.position.set(0, 0.54, 0);
+                    headGroup.add(kVisor);
+
+                    const hCrossV = new THREE.Mesh(new THREE.BoxGeometry(0.030, 0.21, 0.03), accentMat);
+                    hCrossV.position.set(0, 0.52, 0.14);
+                    headGroup.add(hCrossV);
+
+                    const hCrossH = new THREE.Mesh(new THREE.BoxGeometry(0.17, 0.030, 0.03), accentMat);
+                    hCrossH.position.set(0, 0.54, 0.14);
+                    headGroup.add(hCrossH);
+
+                    const helmCrownRing = new THREE.Mesh(new THREE.TorusGeometry(0.135, 0.016, 8, 20), accentMat);
+                    helmCrownRing.rotation.x = Math.PI / 2;
+                    helmCrownRing.position.set(0, 0.64, 0);
+                    headGroup.add(helmCrownRing);
+
+                } else if (type === 'r') {
+                    // =========================================================
+                    // 3. ROOK: Colossal Castle Siege Juggernaut Warrior
+                    // =========================================================
+                    const towerBase = createLathePedestal([
+                        [0.0, 0.0], [0.46, 0.0], [0.46, 0.09], [0.40, 0.16],
+                        [0.35, 0.24], [0.31, 0.68], [0.34, 0.96], [0.0, 0.98]
+                    ], 16, primaryMat);
+                    warriorGroup.add(towerBase);
+
+                    addGoldTrimRings(warriorGroup, [
+                        [0.46, 0.03, 0.024],
+                        [0.39, 0.16, 0.020],
+                        [0.32, 0.56, 0.020],
+                        [0.35, 0.96, 0.024]
+                    ], accentMat);
+
+                    addPleatedGoldStrips(warriorGroup, 8, 0.35, 0.32, 0.18, 0.94, accentMat);
+
+                    // Hulking Fortress Breastplate Gate Grill
+                    const gatePlaca = new THREE.Mesh(new THREE.BoxGeometry(0.26, 0.34, 0.045), accentMat);
+                    gatePlaca.position.set(0, 0.76, 0.32);
+                    warriorGroup.add(gatePlaca);
+
+                    // Massive Crenellated Battlement Shoulder Pauldrons & Articulated Arms
+                    leftArmGroup.position.set(-0.34, 0.88, 0);
+                    leftArmGroup.add(createArticulatedShoulderArm(-1, 0.135, 0.28, primaryMat, accentMat));
+                    const towerShield = createCrossHeaterShield(primaryMat, accentMat, 1.04);
+                    towerShield.position.set(-0.04, -0.18, 0.24);
+                    towerShield.rotation.y = -0.35;
+                    leftArmGroup.add(towerShield);
+
+                    rightArmGroup.position.set(0.34, 0.88, 0);
+                    rightArmGroup.add(createArticulatedShoulderArm(1, 0.135, 0.28, primaryMat, accentMat));
+
+                    // Colossal Siege Warhammer / Battering Maul in Right Hand
+                    weaponGroup.position.set(0.04, -0.22, 0.22);
+                    const maulShaft = new THREE.Mesh(new THREE.CylinderGeometry(0.028, 0.026, 1.15, 10), accentMat);
+                    maulShaft.position.y = 0.42;
+                    weaponGroup.add(maulShaft);
+
+                    const maulHead = new THREE.Mesh(new THREE.BoxGeometry(0.36, 0.18, 0.18), Materials.steelBlade);
+                    maulHead.position.y = 0.96;
+                    maulHead.castShadow = true;
+                    weaponGroup.add(maulHead);
+
+                    const maulGoldBand = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.20, 0.20), accentMat);
+                    maulGoldBand.position.y = 0.96;
+                    weaponGroup.add(maulGoldBand);
+
+                    const maulSpike = new THREE.Mesh(new THREE.ConeGeometry(0.055, 0.15, 6), accentMat);
+                    maulSpike.position.y = 1.10;
+                    weaponGroup.add(maulSpike);
+
+                    // Turret Great-Helm Head Crowned with 6 Fortress Battlement Merlons
+                    const rookHelm = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.24, 0.24, 16), primaryMat);
+                    rookHelm.position.y = 1.08;
+                    rookHelm.castShadow = true;
+                    headGroup.add(rookHelm);
+
+                    const rookVisor = new THREE.Mesh(
+                        new THREE.CylinderGeometry(0.246, 0.246, 0.045, 16, 1, false, -Math.PI * 0.28, Math.PI * 0.56),
+                        Materials.darkVisor
+                    );
+                    rookVisor.position.y = 1.09;
+                    headGroup.add(rookVisor);
+
+                    for (let i = 0; i < 6; i++) {
+                        const angle = (i / 6) * Math.PI * 2;
+                        const merlon = new THREE.Mesh(new THREE.BoxGeometry(0.13, 0.18, 0.09), primaryMat);
+                        merlon.position.set(Math.sin(angle) * 0.22, 1.25, Math.cos(angle) * 0.22);
+                        merlon.rotation.y = angle;
+                        merlon.castShadow = true;
+                        headGroup.add(merlon);
+
+                        const cap = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.026, 0.10), accentMat);
+                        cap.position.set(Math.sin(angle) * 0.22, 1.35, Math.cos(angle) * 0.22);
+                        cap.rotation.y = angle;
+                        headGroup.add(cap);
                     }
 
                 } else if (type === 'b') {
-                    // BISHOP: Turned Staunton body + split-cleft mitre + golden spiral crosier staff
-                    const body = createLathePedestal([
-                        [0.0, 0.0], [0.43, 0.0], [0.43, 0.09], [0.36, 0.17],
-                        [0.24, 0.32], [0.18, 0.78], [0.26, 0.88], [0.22, 0.98], [0.0, 1.0]
-                    ], 24, primaryMat);
-                    bodyGroup.add(body);
+                    // =========================================================
+                    // 4. BISHOP: Battle-Inquisitor Prelate Warrior
+                    // =========================================================
+                    const robe = createLathePedestal([
+                        [0.0, 0.0], [0.44, 0.0], [0.44, 0.08], [0.38, 0.15],
+                        [0.32, 0.56], [0.24, 0.64], [0.26, 0.96], [0.0, 0.98]
+                    ], 18, primaryMat);
+                    warriorGroup.add(robe);
 
-                    // Authentic Split-Cleft Mitre (front & back pointed lobes forming a V-notch)
-                    const frontLobe = new THREE.Mesh(new THREE.ConeGeometry(0.21, 0.46, 16), primaryMat);
-                    frontLobe.position.set(0, 1.20, 0.035);
-                    frontLobe.rotation.x = 0.12;
-                    frontLobe.castShadow = true;
-                    headGroup.add(frontLobe);
+                    addGoldTrimRings(warriorGroup, [
+                        [0.44, 0.03, 0.022],
+                        [0.38, 0.15, 0.018],
+                        [0.25, 0.60, 0.020],
+                        [0.25, 0.96, 0.020]
+                    ], accentMat);
+                    addPleatedGoldStrips(warriorGroup, 6, 0.36, 0.26, 0.16, 0.60, accentMat);
 
-                    const backLobe = new THREE.Mesh(new THREE.ConeGeometry(0.20, 0.44, 16), primaryMat);
-                    backLobe.position.set(0, 1.19, -0.045);
-                    backLobe.rotation.x = -0.14;
-                    backLobe.castShadow = true;
-                    headGroup.add(backLobe);
+                    const stole = new THREE.Mesh(new THREE.BoxGeometry(0.075, 0.68, 0.035), accentMat);
+                    stole.position.set(0, 0.58, 0.25);
+                    warriorGroup.add(stole);
 
-                    const mitreBand = new THREE.Mesh(new THREE.TorusGeometry(0.21, 0.026, 8, 22), accentMat);
-                    mitreBand.rotation.x = Math.PI / 2;
-                    mitreBand.position.y = 0.99;
-                    headGroup.add(mitreBand);
+                    // Left Arm holding Open Holy Scripture Tome
+                    leftArmGroup.position.set(-0.27, 0.88, 0);
+                    leftArmGroup.add(createArticulatedShoulderArm(-1, 0.115, 0.24, primaryMat, accentMat));
 
-                    const pearl = new THREE.Mesh(new THREE.SphereGeometry(0.045, 10, 10), accentMat);
-                    pearl.position.set(0, 1.44, 0.06);
-                    headGroup.add(pearl);
+                    const bookGroup = new THREE.Group();
+                    bookGroup.position.set(0.0, -0.16, 0.24);
+                    bookGroup.rotation.x = -0.35;
+                    bookGroup.rotation.y = -0.22;
 
-                    // Golden Crosier Staff
-                    const staff = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 1.32, 8), accentMat);
-                    staff.position.set(0.25, 0.72, 0.10);
+                    const leftPage = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.20, 0.028), primaryMat);
+                    leftPage.position.x = -0.06;
+                    leftPage.rotation.y = 0.22;
+                    bookGroup.add(leftPage);
+
+                    const rightPage = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.20, 0.028), primaryMat);
+                    rightPage.position.x = 0.06;
+                    rightPage.rotation.y = -0.22;
+                    bookGroup.add(rightPage);
+
+                    const bookFrame = new THREE.Mesh(new THREE.BoxGeometry(0.26, 0.22, 0.022), accentMat);
+                    bookFrame.position.z = -0.012;
+                    bookGroup.add(bookFrame);
+                    leftArmGroup.add(bookGroup);
+
+                    // Right Arm wielding Tall Golden Spiral Crosier Staff
+                    rightArmGroup.position.set(0.27, 0.88, 0);
+                    rightArmGroup.add(createArticulatedShoulderArm(1, 0.115, 0.24, primaryMat, accentMat));
+
+                    weaponGroup.position.set(0.02, -0.12, 0.16);
+                    const staff = new THREE.Mesh(new THREE.CylinderGeometry(0.024, 0.022, 1.52, 10), accentMat);
                     weaponGroup.add(staff);
 
-                    const crook = new THREE.Mesh(new THREE.TorusGeometry(0.09, 0.022, 8, 18, Math.PI * 1.45), accentMat);
-                    crook.position.set(0.25, 1.38, 0.10);
-                    weaponGroup.add(crook);
+                    const outerCrook = new THREE.Mesh(new THREE.TorusGeometry(0.115, 0.026, 10, 24, Math.PI * 1.65), accentMat);
+                    outerCrook.position.set(0, 0.78, 0);
+                    outerCrook.rotation.y = Math.PI / 2;
+                    weaponGroup.add(outerCrook);
+
+                    const innerSpiral = new THREE.Mesh(new THREE.TorusGeometry(0.055, 0.020, 8, 18, Math.PI * 1.5), accentMat);
+                    innerSpiral.position.set(0, 0.77, 0.02);
+                    innerSpiral.rotation.y = Math.PI / 2;
+                    weaponGroup.add(innerSpiral);
+
+                    // Sculpted Prelate Head & Tall Pointed Mitre with Golden Cross on Front
+                    const headCyl = new THREE.Mesh(new THREE.CylinderGeometry(0.145, 0.145, 0.20, 16), primaryMat);
+                    headCyl.position.y = 1.07;
+                    headCyl.castShadow = true;
+                    headGroup.add(headCyl);
+
+                    const browSlit = new THREE.Mesh(
+                        new THREE.CylinderGeometry(0.150, 0.150, 0.036, 16, 1, false, -Math.PI * 0.28, Math.PI * 0.56),
+                        Materials.darkVisor
+                    );
+                    browSlit.position.y = 1.09;
+                    headGroup.add(browSlit);
+
+                    const mitreBaseRing = new THREE.Mesh(new THREE.TorusGeometry(0.165, 0.022, 10, 24), accentMat);
+                    mitreBaseRing.rotation.x = Math.PI / 2;
+                    mitreBaseRing.position.y = 1.16;
+                    headGroup.add(mitreBaseRing);
+
+                    const mitreCone = new THREE.Mesh(new THREE.ConeGeometry(0.175, 0.42, 16), primaryMat);
+                    mitreCone.position.y = 1.37;
+                    mitreCone.scale.set(1.0, 1.0, 0.82);
+                    mitreCone.castShadow = true;
+                    headGroup.add(mitreCone);
+
+                    const mitreCrossV = new THREE.Mesh(new THREE.BoxGeometry(0.032, 0.28, 0.03), accentMat);
+                    mitreCrossV.position.set(0, 1.33, 0.115);
+                    mitreCrossV.rotation.x = -0.32;
+                    headGroup.add(mitreCrossV);
+
+                    const mitreCrossH = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.032, 0.03), accentMat);
+                    mitreCrossH.position.set(0, 1.34, 0.115);
+                    mitreCrossH.rotation.x = -0.32;
+                    headGroup.add(mitreCrossH);
+
+                    const mitreTopBall = new THREE.Mesh(new THREE.SphereGeometry(0.034, 10, 10), accentMat);
+                    mitreTopBall.position.y = 1.59;
+                    headGroup.add(mitreTopBall);
 
                 } else if (type === 'q') {
-                    // QUEEN: Hourglass regal gown + 8-pointed spiked coronet with pearls + royal scepter
+                    // =========================================================
+                    // 5. QUEEN: Valkyrie Warrior-Monarch
+                    // =========================================================
                     const gown = createLathePedestal([
-                        [0.0, 0.0], [0.47, 0.0], [0.47, 0.10], [0.39, 0.19],
-                        [0.26, 0.38], [0.19, 0.75], [0.27, 1.05], [0.31, 1.18],
-                        [0.24, 1.28], [0.0, 1.30]
-                    ], 28, primaryMat);
-                    bodyGroup.add(gown);
+                        [0.0, 0.0], [0.47, 0.0], [0.47, 0.09], [0.40, 0.16],
+                        [0.30, 0.68], [0.23, 0.76], [0.26, 1.08], [0.0, 1.10]
+                    ], 20, primaryMat);
+                    warriorGroup.add(gown);
 
-                    const collar = new THREE.Mesh(new THREE.TorusGeometry(0.28, 0.03, 10, 26), accentMat);
-                    collar.rotation.x = Math.PI / 2;
-                    collar.position.y = 1.22;
-                    bodyGroup.add(collar);
+                    addGoldTrimRings(warriorGroup, [
+                        [0.47, 0.03, 0.024],
+                        [0.40, 0.16, 0.018],
+                        [0.24, 0.73, 0.022],
+                        [0.25, 1.08, 0.022]
+                    ], accentMat);
+                    addPleatedGoldStrips(warriorGroup, 8, 0.39, 0.25, 0.16, 0.73, accentMat);
 
-                    const dome = new THREE.Mesh(new THREE.SphereGeometry(0.21, 16, 14), primaryMat);
-                    dome.position.y = 1.32;
-                    headGroup.add(dome);
+                    // Sculpted Royal Bodice Cuirass
+                    const leftBust = new THREE.Mesh(new THREE.SphereGeometry(0.095, 14, 12), primaryMat);
+                    leftBust.position.set(-0.085, 0.94, 0.21);
+                    leftBust.castShadow = true;
+                    warriorGroup.add(leftBust);
 
-                    // 8-Pointed Spiked Coronet with Pearls
-                    for (let i = 0; i < 8; i++) {
-                        const a = (i / 8) * Math.PI * 2;
-                        const spike = new THREE.Mesh(new THREE.ConeGeometry(0.036, 0.22, 8), accentMat);
-                        spike.position.set(Math.cos(a) * 0.22, 1.44, Math.sin(a) * 0.22);
-                        spike.rotation.z = -Math.cos(a) * 0.22;
-                        spike.rotation.x = Math.sin(a) * 0.22;
+                    const rightBust = new THREE.Mesh(new THREE.SphereGeometry(0.095, 14, 12), primaryMat);
+                    rightBust.position.set(0.085, 0.94, 0.21);
+                    rightBust.castShadow = true;
+                    warriorGroup.add(rightBust);
+
+                    const centerBodice = new THREE.Mesh(new THREE.BoxGeometry(0.035, 0.34, 0.04), accentMat);
+                    centerBodice.position.set(0, 0.90, 0.24);
+                    warriorGroup.add(centerBodice);
+
+                    // Articulated Left Arm with Royal Crest Shield
+                    leftArmGroup.position.set(-0.29, 1.00, 0);
+                    leftArmGroup.add(createArticulatedShoulderArm(-1, 0.115, 0.25, primaryMat, accentMat));
+                    const crest = createCrossHeaterShield(primaryMat, accentMat, 0.66);
+                    crest.position.set(0.0, -0.20, 0.22);
+                    crest.rotation.y = -0.35;
+                    leftArmGroup.add(crest);
+
+                    // Articulated Right Arm with Flanged Royal Battle-Mace Scepter
+                    rightArmGroup.position.set(0.29, 1.00, 0);
+                    rightArmGroup.add(createArticulatedShoulderArm(1, 0.115, 0.25, primaryMat, accentMat));
+
+                    weaponGroup.position.set(0.02, -0.18, 0.16);
+                    const maceShaft = new THREE.Mesh(new THREE.CylinderGeometry(0.022, 0.020, 1.48, 10), accentMat);
+                    weaponGroup.add(maceShaft);
+
+                    const maceHead = new THREE.Mesh(new THREE.CylinderGeometry(0.085, 0.050, 0.24, 8), Materials.steelBlade);
+                    maceHead.position.y = 0.72;
+                    weaponGroup.add(maceHead);
+
+                    const maceCrown = new THREE.Mesh(new THREE.ConeGeometry(0.055, 0.14, 6), accentMat);
+                    maceCrown.position.y = 0.90;
+                    weaponGroup.add(maceCrown);
+
+                    // Queen's Sculpted Head, Hair Locks & 10-Spiked Golden Crown
+                    const qHead = new THREE.Mesh(new THREE.CylinderGeometry(0.145, 0.145, 0.22, 18), primaryMat);
+                    qHead.position.y = 1.20;
+                    qHead.castShadow = true;
+                    headGroup.add(qHead);
+
+                    const qEyes = new THREE.Mesh(
+                        new THREE.CylinderGeometry(0.150, 0.150, 0.032, 16, 1, false, -Math.PI * 0.26, Math.PI * 0.52),
+                        Materials.darkVisor
+                    );
+                    qEyes.position.y = 1.22;
+                    headGroup.add(qEyes);
+
+                    const hairL = new THREE.Mesh(new THREE.BoxGeometry(0.055, 0.22, 0.14), accentMat);
+                    hairL.position.set(-0.14, 1.19, 0.04);
+                    headGroup.add(hairL);
+
+                    const hairR = new THREE.Mesh(new THREE.BoxGeometry(0.055, 0.22, 0.14), accentMat);
+                    hairR.position.set(0.14, 1.19, 0.04);
+                    headGroup.add(hairR);
+
+                    const crownBand = new THREE.Mesh(new THREE.CylinderGeometry(0.165, 0.155, 0.09, 20), accentMat);
+                    crownBand.position.y = 1.34;
+                    headGroup.add(crownBand);
+
+                    for (let i = 0; i < 10; i++) {
+                        const a = (i / 10) * Math.PI * 2;
+                        const spikeH = (i % 2 === 0) ? 0.24 : 0.16;
+                        const spike = new THREE.Mesh(new THREE.ConeGeometry(0.026, spikeH, 8), accentMat);
+                        spike.position.set(Math.sin(a) * 0.155, 1.38 + spikeH * 0.5, Math.cos(a) * 0.155);
                         headGroup.add(spike);
-
-                        const tipPearl = new THREE.Mesh(new THREE.SphereGeometry(0.028, 8, 8), primaryMat);
-                        tipPearl.position.set(Math.cos(a) * 0.24, 1.55, Math.sin(a) * 0.24);
-                        headGroup.add(tipPearl);
                     }
 
-                    // Royal Scepter
-                    const scepter = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.018, 1.25, 8), accentMat);
-                    scepter.position.set(0.28, 0.78, 0.14);
-                    scepter.rotation.z = -0.08;
-                    weaponGroup.add(scepter);
-
-                    const orb = new THREE.Mesh(new THREE.OctahedronGeometry(0.08, 0), accentMat);
-                    orb.position.set(0.32, 1.42, 0.14);
-                    weaponGroup.add(orb);
-
                 } else if (type === 'k') {
-                    // KING: Tallest stepped royal mantle + Imperial Crown with 3D Gothic Cross + Broadsword
-                    const mantle = createLathePedestal([
-                        [0.0, 0.0], [0.50, 0.0], [0.50, 0.11], [0.42, 0.21],
-                        [0.30, 0.42], [0.23, 0.88], [0.32, 1.15], [0.35, 1.32],
-                        [0.27, 1.44], [0.0, 1.46]
-                    ], 28, primaryMat);
-                    bodyGroup.add(mantle);
+                    // =========================================================
+                    // 6. KING: Bearded Warrior-King Seated on a Grand Gothic Throne!
+                    // =========================================================
+                    // Stepped Royal Sanctuary Plinth
+                    const throneDais = createLathePedestal([
+                        [0.0, 0.0], [0.52, 0.0], [0.52, 0.09], [0.46, 0.17], [0.0, 0.18]
+                    ], 20, primaryMat);
+                    mountGroup.add(throneDais);
+                    addGoldTrimRings(mountGroup, [[0.52, 0.03, 0.026], [0.46, 0.16, 0.020]], accentMat);
 
-                    const crownRim = new THREE.Mesh(new THREE.CylinderGeometry(0.31, 0.27, 0.18, 16), accentMat);
-                    crownRim.position.y = 1.48;
-                    headGroup.add(crownRim);
+                    // GRAND CARVED GOTHIC THRONE (Seat, Velvet Cushion, Lion/Orb Armrests, High Cathedral Backrest & Twin Golden Spires)
+                    const throneSeat = new THREE.Mesh(new THREE.BoxGeometry(0.66, 0.34, 0.56), primaryMat);
+                    throneSeat.position.set(0, 0.34, -0.04);
+                    throneSeat.castShadow = true;
+                    mountGroup.add(throneSeat);
 
-                    // Imperial Gothic Cross at Apex
-                    const crossV = new THREE.Mesh(new THREE.BoxGeometry(0.075, 0.34, 0.075), accentMat);
-                    crossV.position.y = 1.74;
-                    headGroup.add(crossV);
+                    const velvetCushion = new THREE.Mesh(new THREE.BoxGeometry(0.54, 0.07, 0.48), Materials.royalVelvet);
+                    velvetCushion.position.set(0, 0.53, -0.02);
+                    mountGroup.add(velvetCushion);
 
-                    const crossH = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.075, 0.075), accentMat);
-                    crossH.position.y = 1.78;
-                    headGroup.add(crossH);
+                    // Left & Right Carved Throne Armrests with Golden Lion-Orb Finials
+                    const armSides = [-1, 1];
+                    for (let i = 0; i < armSides.length; i++) {
+                        const d = armSides[i];
+                        const armrest = new THREE.Mesh(new THREE.BoxGeometry(0.11, 0.26, 0.58), primaryMat);
+                        armrest.position.set(d * 0.33, 0.60, -0.02);
+                        armrest.castShadow = true;
+                        mountGroup.add(armrest);
 
-                    // Two-Handed Royal Broadsword planted down the front
-                    const blade = new THREE.Mesh(new THREE.BoxGeometry(0.07, 1.12, 0.024), primaryMat);
-                    blade.position.set(0, 0.62, 0.34);
-                    weaponGroup.add(blade);
+                        const armGoldCap = new THREE.Mesh(new THREE.BoxGeometry(0.125, 0.035, 0.60), accentMat);
+                        armGoldCap.position.set(d * 0.33, 0.74, -0.02);
+                        mountGroup.add(armGoldCap);
 
-                    const guard = new THREE.Mesh(new THREE.BoxGeometry(0.34, 0.05, 0.06), accentMat);
-                    guard.position.set(0, 1.16, 0.34);
+                        const lionPommel = new THREE.Mesh(new THREE.SphereGeometry(0.068, 12, 12), accentMat);
+                        lionPommel.position.set(d * 0.33, 0.79, 0.26);
+                        mountGroup.add(lionPommel);
+                    }
+
+                    // Towering High-Backed Gothic Throne Backrest & Twin Golden Pinnacle Pillars
+                    const backrest = new THREE.Mesh(new THREE.BoxGeometry(0.68, 1.48, 0.11), primaryMat);
+                    backrest.position.set(0, 0.94, -0.28);
+                    backrest.castShadow = true;
+                    mountGroup.add(backrest);
+
+                    const tapestry = new THREE.Mesh(new THREE.BoxGeometry(0.46, 1.24, 0.03), Materials.royalVelvet);
+                    tapestry.position.set(0, 0.96, -0.22);
+                    mountGroup.add(tapestry);
+
+                    const gableRoof = new THREE.Mesh(new THREE.ConeGeometry(0.48, 0.42, 4), primaryMat);
+                    gableRoof.position.set(0, 1.88, -0.28);
+                    gableRoof.rotation.y = Math.PI / 4;
+                    gableRoof.scale.set(1.0, 1.0, 0.26);
+                    gableRoof.castShadow = true;
+                    mountGroup.add(gableRoof);
+
+                    const gableCrossV = new THREE.Mesh(new THREE.BoxGeometry(0.035, 0.20, 0.035), accentMat);
+                    gableCrossV.position.set(0, 2.12, -0.28);
+                    mountGroup.add(gableCrossV);
+                    const gableCrossH = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.035, 0.035), accentMat);
+                    gableCrossH.position.set(0, 2.14, -0.28);
+                    mountGroup.add(gableCrossH);
+
+                    for (let i = 0; i < armSides.length; i++) {
+                        const d = armSides[i];
+                        const pillar = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.065, 1.56, 12), accentMat);
+                        pillar.position.set(d * 0.35, 0.96, -0.28);
+                        mountGroup.add(pillar);
+
+                        const spire = new THREE.Mesh(new THREE.ConeGeometry(0.075, 0.28, 8), accentMat);
+                        spire.position.set(d * 0.35, 1.88, -0.28);
+                        mountGroup.add(spire);
+                    }
+
+                    // SEATED BEARDED WARRIOR-KING (In warriorGroup so he can RISE from his throne on a kill!)
+                    // Seated Armored Legs & Royal Greaves on the Throne Steps
+                    for (let i = 0; i < armSides.length; i++) {
+                        const d = armSides[i];
+                        const legGreave = new THREE.Mesh(new THREE.CylinderGeometry(0.075, 0.068, 0.42, 12), primaryMat);
+                        legGreave.position.set(d * 0.14, 0.38, 0.18);
+                        legGreave.castShadow = true;
+                        warriorGroup.add(legGreave);
+
+                        const kneeGold = new THREE.Mesh(new THREE.SphereGeometry(0.078, 12, 12), accentMat);
+                        kneeGold.position.set(d * 0.14, 0.58, 0.20);
+                        warriorGroup.add(kneeGold);
+
+                        const boot = new THREE.Mesh(new THREE.BoxGeometry(0.11, 0.07, 0.18), accentMat);
+                        boot.position.set(d * 0.14, 0.19, 0.24);
+                        warriorGroup.add(boot);
+                    }
+
+                    // King's Broad Armored Cuirass Torso & Royal Breastplate Plaque
+                    const kingTorso = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.22, 0.58, 16), primaryMat);
+                    kingTorso.position.set(0, 0.86, 0.02);
+                    kingTorso.castShadow = true;
+                    warriorGroup.add(kingTorso);
+
+                    const chestPlaque = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.26, 0.045), accentMat);
+                    chestPlaque.position.set(0, 0.92, 0.24);
+                    warriorGroup.add(chestPlaque);
+
+                    // King's Articulated Shoulders & Arms Gripping the Central Two-Handed Royal Greatsword
+                    leftArmGroup.position.set(-0.28, 1.04, 0.04);
+                    leftArmGroup.add(createArticulatedShoulderArm(-1, 0.125, 0.26, primaryMat, accentMat));
+
+                    rightArmGroup.position.set(0.28, 1.04, 0.04);
+                    rightArmGroup.add(createArticulatedShoulderArm(1, 0.125, 0.26, primaryMat, accentMat));
+
+                    // Two-Handed Royal Greatsword Planted Vertically Down the Front (attached to weaponGroup so the King raises & cleaves with it!)
+                    weaponGroup.position.set(0.0, 0.0, 0.0);
+                    root.remove(weaponGroup);
+                    warriorGroup.add(weaponGroup);
+                    weaponGroup.position.set(0, 0.88, 0.34);
+
+                    const hilt = new THREE.Mesh(new THREE.CylinderGeometry(0.028, 0.028, 0.24, 10), accentMat);
+                    hilt.position.set(0, 0.0, 0);
+                    weaponGroup.add(hilt);
+
+                    const pommel = new THREE.Mesh(new THREE.SphereGeometry(0.048, 12, 12), accentMat);
+                    pommel.position.set(0, 0.13, 0);
+                    weaponGroup.add(pommel);
+
+                    const guard = new THREE.Mesh(new THREE.BoxGeometry(0.34, 0.042, 0.055), accentMat);
+                    guard.position.set(0, -0.12, 0);
                     weaponGroup.add(guard);
 
-                    const hilt = new THREE.Mesh(new THREE.CylinderGeometry(0.028, 0.028, 0.22, 8), accentMat);
-                    hilt.position.set(0, 1.29, 0.34);
-                    weaponGroup.add(hilt);
+                    const blade = new THREE.Mesh(new THREE.BoxGeometry(0.085, 0.66, 0.024), Materials.steelBlade);
+                    blade.position.set(0, -0.45, 0);
+                    blade.castShadow = true;
+                    weaponGroup.add(blade);
+
+                    const fuller = new THREE.Mesh(new THREE.BoxGeometry(0.024, 0.52, 0.030), accentMat);
+                    fuller.position.set(0, -0.41, 0);
+                    weaponGroup.add(fuller);
+
+                    const bladeTip = new THREE.Mesh(new THREE.ConeGeometry(0.060, 0.13, 4), Materials.steelBlade);
+                    bladeTip.position.set(0, -0.82, 0);
+                    bladeTip.rotation.x = Math.PI;
+                    bladeTip.rotation.y = Math.PI / 4;
+                    bladeTip.scale.set(1.0, 1.0, 0.35);
+                    weaponGroup.add(bladeTip);
+
+                    // Sculpted Royal Head with Full Beard, Mustache & High-Arched Golden Imperial Crown
+                    const kHead = new THREE.Mesh(new THREE.CylinderGeometry(0.165, 0.165, 0.24, 18), primaryMat);
+                    kHead.position.set(0, 1.28, 0.02);
+                    kHead.castShadow = true;
+                    headGroup.add(kHead);
+
+                    const kEyes = new THREE.Mesh(
+                        new THREE.CylinderGeometry(0.170, 0.170, 0.035, 16, 1, false, -Math.PI * 0.26, Math.PI * 0.52),
+                        Materials.darkVisor
+                    );
+                    kEyes.position.set(0, 1.32, 0.02);
+                    headGroup.add(kEyes);
+
+                    const beard = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.15, 0.13), primaryMat);
+                    beard.position.set(0, 1.21, 0.14);
+                    beard.castShadow = true;
+                    headGroup.add(beard);
+
+                    const mustache = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.036, 0.04), accentMat);
+                    mustache.position.set(0, 1.26, 0.195);
+                    headGroup.add(mustache);
+
+                    const kCrownBase = new THREE.Mesh(new THREE.CylinderGeometry(0.19, 0.175, 0.10, 20), accentMat);
+                    kCrownBase.position.set(0, 1.42, 0.02);
+                    headGroup.add(kCrownBase);
+
+                    const velvetCap = new THREE.Mesh(new THREE.SphereGeometry(0.165, 16, 12), primaryMat);
+                    velvetCap.position.set(0, 1.45, 0.02);
+                    headGroup.add(velvetCap);
+
+                    const arch1 = new THREE.Mesh(new THREE.TorusGeometry(0.175, 0.024, 10, 24, Math.PI), accentMat);
+                    arch1.position.set(0, 1.44, 0.02);
+                    headGroup.add(arch1);
+
+                    const arch2 = new THREE.Mesh(new THREE.TorusGeometry(0.175, 0.024, 10, 24, Math.PI), accentMat);
+                    arch2.position.set(0, 1.44, 0.02);
+                    arch2.rotation.y = Math.PI / 2;
+                    headGroup.add(arch2);
+
+                    const mondoOrb = new THREE.Mesh(new THREE.SphereGeometry(0.045, 12, 12), accentMat);
+                    mondoOrb.position.set(0, 1.64, 0.02);
+                    headGroup.add(mondoOrb);
+
+                    const crossV = new THREE.Mesh(new THREE.BoxGeometry(0.036, 0.18, 0.036), accentMat);
+                    crossV.position.set(0, 1.74, 0.02);
+                    headGroup.add(crossV);
+
+                    const crossH = new THREE.Mesh(new THREE.BoxGeometry(0.13, 0.036, 0.036), accentMat);
+                    crossH.position.set(0, 1.76, 0.02);
+                    headGroup.add(crossH);
                 }
 
                 // Orient White Marble toward North (-Z) and Black Obsidian toward South (+Z)
@@ -1376,7 +2100,11 @@
                     type: type,
                     color: color,
                     bodyGroup: bodyGroup,
+                    mountGroup: mountGroup,
+                    warriorGroup: warriorGroup,
                     headGroup: headGroup,
+                    leftArmGroup: leftArmGroup,
+                    rightArmGroup: rightArmGroup,
                     weaponGroup: weaponGroup,
                     seed: Math.random() * Math.PI * 2
                 };
@@ -1385,24 +2113,25 @@
             }
 
             /*******************************************************************
-             * 7. SHATTER PHYSICS ENGINE & BOARD SYNCHRONIZATION
+             * 7. SHATTER PHYSICS ENGINE & RANK-SPECIFIC COMBAT VFX
              *******************************************************************/
-            function spawnShatterExplosion(worldPos, color) {
+            function spawnShatterExplosion(worldPos, color, intensityScale) {
                 const isWhite = color === 'w';
                 const shardMat = isWhite ? Materials.marblePiece : Materials.obsidianPiece;
                 const accentMat = isWhite ? Materials.marbleAccent : Materials.obsidianAccent;
+                const mult = intensityScale || 1.0;
 
-                const shardCount = 45;
+                const shardCount = Math.floor(48 * mult);
                 for (let i = 0; i < shardCount; i++) {
-                    const radius = 0.06 + Math.random() * 0.14;
+                    const radius = 0.06 + Math.random() * 0.15;
                     const geo = i % 3 === 0
                         ? new THREE.BoxGeometry(radius * 1.4, radius * 0.9, radius * 1.2)
                         : new THREE.OctahedronGeometry(radius, 0);
-                    const mesh = new THREE.Mesh(geo, i % 5 === 0 ? accentMat : shardMat);
+                    const mesh = new THREE.Mesh(geo, i % 4 === 0 ? accentMat : shardMat);
                     mesh.castShadow = true;
 
                     const angle = Math.random() * Math.PI * 2;
-                    const horizSpeed = 1.6 + Math.random() * 5.2;
+                    const horizSpeed = (1.6 + Math.random() * 5.4) * mult;
 
                     mesh.position.set(
                         worldPos.x + (Math.random() - 0.5) * 0.4,
@@ -1415,39 +2144,75 @@
                         mesh: mesh,
                         vel: new THREE.Vector3(
                             Math.cos(angle) * horizSpeed,
-                            2.4 + Math.random() * 5.2,
+                            (2.6 + Math.random() * 5.4) * mult,
                             Math.sin(angle) * horizSpeed
                         ),
                         rotVel: new THREE.Vector3(
-                            (Math.random() - 0.5) * 14,
-                            (Math.random() - 0.5) * 14,
-                            (Math.random() - 0.5) * 14
+                            (Math.random() - 0.5) * 15,
+                            (Math.random() - 0.5) * 15,
+                            (Math.random() - 0.5) * 15
                         ),
                         life: 0,
-                        maxLife: 2.1 + Math.random() * 0.9
+                        maxLife: 2.2 + Math.random() * 0.9
                     });
                 }
 
-                // Expanding Golden / Amethyst Shockwave Ring
-                const ringGeo = new THREE.RingGeometry(0.15, 0.34, 32);
+                // Expanding Golden Shockwave Ring
+                const ringGeo = new THREE.RingGeometry(0.15, 0.36, 32);
                 const ringMat = new THREE.MeshBasicMaterial({
-                    color: isWhite ? 0xfbbf24 : 0xa855f7,
+                    color: 0xfbbf24,
                     side: THREE.DoubleSide,
                     transparent: true,
-                    opacity: 0.92
+                    opacity: 0.94
                 });
                 const ringMesh = new THREE.Mesh(ringGeo, ringMat);
                 ringMesh.rotation.x = -Math.PI / 2;
                 ringMesh.position.set(worldPos.x, 0.03, worldPos.z);
                 fxGroup.add(ringMesh);
-                shockwaves.push({ mesh: ringMesh, life: 0, maxLife: 0.65 });
+                shockwaves.push({ mesh: ringMesh, life: 0, maxLife: 0.70, maxScale: 6.8 * mult });
 
-                screenShakePower = 0.36;
+                screenShakePower = 0.38 * mult;
                 playSound('shatter');
             }
 
+            function spawnCelestialBeamFX(worldPos) {
+                // Vertical Pillar of Golden Cathedral Light for the Bishop's Celestial Smite
+                const beamGeo = new THREE.CylinderGeometry(0.45, 0.58, 16, 24, 1, true);
+                const beamMat = new THREE.MeshBasicMaterial({
+                    color: 0xfde047,
+                    transparent: true,
+                    opacity: 0.85,
+                    side: THREE.DoubleSide
+                });
+                const beamMesh = new THREE.Mesh(beamGeo, beamMat);
+                beamMesh.position.set(worldPos.x, 8.0, worldPos.z);
+                fxGroup.add(beamMesh);
+                activeBeams.push({ mesh: beamMesh, life: 0, maxLife: 0.65 });
+
+                // Sacred Rune Halo on the stone block
+                const runeRing = new THREE.Mesh(
+                    new THREE.RingGeometry(0.42, 0.56, 24),
+                    new THREE.MeshBasicMaterial({ color: 0xfef08a, side: THREE.DoubleSide, transparent: true, opacity: 0.95 })
+                );
+                runeRing.rotation.x = -Math.PI / 2;
+                runeRing.position.set(worldPos.x, 0.04, worldPos.z);
+                fxGroup.add(runeRing);
+                shockwaves.push({ mesh: runeRing, life: 0, maxLife: 0.65, maxScale: 3.5 });
+            }
+
+            function spawnWhirlwindSlashFX(worldPos, heightY) {
+                const slashRing = new THREE.Mesh(
+                    new THREE.RingGeometry(0.55, 0.88, 28),
+                    new THREE.MeshBasicMaterial({ color: 0xfbbf24, side: THREE.DoubleSide, transparent: true, opacity: 0.9 })
+                );
+                slashRing.rotation.x = -Math.PI / 2;
+                slashRing.position.set(worldPos.x, heightY || 0.75, worldPos.z);
+                fxGroup.add(slashRing);
+                shockwaves.push({ mesh: slashRing, life: 0, maxLife: 0.45, maxScale: 2.6 });
+            }
+
             /*******************************************************************
-             * 8. CHESS.JS GAME STATE, AI ENGINE & ANIMATION CHOREOGRAPHY
+             * 8. CHESS.JS GAME STATE, AI ENGINE & 6 UNIQUE KILL ANIMATIONS
              *******************************************************************/
             const chess = new Chess();
             let gameMode = 'ai';       // 'ai' | '2p' | 'online'
@@ -1459,6 +2224,57 @@
             let lastMoveSquares = [];
 
             const PIECE_VALUES = { p: 100, n: 320, b: 330, r: 500, q: 900, k: 20000 };
+
+            const KILL_TITLES = {
+                p: 'Pawn Execution: Shield Bash & Overhead Broadsword Cleave!',
+                n: 'Knight Execution: Rearing Warhorse Stomp & Couched Lance Impale!',
+                b: 'Bishop Execution: Holy Scripture Invocation & Celestial Sky-Beam Smite!',
+                r: 'Rook Execution: Titan Earthshaker Leap & Siege Maul Pulverize!',
+                q: 'Queen Execution: 720° Valkyrie Whirlwind & Royal Mace Smash!',
+                k: 'King Execution: Sovereign Rise from the Throne & Greatsword Judgment!'
+            };
+
+            function resetPiecePose(mesh, defaultYaw) {
+                if (!mesh) return;
+                const ud = mesh.userData;
+                mesh.position.y = 0;
+                mesh.rotation.set(0, defaultYaw, 0);
+                ud.bodyGroup.position.set(0, 0, 0);
+                ud.bodyGroup.rotation.set(0, 0, 0);
+                ud.headGroup.rotation.set(0, 0, 0);
+
+                if (ud.type === 'n') {
+                    ud.mountGroup.position.set(0, 0.15, -0.14);
+                    ud.mountGroup.rotation.set(0, 0, 0);
+                    ud.warriorGroup.position.set(0, 0.64, 0.10);
+                    ud.warriorGroup.rotation.set(0, 0, 0);
+                    ud.leftArmGroup.position.set(-0.22, 0.32, 0.02);
+                    ud.leftArmGroup.rotation.set(0, 0, 0);
+                    ud.rightArmGroup.position.set(0.22, 0.32, 0.02);
+                    ud.rightArmGroup.rotation.set(0, 0, 0);
+                    ud.weaponGroup.position.set(0.04, -0.18, 0.16);
+                    ud.weaponGroup.rotation.set(0, 0, 0);
+                } else if (ud.type === 'k') {
+                    ud.mountGroup.position.set(0, 0, 0);
+                    ud.mountGroup.rotation.set(0, 0, 0);
+                    ud.warriorGroup.position.set(0, 0, 0);
+                    ud.warriorGroup.rotation.set(0, 0, 0);
+                    ud.leftArmGroup.position.set(-0.28, 1.04, 0.04);
+                    ud.leftArmGroup.rotation.set(0, 0, 0);
+                    ud.rightArmGroup.position.set(0.28, 1.04, 0.04);
+                    ud.rightArmGroup.rotation.set(0, 0, 0);
+                    ud.weaponGroup.position.set(0, 0.88, 0.34);
+                    ud.weaponGroup.rotation.set(0, 0, 0);
+                } else {
+                    ud.mountGroup.position.set(0, 0, 0);
+                    ud.mountGroup.rotation.set(0, 0, 0);
+                    ud.warriorGroup.position.set(0, 0, 0);
+                    ud.warriorGroup.rotation.set(0, 0, 0);
+                    ud.leftArmGroup.rotation.set(0, 0, 0);
+                    ud.rightArmGroup.rotation.set(0, 0, 0);
+                    ud.weaponGroup.rotation.set(0, 0, 0);
+                }
+            }
 
             function syncAllPiecesFromFEN() {
                 while (piecesGroup.children.length > 0) {
@@ -1491,7 +2307,6 @@
                     highlightsGroup.remove(highlightsGroup.children[0]);
                 }
 
-                // Last Move Trail Rings
                 for (let i = 0; i < lastMoveSquares.length; i++) {
                     const lPos = squareToWorld(lastMoveSquares[i]);
                     const trail = new THREE.Mesh(
@@ -1503,7 +2318,6 @@
                     highlightsGroup.add(trail);
                 }
 
-                // King in Check Warning Halo
                 if (chess.in_check()) {
                     const turnColor = chess.turn();
                     const board = chess.board();
@@ -1524,7 +2338,6 @@
                     }
                 }
 
-                // Selected Piece Golden Ring
                 if (selSq) {
                     const sPos = squareToWorld(selSq);
                     const selRing = new THREE.Mesh(
@@ -1536,7 +2349,6 @@
                     highlightsGroup.add(selRing);
                 }
 
-                // Legal Destination Pads & Capture Reticles
                 if (moves && moves.length > 0) {
                     for (let i = 0; i < moves.length; i++) {
                         const m = moves[i];
@@ -1562,7 +2374,6 @@
                     }
                 }
 
-                // Tactical Hint Marker
                 if (hintMove) {
                     const hFrom = squareToWorld(hintMove.from);
                     const hTo = squareToWorld(hintMove.to);
@@ -1581,13 +2392,12 @@
 
             /*******************************************************************
              * 9. ONLINE 2-PLAYER MULTIPLAYER ENGINE
-             *    PeerJS WebRTC (Cross-System) + BroadcastChannel/Storage (Local)
              *******************************************************************/
             const onlineState = {
                 active: false,
                 roomCode: null,
-                myColor: null,         // 'w' (Host) | 'b' (Challenger)
-                status: 'disconnected', // 'disconnected' | 'waiting' | 'connecting' | 'playing'
+                myColor: null,
+                status: 'disconnected',
                 peer: null,
                 conn: null,
                 bc: null,
@@ -1649,15 +2459,12 @@
                 if (!onlineState.active) return;
                 if (payload.eventId) onlineState.processedIds.add(payload.eventId);
 
-                // 1. WebRTC PeerJS
                 if (onlineState.conn && onlineState.conn.open) {
                     try { onlineState.conn.send(payload); } catch (e) {}
                 }
-                // 2. BroadcastChannel
                 if (onlineState.bc) {
                     try { onlineState.bc.postMessage(payload); } catch (e) {}
                 }
-                // 3. localStorage event for cross-window fallback
                 try {
                     localStorage.setItem('wiz_chess_packet_' + onlineState.roomCode, JSON.stringify(payload));
                 } catch (e) {}
@@ -1888,8 +2695,8 @@
                     pillDot.className = 'w-2 h-2 rounded-full bg-emerald-400';
                     statusTitle.textContent = 'Both Wizards Connected — Sanctuary Match Live!';
                     statusDesc.textContent = onlineState.myColor === 'w'
-                        ? 'Challenger connected. Command your White Marble pieces!'
-                        : 'Connected to Host. Command your Black Obsidian pieces!';
+                        ? 'Challenger connected. Command your White Marble warriors!'
+                        : 'Connected to Host. Command your Black Obsidian warriors!';
                 } else {
                     spinner.classList.remove('hidden');
                     readyIcon.classList.add('hidden');
@@ -1917,7 +2724,7 @@
 
             function copyToClipboardSafe(text, toastMessage) {
                 try {
-                    const ta = document.createElement('textarea');
+                    const ta = new document.createElement('textarea');
                     ta.value = text;
                     ta.style.position = 'fixed';
                     ta.style.opacity = '0';
@@ -1933,7 +2740,7 @@
             }
 
             /*******************************************************************
-             * 10. BOARD INTERACTION, STRICT PIECE OWNERSHIP & MOVE EXECUTION
+             * 10. BOARD INTERACTION & 6 RANK-SPECIFIC KILL ANIMATIONS
              *******************************************************************/
             function handleSquareSelection(sq) {
                 if (isAnimating || chess.game_over()) return;
@@ -1941,7 +2748,6 @@
                 const currentTurn = chess.turn();
                 const pieceOnSq = chess.get(sq);
 
-                // STRICT PIECE OWNERSHIP & TURN LOCK IN 2P ONLINE MODE
                 if (gameMode === 'online') {
                     if (onlineState.status !== 'playing') {
                         showToast('Waiting for Challenger to join Room ' + (onlineState.roomCode || '') + '...', 'hourglass_top');
@@ -1956,12 +2762,11 @@
                     const isLegalTarget = selectedSquare && legalMovesForSelected.some(function(m) { return m.to === sq; });
                     if (!isLegalTarget && pieceOnSq && pieceOnSq.color !== onlineState.myColor) {
                         const myArmy = onlineState.myColor === 'w' ? 'White Marble' : 'Black Obsidian';
-                        showToast('Locked: You only command the ' + myArmy + ' pieces!', 'shield_lock');
+                        showToast('Locked: You only command the ' + myArmy + ' warriors!', 'shield_lock');
                         return;
                     }
                 }
 
-                // STRICT PIECE OWNERSHIP IN VS AI MODE (Human commands White Marble)
                 if (gameMode === 'ai') {
                     if (currentTurn === 'b') {
                         showToast('Cathedral AI (Black Obsidian) is contemplating its strike...', 'smart_toy');
@@ -1969,12 +2774,11 @@
                     }
                     const isLegalTargetAI = selectedSquare && legalMovesForSelected.some(function(m) { return m.to === sq; });
                     if (!isLegalTargetAI && pieceOnSq && pieceOnSq.color === 'b') {
-                        showToast('You command the White Marble army!', 'shield_lock');
+                        showToast('You command the White Marble warriors!', 'shield_lock');
                         return;
                     }
                 }
 
-                // Check if clicked square is a legal destination for the currently selected piece
                 if (selectedSquare) {
                     const matchingMoves = legalMovesForSelected.filter(function(m) { return m.to === sq; });
                     if (matchingMoves.length > 0) {
@@ -1991,7 +2795,6 @@
                     }
                 }
 
-                // Select own piece
                 if (pieceOnSq && pieceOnSq.color === currentTurn) {
                     selectedSquare = sq;
                     legalMovesForSelected = chess.moves({ square: sq, verbose: true });
@@ -2014,7 +2817,6 @@
                 lastMoveSquares = [moveResult.from, moveResult.to];
                 renderHighlights(null, []);
 
-                // Broadcast move immediately if in 2P Online Mode
                 if (gameMode === 'online' && !isRemoteOnlineMove) {
                     sendOnlineMessage({
                         type: 'move',
@@ -2042,8 +2844,12 @@
 
                 const startPos = squareToWorld(moveResult.from);
                 const endPos = squareToWorld(moveResult.to);
-                const isKnight = moveResult.piece === 'n';
+                const pieceRank = moveResult.piece; // 'p' | 'n' | 'b' | 'r' | 'q' | 'k'
                 const isCapture = Boolean(victimMesh);
+
+                if (isCapture) {
+                    showToast(KILL_TITLES[pieceRank] || 'Warrior Strike!', 'swords');
+                }
 
                 // Trigger Dynamic Close-Up Battle Cam on Captures
                 if (isCapture && battleCamEnabled) {
@@ -2054,14 +2860,14 @@
                         target: camControl.desiredTarget.clone()
                     };
                     const midPoint = new THREE.Vector3().addVectors(startPos, endPos).multiplyScalar(0.5);
-                    camControl.desiredTarget.set(midPoint.x, 0.7, midPoint.z);
-                    camControl.desiredRadius = 6.2;
-                    camControl.desiredPhi = 0.78;
-                    camControl.desiredTheta += 0.35;
+                    camControl.desiredTarget.set(midPoint.x, 0.78, midPoint.z);
+                    camControl.desiredRadius = 6.0;
+                    camControl.desiredPhi = 0.80;
+                    camControl.desiredTheta += 0.38;
                 }
 
                 if (!isCapture) {
-                    playSound(isKnight ? 'select' : 'slide');
+                    playSound(pieceRank === 'n' ? 'select' : 'slide');
                 }
 
                 // Castling Rook Companion Slide
@@ -2087,82 +2893,318 @@
                     }
                 }
 
-                const totalDuration = isCapture ? 1.05 : 0.54;
+                const totalDuration = isCapture ? 1.32 : 0.56;
+                let hasTriggeredPreSFX = false;
                 let hasShattered = false;
 
                 const dirVec = new THREE.Vector3().subVectors(endPos, startPos);
                 const dist = dirVec.length();
                 const normDir = dirVec.clone().normalize();
-                const strikeStopDist = Math.max(0, dist - 0.88);
+                const strikeStopDist = Math.max(0, dist - (pieceRank === 'b' ? 1.25 : 0.90));
                 const strikePos = startPos.clone().addScaledVector(normDir, strikeStopDist);
                 const targetYaw = Math.atan2(normDir.x, normDir.z);
                 const defaultYaw = moveResult.color === 'w' ? Math.PI : 0;
+                const victimOrigPos = victimMesh ? victimMesh.position.clone() : endPos.clone();
 
                 activeAnimations.push({
                     duration: totalDuration,
                     elapsed: 0,
                     onUpdate: function(t) {
                         if (!attackerMesh) return;
+                        const ud = attackerMesh.userData;
 
                         if (!isCapture) {
+                            // Standard Non-Capture Movement
                             const ease = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
                             attackerMesh.position.lerpVectors(startPos, endPos, ease);
-                            if (isKnight) {
-                                attackerMesh.position.y = Math.sin(t * Math.PI) * 1.95;
-                                attackerMesh.userData.bodyGroup.rotation.x = Math.sin(t * Math.PI * 2) * 0.28;
+                            if (pieceRank === 'n') {
+                                // Warhorse leaping gallop arc
+                                attackerMesh.position.y = Math.sin(t * Math.PI) * 1.85;
+                                ud.mountGroup.rotation.x = Math.cos(t * Math.PI) * -0.35;
                             } else {
                                 attackerMesh.position.y = Math.sin(t * Math.PI) * 0.08;
                             }
-                        } else {
-                            // 4-Stage Wizard's Chess Combat & Shatter Sequence
-                            attackerMesh.rotation.y = targetYaw;
+                            return;
+                        }
 
-                            if (t < 0.50) {
-                                // Stage 1: Advance to striking distance
-                                const p = t / 0.50;
-                                const ease = p * p * (3 - 2 * p);
-                                attackerMesh.position.lerpVectors(startPos, strikePos, ease);
-                                if (isKnight) attackerMesh.position.y = Math.sin(p * Math.PI) * 1.45;
-                            } else if (t < 0.68) {
-                                // Stage 2: Combat Wind-Up (Rear back & raise weapon)
-                                const p = (t - 0.50) / 0.18;
-                                attackerMesh.position.copy(strikePos);
-                                attackerMesh.userData.bodyGroup.rotation.x = -p * 0.38;
-                                attackerMesh.userData.weaponGroup.position.y = p * 0.25;
-                                attackerMesh.userData.weaponGroup.rotation.x = -p * 0.65;
-                            } else if (t < 0.80) {
-                                // Stage 3: Violent Lunge & Stone Shatter Detonation
-                                const p = (t - 0.68) / 0.12;
-                                attackerMesh.userData.bodyGroup.rotation.x = -0.38 + p * 0.88;
-                                attackerMesh.userData.weaponGroup.rotation.x = -0.65 + p * 1.55;
-                                attackerMesh.position.lerpVectors(strikePos, endPos, p * 0.6);
+                        // ==============================================================
+                        // 6 UNIQUE RANK-SPECIFIC KILL ANIMATIONS
+                        // ==============================================================
+                        attackerMesh.rotation.y = targetYaw;
+
+                        if (pieceRank === 'p') {
+                            // ----------------------------------------------------------
+                            // 1. PAWN: Shield Bash Knockback -> High Overhead Sword Cleave
+                            // ----------------------------------------------------------
+                            if (t < 0.36) {
+                                // Sprint to enemy
+                                const p = t / 0.36;
+                                attackerMesh.position.lerpVectors(startPos, strikePos, p * p * (3 - 2 * p));
+                                ud.leftArmGroup.rotation.x = -p * 0.55;
+                            } else if (t < 0.56) {
+                                // Shield Bash! Slam left shield arm forward & knock defender back
+                                const p = (t - 0.36) / 0.20;
+                                if (!hasTriggeredPreSFX) {
+                                    hasTriggeredPreSFX = true;
+                                    playSound('shield_bash');
+                                }
+                                ud.leftArmGroup.rotation.y = Math.sin(p * Math.PI) * 0.85;
+                                ud.bodyGroup.position.z = Math.sin(p * Math.PI) * 0.18;
+                                if (victimMesh) {
+                                    victimMesh.position.copy(victimOrigPos).addScaledVector(normDir, p * 0.18);
+                                    victimMesh.rotation.x = p * 0.22;
+                                }
+                            } else if (t < 0.78) {
+                                // High Overhead Sword Wind-Up & Diagonal Cleave
+                                const p = (t - 0.56) / 0.22;
+                                if (p < 0.45) {
+                                    const w = p / 0.45;
+                                    ud.rightArmGroup.rotation.x = -w * 2.15;
+                                    ud.bodyGroup.rotation.x = -w * 0.28;
+                                } else {
+                                    const c = (p - 0.45) / 0.55;
+                                    ud.rightArmGroup.rotation.x = -2.15 + c * 3.10;
+                                    ud.bodyGroup.rotation.x = -0.28 + c * 0.58;
+                                    attackerMesh.position.lerpVectors(strikePos, endPos, c * 0.65);
+                                    if (!hasShattered && c >= 0.45) {
+                                        hasShattered = true;
+                                        if (victimMesh) {
+                                            spawnShatterExplosion(victimMesh.position.clone(), victimMesh.userData.color, 1.0);
+                                            piecesGroup.remove(victimMesh);
+                                            delete pieceObjects[victimSq];
+                                        }
+                                    }
+                                }
+                            } else {
+                                const p = (t - 0.78) / 0.22;
+                                attackerMesh.position.lerpVectors(strikePos, endPos, 0.65 + p * 0.35);
+                                ud.rightArmGroup.rotation.x = 0.95 * (1 - p);
+                                ud.bodyGroup.rotation.x = 0.30 * (1 - p);
+                            }
+
+                        } else if (pieceRank === 'n') {
+                            // ----------------------------------------------------------
+                            // 2. KNIGHT: Warhorse High Rear-Up -> Hoof Stomp & Lance Impale
+                            // ----------------------------------------------------------
+                            if (t < 0.38) {
+                                // Cavalry Gallop to target
+                                const p = t / 0.38;
+                                attackerMesh.position.lerpVectors(startPos, strikePos, p);
+                                attackerMesh.position.y = Math.abs(Math.sin(p * Math.PI * 2)) * 0.35;
+                            } else if (t < 0.66) {
+                                // Warhorse Rears High on Hind Legs! Rider raises lance/sword skyward
+                                const p = (t - 0.38) / 0.28;
+                                if (!hasTriggeredPreSFX) {
+                                    hasTriggeredPreSFX = true;
+                                    playSound('horse_rear');
+                                }
+                                const rearCurve = Math.sin(p * Math.PI * 0.85);
+                                ud.mountGroup.rotation.x = -rearCurve * 0.78; // Horse rears up!
+                                ud.rightArmGroup.rotation.x = -rearCurve * 1.45;
+                                ud.warriorGroup.rotation.x = rearCurve * 0.25; // Rider leans in saddle
+                            } else if (t < 0.82) {
+                                // Hooves Slam Down & Rider Couches Lance/Sword straight through target!
+                                const p = (t - 0.66) / 0.16;
+                                ud.mountGroup.rotation.x = -0.78 * (1 - p) + 0.15 * p;
+                                ud.rightArmGroup.rotation.x = -1.45 + p * 2.55;
+                                ud.weaponGroup.rotation.x = p * 1.15; // Couch lance forward
+                                attackerMesh.position.lerpVectors(strikePos, endPos, p * 0.75);
 
                                 if (!hasShattered && p >= 0.42) {
                                     hasShattered = true;
                                     if (victimMesh) {
-                                        spawnShatterExplosion(victimMesh.position.clone(), victimMesh.userData.color);
+                                        spawnShatterExplosion(victimMesh.position.clone(), victimMesh.userData.color, 1.15);
                                         piecesGroup.remove(victimMesh);
                                         delete pieceObjects[victimSq];
                                     }
                                 }
                             } else {
-                                // Stage 4: Claim the conquered square & restore posture
+                                const p = (t - 0.82) / 0.18;
+                                attackerMesh.position.lerpVectors(strikePos, endPos, 0.75 + p * 0.25);
+                                ud.mountGroup.rotation.x = 0.15 * (1 - p);
+                                ud.rightArmGroup.rotation.x = 1.10 * (1 - p);
+                                ud.weaponGroup.rotation.x = 1.15 * (1 - p);
+                            }
+
+                        } else if (pieceRank === 'b') {
+                            // ----------------------------------------------------------
+                            // 3. BISHOP: Holy Tome Levitation & Celestial Sky-Beam Smite
+                            // ----------------------------------------------------------
+                            if (t < 0.35) {
+                                const p = t / 0.35;
+                                attackerMesh.position.lerpVectors(startPos, strikePos, p * p * (3 - 2 * p));
+                            } else if (t < 0.68) {
+                                // Bishop levitates slightly, raises Holy Scripture Book & Golden Crosier skyward
+                                const p = (t - 0.35) / 0.33;
+                                if (!hasTriggeredPreSFX) {
+                                    hasTriggeredPreSFX = true;
+                                    playSound('celestial_beam');
+                                    if (victimMesh) spawnCelestialBeamFX(victimMesh.position.clone());
+                                }
+                                attackerMesh.position.y = Math.sin(p * Math.PI) * 0.38;
+                                ud.leftArmGroup.rotation.x = -p * 1.25;  // Raise Holy Book
+                                ud.rightArmGroup.rotation.x = -p * 1.45; // Raise Crosier Staff
+                                if (victimMesh) {
+                                    // Victim trembles & levitates inside the celestial light pillar
+                                    victimMesh.position.y = p * 0.32;
+                                    victimMesh.rotation.y += 0.22;
+                                }
+                            } else if (t < 0.80) {
+                                // Bishop slams Crosier down — Celestial Beam detonates victim!
+                                const p = (t - 0.68) / 0.12;
+                                ud.rightArmGroup.rotation.x = -1.45 + p * 2.10;
+                                if (!hasShattered && p >= 0.30) {
+                                    hasShattered = true;
+                                    if (victimMesh) {
+                                        spawnShatterExplosion(victimMesh.position.clone(), victimMesh.userData.color, 1.15);
+                                        piecesGroup.remove(victimMesh);
+                                        delete pieceObjects[victimSq];
+                                    }
+                                }
+                            } else {
                                 const p = (t - 0.80) / 0.20;
-                                attackerMesh.position.lerpVectors(strikePos, endPos, 0.6 + p * 0.4);
-                                attackerMesh.userData.bodyGroup.rotation.x = 0.50 * (1 - p);
-                                attackerMesh.userData.weaponGroup.position.y = 0.25 * (1 - p);
-                                attackerMesh.userData.weaponGroup.rotation.x = 0.90 * (1 - p);
+                                attackerMesh.position.lerpVectors(strikePos, endPos, p);
+                                attackerMesh.position.y = 0;
+                                ud.leftArmGroup.rotation.x = -1.25 * (1 - p);
+                                ud.rightArmGroup.rotation.x = 0.65 * (1 - p);
+                            }
+
+                        } else if (pieceRank === 'r') {
+                            // ----------------------------------------------------------
+                            // 4. ROOK: Titan Earthshaker Leap & Siege Maul Pulverize
+                            // ----------------------------------------------------------
+                            if (t < 0.30) {
+                                const p = t / 0.30;
+                                attackerMesh.position.lerpVectors(startPos, strikePos, p);
+                            } else if (t < 0.72) {
+                                // Colossal High-Arcing Titan Jump & Two-Handed Siege Maul Wind-up
+                                const p = (t - 0.30) / 0.42;
+                                attackerMesh.position.lerpVectors(strikePos, endPos, p * 0.85);
+                                attackerMesh.position.y = Math.sin(p * Math.PI) * 2.55;
+                                ud.rightArmGroup.rotation.x = -Math.sin(p * Math.PI * 0.7) * 2.40;
+                                ud.leftArmGroup.rotation.x = -Math.sin(p * Math.PI * 0.7) * 1.40;
+                                ud.bodyGroup.rotation.x = p * 0.35;
+
+                                if (p > 0.75 && victimMesh) {
+                                    // Crush victim downward right as Maul impacts!
+                                    const crush = (p - 0.75) / 0.25;
+                                    victimMesh.scale.set(1 + crush * 0.35, Math.max(0.2, 1 - crush * 0.75), 1 + crush * 0.35);
+                                }
+                            } else if (t < 0.84) {
+                                // Seismic Ground-Pound Shatter!
+                                const p = (t - 0.72) / 0.12;
+                                attackerMesh.position.y = 0;
+                                ud.rightArmGroup.rotation.x = 0.85;
+                                if (!hasShattered) {
+                                    hasShattered = true;
+                                    if (victimMesh) {
+                                        spawnShatterExplosion(victimOrigPos, victimMesh.userData.color, 1.35);
+                                        piecesGroup.remove(victimMesh);
+                                        delete pieceObjects[victimSq];
+                                    }
+                                }
+                            } else {
+                                const p = (t - 0.84) / 0.16;
+                                attackerMesh.position.copy(endPos);
+                                ud.rightArmGroup.rotation.x = 0.85 * (1 - p);
+                                ud.leftArmGroup.rotation.x = -1.40 * (1 - p);
+                                ud.bodyGroup.rotation.x = 0.35 * (1 - p);
+                            }
+
+                        } else if (pieceRank === 'q') {
+                            // ----------------------------------------------------------
+                            // 5. QUEEN: 720° Valkyrie Pirouette Whirlwind & Royal Mace Smash
+                            // ----------------------------------------------------------
+                            if (t < 0.34) {
+                                const p = t / 0.34;
+                                attackerMesh.position.lerpVectors(startPos, strikePos, p * p * (3 - 2 * p));
+                            } else if (t < 0.74) {
+                                // 720-degree Valkyrie Whirlwind Spin with extended Royal Mace & Aegis
+                                const p = (t - 0.34) / 0.40;
+                                if (!hasTriggeredPreSFX) {
+                                    hasTriggeredPreSFX = true;
+                                    playSound('whirlwind');
+                                    spawnWhirlwindSlashFX(strikePos, 0.85);
+                                }
+                                ud.bodyGroup.rotation.y = p * Math.PI * 4; // 720° spin!
+                                ud.rightArmGroup.rotation.z = 1.25;
+                                ud.leftArmGroup.rotation.z = -1.15;
+                                attackerMesh.position.lerpVectors(strikePos, endPos, p * 0.75);
+                                attackerMesh.position.y = Math.sin(p * Math.PI) * 0.45;
+
+                                if (!hasShattered && p >= 0.78) {
+                                    hasShattered = true;
+                                    if (victimMesh) {
+                                        spawnWhirlwindSlashFX(endPos, 0.95);
+                                        spawnShatterExplosion(victimMesh.position.clone(), victimMesh.userData.color, 1.20);
+                                        piecesGroup.remove(victimMesh);
+                                        delete pieceObjects[victimSq];
+                                    }
+                                }
+                            } else {
+                                const p = (t - 0.74) / 0.26;
+                                attackerMesh.position.lerpVectors(strikePos, endPos, 0.75 + p * 0.25);
+                                attackerMesh.position.y = 0;
+                                ud.bodyGroup.rotation.y = 0;
+                                ud.rightArmGroup.rotation.z = 1.25 * (1 - p);
+                                ud.leftArmGroup.rotation.z = -1.15 * (1 - p);
+                            }
+
+                        } else if (pieceRank === 'k') {
+                            // ----------------------------------------------------------
+                            // 6. KING: Sovereign Rises from Grand Throne & Greatsword Judgment!
+                            // ----------------------------------------------------------
+                            if (t < 0.34) {
+                                // Grand Throne glides forward to combat range
+                                const p = t / 0.34;
+                                attackerMesh.position.lerpVectors(startPos, strikePos, p * p * (3 - 2 * p));
+                            } else if (t < 0.66) {
+                                // The Warrior-King STANDS UP & STEPS FORWARD off his Grand Throne, raising the Two-Handed Greatsword above his Imperial Crown!
+                                const p = (t - 0.34) / 0.32;
+                                if (!hasTriggeredPreSFX) {
+                                    hasTriggeredPreSFX = true;
+                                    playSound('whirlwind');
+                                }
+                                ud.warriorGroup.position.y = p * 0.28;
+                                ud.warriorGroup.position.z = p * 0.34;
+                                ud.leftArmGroup.rotation.x = -p * 2.15;
+                                ud.rightArmGroup.rotation.x = -p * 2.15;
+                                ud.weaponGroup.position.y = 0.88 + p * 0.75;
+                                ud.weaponGroup.rotation.x = -p * 2.35;
+                            } else if (t < 0.80) {
+                                // Two-Handed Royal Greatsword Executioner Cleave!
+                                const p = (t - 0.66) / 0.14;
+                                ud.leftArmGroup.rotation.x = -2.15 + p * 2.65;
+                                ud.rightArmGroup.rotation.x = -2.15 + p * 2.65;
+                                ud.weaponGroup.position.y = 1.63 - p * 0.75;
+                                ud.weaponGroup.rotation.x = -2.35 + p * 2.95;
+
+                                if (!hasShattered && p >= 0.40) {
+                                    hasShattered = true;
+                                    if (victimMesh) {
+                                        spawnWhirlwindSlashFX(endPos, 0.65);
+                                        spawnShatterExplosion(victimMesh.position.clone(), victimMesh.userData.color, 1.35);
+                                        piecesGroup.remove(victimMesh);
+                                        delete pieceObjects[victimSq];
+                                    }
+                                }
+                            } else {
+                                // King steps back onto his Throne as the Throne claims the square
+                                const p = (t - 0.80) / 0.20;
+                                attackerMesh.position.lerpVectors(strikePos, endPos, p);
+                                ud.warriorGroup.position.y = 0.28 * (1 - p);
+                                ud.warriorGroup.position.z = 0.34 * (1 - p);
+                                ud.leftArmGroup.rotation.x = 0.50 * (1 - p);
+                                ud.rightArmGroup.rotation.x = 0.50 * (1 - p);
+                                ud.weaponGroup.position.y = 0.88;
+                                ud.weaponGroup.rotation.x = 0.60 * (1 - p);
                             }
                         }
                     },
                     onComplete: function() {
                         if (attackerMesh) {
                             attackerMesh.position.copy(endPos);
-                            attackerMesh.position.y = 0;
-                            attackerMesh.rotation.y = defaultYaw;
-                            attackerMesh.userData.bodyGroup.rotation.set(0, 0, 0);
-                            attackerMesh.userData.weaponGroup.position.set(0, 0, 0);
-                            attackerMesh.userData.weaponGroup.rotation.set(0, 0, 0);
+                            resetPiecePose(attackerMesh, defaultYaw);
                         }
 
                         delete pieceObjects[moveResult.from];
@@ -2189,7 +3231,7 @@
                                 camControl.desiredPhi = restore.phi;
                                 camControl.desiredRadius = restore.radius;
                                 camControl.desiredTarget.copy(restore.target);
-                            }, 420);
+                            }, 460);
                         }
 
                         isAnimating = false;
@@ -2202,7 +3244,7 @@
                         }
 
                         if (gameMode === 'ai' && chess.turn() === 'b') {
-                            setTimeout(makeCathedralAIMove, 380);
+                            setTimeout(makeCathedralAIMove, 400);
                         }
                     }
                 });
@@ -2300,7 +3342,7 @@
             }
 
             /*******************************************************************
-             * 12. HUD UPDATES, CAMERA PRESETS & UTILITY HANDLERS
+             * 12. HUD UPDATES, CAMERA PRESETS & KILL DEMO HANDLER
              *******************************************************************/
             function updateMaterialHUD() {
                 const isWhite = chess.turn() === 'w';
@@ -2311,7 +3353,7 @@
                 if (isWhite) {
                     orb.className = 'w-3 h-3 rounded-full bg-stone-100 shadow-[0_0_10px_#ffffff] transition-all duration-300 shrink-0';
                 } else {
-                    orb.className = 'w-3 h-3 rounded-full bg-purple-500 shadow-[0_0_12px_#a855f7] transition-all duration-300 shrink-0';
+                    orb.className = 'w-3 h-3 rounded-full bg-amber-500 shadow-[0_0_12px_#f59e0b] transition-all duration-300 shrink-0';
                 }
 
                 if (gameMode === 'online' && onlineState.active) {
@@ -2321,7 +3363,7 @@
                     } else if (chess.turn() === onlineState.myColor) {
                         const myArmy = onlineState.myColor === 'w' ? 'White Marble' : 'Black Obsidian';
                         primary.textContent = 'YOUR TURN (' + myArmy + ')';
-                        secondary.textContent = chess.in_check() ? 'Warning: Your King is in Check!' : 'Select your piece to command';
+                        secondary.textContent = chess.in_check() ? 'Warning: Your King is in Check!' : 'Select your warrior to command';
                     } else {
                         const oppArmy = onlineState.myColor === 'w' ? 'Black Obsidian' : 'White Marble';
                         primary.textContent = "Opponent's Turn (" + oppArmy + ')';
@@ -2329,13 +3371,12 @@
                     }
                 } else if (isWhite) {
                     primary.textContent = "White's Turn (Marble)";
-                    secondary.textContent = chess.in_check() ? 'King is under attack!' : 'Select a piece to command';
+                    secondary.textContent = chess.in_check() ? 'King is under attack!' : 'Select a warrior to command';
                 } else {
                     primary.textContent = gameMode === 'ai' ? 'Cathedral AI (Obsidian)' : "Black's Turn (Obsidian)";
-                    secondary.textContent = chess.in_check() ? 'King is under attack!' : (gameMode === 'ai' ? 'Contemplating strike...' : 'Select a piece to command');
+                    secondary.textContent = chess.in_check() ? 'King is under attack!' : (gameMode === 'ai' ? 'Contemplating strike...' : 'Select a warrior to command');
                 }
 
-                // Captured Shattered Piece Trays
                 const history = chess.history({ verbose: true });
                 const glyphs = { p: '♟', n: '♞', b: '♝', r: '♜', q: '♛' };
                 const capByWhite = [];
@@ -2363,10 +3404,9 @@
                 document.getElementById('adv-white').textContent = diff > 0 ? '+' + diff : '';
                 document.getElementById('adv-black').textContent = diff < 0 ? '+' + Math.abs(diff) : '';
 
-                // Algebraic Move Ticker
                 const strip = document.getElementById('move-history-strip');
                 if (history.length === 0) {
-                    strip.textContent = 'Click any raised stone block or piece to command. Drag to orbit, scroll to zoom.';
+                    strip.textContent = 'Click any warrior or stone block to command. Each rank unleashes a unique 3D kill animation on capture!';
                 } else {
                     strip.innerHTML = '';
                     for (let i = 0; i < history.length; i += 2) {
@@ -2417,15 +3457,15 @@
                     if (btn) btn.classList.toggle('md-btn-active', presets[i] === preset);
                 }
 
-                camControl.desiredTarget.set(0, 0.3, 0);
+                camControl.desiredTarget.set(0, 0.45, 0);
                 if (preset === 'white') {
                     camControl.desiredTheta = 0;
-                    camControl.desiredPhi = 0.92;
-                    camControl.desiredRadius = 13.8;
+                    camControl.desiredPhi = 0.94;
+                    camControl.desiredRadius = 13.6;
                 } else if (preset === 'black') {
                     camControl.desiredTheta = Math.PI;
-                    camControl.desiredPhi = 0.92;
-                    camControl.desiredRadius = 13.8;
+                    camControl.desiredPhi = 0.94;
+                    camControl.desiredRadius = 13.6;
                 } else if (preset === 'top') {
                     camControl.desiredTheta = 0;
                     camControl.desiredPhi = 0.14;
@@ -2439,7 +3479,7 @@
 
             function triggerStrikeDemo() {
                 if (gameMode === 'online') {
-                    showToast('Strike Demo is disabled during an Online Match!', 'lock');
+                    showToast('Kill Demo is disabled during an Online Match!', 'lock');
                     return;
                 }
                 if (isAnimating || chess.game_over()) return;
@@ -2448,15 +3488,19 @@
                     return m.flags.indexOf('c') !== -1 || m.flags.indexOf('e') !== -1;
                 });
                 if (captures.length > 0) {
-                    const chosen = captures[Math.floor(Math.random() * captures.length)];
-                    showToast('Executing Shatter Strike: ' + chosen.san, 'bolt');
+                    // Prioritize non-pawn captures when available so player sees Knight, Bishop, Queen, Rook, King kills too
+                    captures.sort(function(a, b) {
+                        const order = { k: 6, q: 5, r: 4, b: 3, n: 2, p: 1 };
+                        return (order[b.piece] || 1) - (order[a.piece] || 1);
+                    });
+                    const chosen = captures[0];
                     executeChessMove({ from: chosen.from, to: chosen.to, promotion: 'q' }, false);
                 } else {
                     const preferred = allMoves.find(function(m) {
-                        return m.san === 'e4' || m.san === 'd5' || m.san === 'exd5' || m.san === 'Nc3';
+                        return m.san === 'e4' || m.san === 'd5' || m.san === 'Nf3' || m.san === 'Nc6' || m.san === 'Bc4';
                     }) || allMoves[Math.floor(Math.random() * allMoves.length)];
                     if (preferred) {
-                        showToast('Advancing into Strike Range (' + preferred.san + ') — Click Strike Demo again to shatter!', 'bolt');
+                        showToast('Advancing Warrior (' + preferred.san + ') — Click Kill Demo again to trigger an execution!', 'swords');
                         executeChessMove({ from: preferred.from, to: preferred.to, promotion: 'q' }, false);
                     }
                 }
@@ -2470,7 +3514,7 @@
                 if (chess.in_checkmate()) {
                     const winner = chess.turn() === 'w' ? 'Black Obsidian' : 'White Marble';
                     title.textContent = 'Checkmate in the Sanctuary';
-                    sub.textContent = 'The ' + winner + ' army claims supreme victory!';
+                    sub.textContent = 'The ' + winner + ' warriors claim supreme victory!';
                 } else {
                     title.textContent = 'Sanctuary Draw Declared';
                     sub.textContent = 'The battle ends in a stalemate or repetition.';
@@ -2536,7 +3580,6 @@
                     camControl.desiredRadius = Math.max(5.5, Math.min(26.0, camControl.desiredRadius + e.deltaY * 0.01));
                 }, { passive: false });
 
-                // Touch Orbit, Pinch Zoom & Tap Selection
                 domElement.addEventListener('touchstart', function(e) {
                     if (e.touches.length === 1) {
                         camControl.isDragging = true;
@@ -2586,7 +3629,6 @@
 
                 raycaster.setFromCamera(mouseNDC, camera);
 
-                // Raycast against pieces first
                 const pieceHits = raycaster.intersectObjects(piecesGroup.children, true);
                 if (pieceHits.length > 0) {
                     let obj = pieceHits[0].object;
@@ -2599,7 +3641,6 @@
                     }
                 }
 
-                // Raycast against the 64 raised 3D stone blocks
                 const blockMeshes = Object.values(squareBlocks);
                 const blockHits = raycaster.intersectObjects(blockMeshes, false);
                 if (blockHits.length > 0) {
@@ -2616,7 +3657,7 @@
             }
 
             /*******************************************************************
-             * 14. MAIN 60FPS RENDER, IDLE ANIMATION & SHARD PHYSICS LOOP
+             * 14. MAIN 60FPS RENDER, WARRIOR IDLE ANIMATION & SHARD PHYSICS LOOP
              *******************************************************************/
             function animate() {
                 requestAnimationFrame(animate);
@@ -2648,7 +3689,7 @@
 
                 camera.lookAt(camControl.target);
 
-                // 2. Custom Piece Idle Animations (Breathing, Head/Mitre/Crown Sway & Weapon Poise)
+                // 2. Custom Warrior Idle Animations (Breathing, Warhorse Head Bob, Throne Poise & Weapon Sway)
                 const allSquares = Object.keys(pieceObjects);
                 for (let i = 0; i < allSquares.length; i++) {
                     const pGroup = pieceObjects[allSquares[i]];
@@ -2657,9 +3698,17 @@
                     const phase = elapsed * 2.1 + ud.seed;
 
                     if (!isAnimating) {
-                        ud.bodyGroup.position.y = Math.sin(phase) * 0.022;
-                        ud.headGroup.rotation.y = Math.sin(phase * 0.7) * 0.06;
-                        ud.weaponGroup.rotation.z = Math.cos(phase * 0.85) * 0.035;
+                        ud.headGroup.rotation.y = Math.sin(phase * 0.7) * 0.065;
+                        ud.rightArmGroup.rotation.z = Math.cos(phase * 0.85) * 0.035;
+                        if (ud.type === 'n') {
+                            // Subtle warhorse breathing & prance
+                            ud.mountGroup.rotation.x = Math.sin(phase * 1.1) * 0.025;
+                        } else if (ud.type === 'k') {
+                            // Subtle royal breathing on the Grand Throne
+                            ud.warriorGroup.position.y = Math.sin(phase) * 0.015;
+                        } else {
+                            ud.bodyGroup.position.y = Math.sin(phase) * 0.020;
+                        }
                     }
                 }
 
@@ -2675,7 +3724,7 @@
                     }
                 }
 
-                // 4. 3D Shatter Stone Shards Physics (Gravity, Tumbling & Floor Bounce)
+                // 4. 3D Shatter Stone Shards Physics
                 for (let i = activeShards.length - 1; i >= 0; i--) {
                     const s = activeShards[i];
                     s.life += dt;
@@ -2702,7 +3751,7 @@
                     s.mesh.scale.setScalar(Math.max(0.01, rem));
                 }
 
-                // 5. Shockwave Rings
+                // 5. Shockwave & Whirlwind Rings
                 for (let i = shockwaves.length - 1; i >= 0; i--) {
                     const sw = shockwaves[i];
                     sw.life += dt;
@@ -2712,12 +3761,26 @@
                         shockwaves.splice(i, 1);
                         continue;
                     }
-                    const sc = 1 + p * 6.5;
+                    const sc = 1 + p * (sw.maxScale || 6.5);
                     sw.mesh.scale.set(sc, sc, 1);
-                    sw.mesh.material.opacity = (1 - p) * 0.85;
+                    sw.mesh.material.opacity = (1 - p) * 0.88;
                 }
 
-                // 6. Cathedral Braziers & Rising Embers
+                // 6. Celestial Sky-Beams (Bishop Kill FX)
+                for (let i = activeBeams.length - 1; i >= 0; i--) {
+                    const bm = activeBeams[i];
+                    bm.life += dt;
+                    const p = bm.life / bm.maxLife;
+                    if (p >= 1) {
+                        fxGroup.remove(bm.mesh);
+                        activeBeams.splice(i, 1);
+                        continue;
+                    }
+                    bm.mesh.scale.set(1.2 - p * 0.7, 1, 1.2 - p * 0.7);
+                    bm.mesh.material.opacity = (1 - p) * 0.85;
+                }
+
+                // 7. Cathedral Braziers & Rising Embers
                 for (let i = 0; i < braziers.length; i++) {
                     const b = braziers[i];
                     const flicker = Math.sin(elapsed * 8.5 + b.phase) * 0.14 + Math.cos(elapsed * 13.0 + b.phase) * 0.08;
@@ -2809,11 +3872,10 @@
                         sendOnlineMessage({ type: 'reset', eventId: 'rst-' + Date.now() });
                         showToast('Synchronized Online Rematch Started!', 'restart_alt');
                     } else {
-                        showToast('32 Pieces & 64 Stone Blocks Restored', 'restart_alt');
+                        showToast('32 Royal Warriors & 64 Stone Blocks Restored', 'restart_alt');
                     }
                 });
 
-                // Online Modal Buttons
                 document.getElementById('btn-close-online').addEventListener('click', closeOnlineModal);
                 document.getElementById('btn-return-board').addEventListener('click', closeOnlineModal);
                 document.getElementById('btn-host-online').addEventListener('click', hostOnlineMatch);
@@ -2842,7 +3904,6 @@
                     }
                 });
 
-                // Promotion Buttons
                 const promoBtns = document.querySelectorAll('.promo-choice');
                 for (let i = 0; i < promoBtns.length; i++) {
                     promoBtns[i].addEventListener('click', function() {
@@ -2861,7 +3922,6 @@
                     });
                 }
 
-                // Gameover Modal Buttons
                 document.getElementById('btn-gameover-rematch').addEventListener('click', function() {
                     closeGameOverModal();
                     document.getElementById('btn-new-game').click();
@@ -2879,7 +3939,6 @@
                 syncAllPiecesFromFEN();
                 animate();
 
-                // Auto-join online room if ?room=XXXXXX is in the URL
                 try {
                     const params = new URLSearchParams(window.location.search);
                     const roomParam = params.get('room');
