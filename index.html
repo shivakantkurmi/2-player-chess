@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Wizard's Chess 3D — Gothic Cathedral Sanctuary</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>♞</text></svg>">
 
     <!-- Tailwind CSS CDN -->
+    <script>window.tailwind = { config: { darkMode: 'class' } };</script>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Google Fonts: Cinzel (Gothic Display), Inter (Material UI), JetBrains Mono -->
@@ -5252,8 +5254,17 @@
                 }
             }
 
+            function getPahoConstructors() {
+                if (typeof Paho === 'undefined') return null;
+                const Client = Paho.Client || (Paho.MQTT && Paho.MQTT.Client);
+                const Message = Paho.Message || (Paho.MQTT && Paho.MQTT.Message);
+                if (!Client || !Message) return null;
+                return { Client: Client, Message: Message };
+            }
+
             function connectCloudMqttRelay(code) {
-                if (typeof Paho === 'undefined' || !Paho.MQTT) {
+                const paho = getPahoConstructors();
+                if (!paho) {
                     console.warn('Paho MQTT library unavailable');
                     return;
                 }
@@ -5268,7 +5279,7 @@
                 function tryConnectBroker() {
                     if (!onlineState.active) return;
                     const b = brokers[currentBrokerIdx];
-                    const client = new Paho.MQTT.Client(b.host, b.port, b.path, clientId);
+                    const client = new paho.Client(b.host, b.port, b.path, clientId);
 
                     client.onMessageArrived = function (message) {
                         try {
@@ -5300,6 +5311,7 @@
                             client.subscribe(topic, {
                                 qos: 1,
                                 onSuccess: function () {
+                                    console.log('Connected & subscribed to Cloud MQTT relay on', b.host);
                                     if (onlineState.myColor === 'b' && onlineState.status === 'connecting') {
                                         sendOnlinePayload({ type: 'JOIN_REQ', code: code });
                                     } else if (onlineState.myColor === 'w') {
@@ -5337,10 +5349,13 @@
                 // 2. Global Cloud MQTT Relay over WSS (cross-network fallback)
                 if (onlineState.mqttClient && onlineState.mqttClient.isConnected()) {
                     try {
-                        const msg = new Paho.MQTT.Message(raw);
-                        msg.destinationName = 'wizards_chess_sanctuary_v3/' + onlineState.roomCode;
-                        msg.qos = 1;
-                        onlineState.mqttClient.send(msg);
+                        const paho = getPahoConstructors();
+                        if (paho) {
+                            const msg = new paho.Message(raw);
+                            msg.destinationName = 'wizards_chess_sanctuary_v3/' + onlineState.roomCode;
+                            msg.qos = 1;
+                            onlineState.mqttClient.send(msg);
+                        }
                     } catch (e) {}
                 }
 
